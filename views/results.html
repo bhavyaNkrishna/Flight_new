@@ -1,0 +1,25 @@
+<div ng-app="myApp">
+<script type="text/ng-template" id="results.html">
+<div class="panel panel-default" ng-repeat="flight in flights">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-2">
+                Flight# {{ flight.flightNumber }}
+            </div>
+            <div class="col-sm-4">
+                {{flight.departureTime}} - {{flight.arrivalTime}}
+            </div>
+            <div class="col-sm-4">
+                {{flight.departureCity}} - {{flight.arrivalCity}}
+            </div>
+            <div class="col-sm-2">
+                ${{flight.price}}
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-info">Book</button>
+    </div>
+</div>
+</script>
+</div>

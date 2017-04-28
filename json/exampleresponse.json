@@ -1,0 +1,2979 @@
+{
+  "kind": "qpxExpress#tripsSearch",
+  "trips": {
+    "kind": "qpxexpress#tripOptions",
+    "requestId": "xynyTQcPRvZxCxrLn0QQNm",
+    "data": {
+      "kind": "qpxexpress#data",
+      "airport": [
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "AUS",
+          "city": "AUS",
+          "name": "Austin-Bergstrom International"
+        },
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "EWR",
+          "city": "EWR",
+          "name": "Newark Liberty International"
+        },
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "IAH",
+          "city": "HOU",
+          "name": "Houston George Bush Intercont."
+        },
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "LGA",
+          "city": "NYC",
+          "name": "New York LaGuardia"
+        },
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "MIA",
+          "city": "MIA",
+          "name": "Miami International"
+        },
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "ORD",
+          "city": "CHI",
+          "name": "Chicago O'Hare"
+        },
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "STL",
+          "city": "STL",
+          "name": "St. Louis Lambert Int'l"
+        }
+      ],
+      "city": [
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "AUS",
+          "name": "Austin"
+        },
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "CHI",
+          "name": "Chicago"
+        },
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "EWR",
+          "name": "Newark"
+        },
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "HOU",
+          "name": "Houston"
+        },
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "MIA",
+          "name": "Miami"
+        },
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "NYC",
+          "name": "New York"
+        },
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "STL",
+          "name": "St Louis"
+        }
+      ],
+      "aircraft": [
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "319",
+          "name": "Airbus A319"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "320",
+          "name": "Airbus A320"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "738",
+          "name": "Boeing 737"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "739",
+          "name": "Boeing 737"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "73G",
+          "name": "Boeing 737"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "752",
+          "name": "Boeing 757"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "CR7",
+          "name": "Canadair RJ 700"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "E70",
+          "name": "Embraer RJ-170"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "E75",
+          "name": "Embraer RJ-175"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "M80",
+          "name": "MD-80"
+        }
+      ],
+      "tax": [
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "ZP",
+          "name": "US Flight Segment Tax"
+        },
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "AY_001",
+          "name": "US September 11th Security Fee"
+        },
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "US_001",
+          "name": "US Transportation Tax"
+        },
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "XF",
+          "name": "US Passenger Facility Charge"
+        }
+      ],
+      "carrier": [
+        {
+          "kind": "qpxexpress#carrierData",
+          "code": "AS",
+          "name": "Alaska Airlines Inc."
+        },
+        {
+          "kind": "qpxexpress#carrierData",
+          "code": "UA",
+          "name": "United Airlines, Inc."
+        }
+      ]
+    },
+    "tripOption": [
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD718.20",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4005",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 201,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 201,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1964"
+                },
+                "id": "GIeRukKH0JDSBreU",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LwOClbyH8TODIP0S",
+                    "aircraft": "319",
+                    "arrivalTime": "2017-05-17T21:11-05:00",
+                    "departureTime": "2017-05-17T18:50-04:00",
+                    "origin": "MIA",
+                    "destination": "ORD",
+                    "destinationTerminal": "1",
+                    "duration": 201,
+                    "onTimePerformance": 80,
+                    "mileage": 1198,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GIeRukKH0JDSBreU"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD63.32",
+            "saleTotal": "USD718.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "MIA UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA XT 49.12US 4.10ZP 5.60AY 4.50XF MIA4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD718.20",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4001",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 197,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 197,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1787"
+                },
+                "id": "G4VycpvZCJ2MOXTb",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LmucHQBs76WdyZ0r",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T08:07-05:00",
+                    "departureTime": "2017-05-17T05:50-04:00",
+                    "origin": "MIA",
+                    "destination": "ORD",
+                    "destinationTerminal": "1",
+                    "duration": 197,
+                    "onTimePerformance": 90,
+                    "mileage": 1198,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "G4VycpvZCJ2MOXTb"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD63.32",
+            "saleTotal": "USD718.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "MIA UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA XT 49.12US 4.10ZP 5.60AY 4.50XF MIA4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD718.20",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4004",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 201,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 201,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "330"
+                },
+                "id": "Gj-FWF0Aq27esdaC",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LEkALDBokp0H98lP",
+                    "aircraft": "739",
+                    "arrivalTime": "2017-05-17T14:56-05:00",
+                    "departureTime": "2017-05-17T12:35-04:00",
+                    "origin": "MIA",
+                    "destination": "ORD",
+                    "destinationTerminal": "1",
+                    "duration": 201,
+                    "onTimePerformance": 80,
+                    "mileage": 1198,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "Gj-FWF0Aq27esdaC"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD63.32",
+            "saleTotal": "USD718.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "MIA UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA XT 49.12US 4.10ZP 5.60AY 4.50XF MIA4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD718.20",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4003",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 199,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 199,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "2381"
+                },
+                "id": "G9f0aJmklilWKHke",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "L3LihsGlbIqF3WeR",
+                    "aircraft": "739",
+                    "arrivalTime": "2017-05-17T11:14-05:00",
+                    "departureTime": "2017-05-17T08:55-04:00",
+                    "origin": "MIA",
+                    "destination": "ORD",
+                    "destinationTerminal": "1",
+                    "duration": 199,
+                    "mileage": 1198,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "G9f0aJmklilWKHke"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD63.32",
+            "saleTotal": "USD718.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "MIA UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA XT 49.12US 4.10ZP 5.60AY 4.50XF MIA4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD718.20",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4002",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 199,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 199,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1239"
+                },
+                "id": "Gy5TWgy63BH+-PJZ",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LkBy0t860KW4ikNe",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T17:59-05:00",
+                    "departureTime": "2017-05-17T15:40-04:00",
+                    "origin": "MIA",
+                    "destination": "ORD",
+                    "destinationTerminal": "1",
+                    "duration": 199,
+                    "onTimePerformance": 80,
+                    "mileage": 1198,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "Gy5TWgy63BH+-PJZ"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD63.32",
+            "saleTotal": "USD718.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "MIA UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA XT 49.12US 4.10ZP 5.60AY 4.50XF MIA4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD722.30",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4006",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 466,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 466,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1403"
+                },
+                "id": "G3AWwWSuoAxnShgc",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LF56eS-WVNM7qYt3",
+                    "aircraft": "739",
+                    "arrivalTime": "2017-05-17T08:06-05:00",
+                    "departureTime": "2017-05-17T06:10-04:00",
+                    "origin": "MIA",
+                    "destination": "IAH",
+                    "destinationTerminal": "C",
+                    "duration": 176,
+                    "onTimePerformance": 90,
+                    "mileage": 962,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true,
+                    "connectionDuration": 129,
+                    "changePlane": true
+                  },
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LlOKYgpPfmIgiR-m",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T12:56-05:00",
+                    "departureTime": "2017-05-17T10:15-05:00",
+                    "origin": "IAH",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 161,
+                    "mileage": 925,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "G3AWwWSuoAxnShgc"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD67.42",
+            "saleTotal": "USD722.30",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA IAH XT 49.12US 8.20ZP 5.60AY 4.50XF MIA4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD726.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400A",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 395,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 179,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1265"
+                },
+                "id": "GtmzaEPuLZyxPNW2",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LVNQ6vEgqoG3cL8-",
+                    "aircraft": "738",
+                    "arrivalTime": "2017-05-17T12:59-04:00",
+                    "departureTime": "2017-05-17T10:00-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 179,
+                    "onTimePerformance": 80,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 66
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 150,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "755"
+                },
+                "id": "GX5usOo0bbbLaI0P",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "L-xueC+gDG032GIx",
+                    "aircraft": "752",
+                    "arrivalTime": "2017-05-17T15:35-05:00",
+                    "departureTime": "2017-05-17T14:05-04:00",
+                    "origin": "EWR",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 150,
+                    "mileage": 717,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GX5usOo0bbbLaI0P"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GtmzaEPuLZyxPNW2"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD71.92",
+            "saleTotal": "USD726.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA EWR XT 49.12US 8.20ZP 5.60AY 9.00XF MIA4.50 EWR4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD726.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400H",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 518,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 184,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1614"
+                },
+                "id": "GXOKDkBzK3znYfs6",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "Lg2mJRCBF2FcW+JC",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T17:00-04:00",
+                    "departureTime": "2017-05-17T13:56-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 184,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 180
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 154,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1248"
+                },
+                "id": "GhnzAmuwOVAy2L+h",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LDESF-x+Xa82DVe5",
+                    "aircraft": "739",
+                    "arrivalTime": "2017-05-17T21:34-05:00",
+                    "departureTime": "2017-05-17T20:00-04:00",
+                    "origin": "EWR",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 154,
+                    "onTimePerformance": 50,
+                    "mileage": 717,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GhnzAmuwOVAy2L+h"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GXOKDkBzK3znYfs6"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD71.92",
+            "saleTotal": "USD726.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA EWR XT 49.12US 8.20ZP 5.60AY 9.00XF MIA4.50 EWR4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD726.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400G",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 449,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 179,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1265"
+                },
+                "id": "GtmzaEPuLZyxPNW2",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LVNQ6vEgqoG3cL8-",
+                    "aircraft": "738",
+                    "arrivalTime": "2017-05-17T12:59-04:00",
+                    "departureTime": "2017-05-17T10:00-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 179,
+                    "onTimePerformance": 80,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 115
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 155,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1062"
+                },
+                "id": "GFmMpnCLxyLw2BTj",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LLiojATwwp0jaSWI",
+                    "aircraft": "73G",
+                    "arrivalTime": "2017-05-17T16:29-05:00",
+                    "departureTime": "2017-05-17T14:54-04:00",
+                    "origin": "EWR",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 155,
+                    "mileage": 717,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GtmzaEPuLZyxPNW2"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GFmMpnCLxyLw2BTj"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD71.92",
+            "saleTotal": "USD726.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA EWR XT 49.12US 8.20ZP 5.60AY 9.00XF MIA4.50 EWR4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD726.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4008",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 393,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 185,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1527"
+                },
+                "id": "GyWoDA9coPInuJ-b",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LkISq84ov7n77yY+",
+                    "aircraft": "738",
+                    "arrivalTime": "2017-05-17T09:05-04:00",
+                    "departureTime": "2017-05-17T06:00-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 185,
+                    "onTimePerformance": 80,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 58
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 150,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1818"
+                },
+                "id": "GWLzb-nF-FJn2Uq5",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LEEv1SHCUP-nTAxS",
+                    "aircraft": "738",
+                    "arrivalTime": "2017-05-17T11:33-05:00",
+                    "departureTime": "2017-05-17T10:03-04:00",
+                    "origin": "EWR",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 150,
+                    "onTimePerformance": 60,
+                    "mileage": 717,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GyWoDA9coPInuJ-b"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GWLzb-nF-FJn2Uq5"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD71.92",
+            "saleTotal": "USD726.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA EWR XT 49.12US 8.20ZP 5.60AY 9.00XF MIA4.50 EWR4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD726.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4007",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 383,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 183,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1974"
+                },
+                "id": "GJav21+Xs43jBUzA",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "Lzn33uc11Y71HoSn",
+                    "aircraft": "738",
+                    "arrivalTime": "2017-05-17T20:53-04:00",
+                    "departureTime": "2017-05-17T17:50-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 183,
+                    "onTimePerformance": 60,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 52
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 148,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "3521"
+                },
+                "id": "GkYhER3KDLf51Mll",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LZtD4SEopBZ6kqGu",
+                    "aircraft": "E70",
+                    "arrivalTime": "2017-05-17T23:13-05:00",
+                    "departureTime": "2017-05-17T21:45-04:00",
+                    "origin": "EWR",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "2",
+                    "duration": 148,
+                    "operatingDisclosure": "OPERATED BY REPUBLIC AIRLINES DBA UNITED EXPRESS",
+                    "mileage": 717,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GkYhER3KDLf51Mll"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GJav21+Xs43jBUzA"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD71.92",
+            "saleTotal": "USD726.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA EWR XT 49.12US 8.20ZP 5.60AY 9.00XF MIA4.50 EWR4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD726.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400F",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 434,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 184,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1614"
+                },
+                "id": "GXOKDkBzK3znYfs6",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "Lg2mJRCBF2FcW+JC",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T17:00-04:00",
+                    "departureTime": "2017-05-17T13:56-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 184,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 86
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 164,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "2015"
+                },
+                "id": "GmXqhrP8Oc7bTbUZ",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LovqgN6+XYVFScFv",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T20:10-05:00",
+                    "departureTime": "2017-05-17T18:26-04:00",
+                    "origin": "EWR",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 164,
+                    "onTimePerformance": 50,
+                    "mileage": 717,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GmXqhrP8Oc7bTbUZ"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GXOKDkBzK3znYfs6"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD71.92",
+            "saleTotal": "USD726.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA EWR XT 49.12US 8.20ZP 5.60AY 9.00XF MIA4.50 EWR4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD726.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ4009",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 394,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 185,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1959"
+                },
+                "id": "G+9mXYPjqDCoj4oT",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "Lk0JW1fRW-XnV8Zj",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T14:00-04:00",
+                    "departureTime": "2017-05-17T10:55-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 185,
+                    "onTimePerformance": 80,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 54
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 155,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1062"
+                },
+                "id": "GFmMpnCLxyLw2BTj",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LLiojATwwp0jaSWI",
+                    "aircraft": "73G",
+                    "arrivalTime": "2017-05-17T16:29-05:00",
+                    "departureTime": "2017-05-17T14:54-04:00",
+                    "origin": "EWR",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 155,
+                    "mileage": 717,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "CHI",
+                "basisCode": "MAA0AFEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "G+9mXYPjqDCoj4oT"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AEH2w/pALlMx9Cp44npdr7HTHrl7/PD8mKb5DXLKlUdI",
+                "segmentId": "GFmMpnCLxyLw2BTj"
+              }
+            ],
+            "baseFareTotal": "USD654.88",
+            "saleFareTotal": "USD654.88",
+            "saleTaxTotal": "USD71.92",
+            "saleTotal": "USD726.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD49.12"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR UA CHI 654.88MAA0AFEY USD 654.88 END ZP MIA EWR XT 49.12US 8.20ZP 5.60AY 9.00XF MIA4.50 EWR4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD1046.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400I",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 524,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 184,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1614"
+                },
+                "id": "GXOKDkBzK3znYfs6",
+                "cabin": "COACH",
+                "bookingCode": "E",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "Lg2mJRCBF2FcW+JC",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T17:00-04:00",
+                    "departureTime": "2017-05-17T13:56-04:00",
+                    "origin": "MIA",
+                    "destination": "EWR",
+                    "destinationTerminal": "C",
+                    "duration": 184,
+                    "mileage": 1087,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 185
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 155,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "556"
+                },
+                "id": "GoeB+os0jfAyfCJr",
+                "cabin": "COACH",
+                "bookingCode": "E",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "1",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LLtvo844z+Kt5L-g",
+                    "aircraft": "319",
+                    "arrivalTime": "2017-05-17T21:40-05:00",
+                    "departureTime": "2017-05-17T20:05-04:00",
+                    "origin": "LGA",
+                    "destination": "ORD",
+                    "originTerminal": "B",
+                    "destinationTerminal": "1",
+                    "duration": 155,
+                    "mileage": 731,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AsRjZHhMCezfPib+Lxhhjb65fICxcQIjLfWLHjsdBhNs",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "EWR",
+                "basisCode": "EAA0AFEY"
+              },
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "Ab6VBd/jBLwAp5EYz716A5Vpc/BTCear/1s3t2qWoR0A",
+                "carrier": "UA",
+                "origin": "NYC",
+                "destination": "CHI",
+                "basisCode": "EAA0AKEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "Ab6VBd/jBLwAp5EYz716A5Vpc/BTCear/1s3t2qWoR0A",
+                "segmentId": "GoeB+os0jfAyfCJr"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AsRjZHhMCezfPib+Lxhhjb65fICxcQIjLfWLHjsdBhNs",
+                "segmentId": "GXOKDkBzK3znYfs6"
+              }
+            ],
+            "baseFareTotal": "USD952.56",
+            "saleFareTotal": "USD952.56",
+            "saleTaxTotal": "USD94.24",
+            "saleTotal": "USD1046.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD71.44"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/EWR 556.28EAA0AFEY /-NYC UA CHI 396.28EAA0AKEY USD 952.56 END ZP MIA LGA XT 71.44US 8.20ZP 5.60AY 9.00XF MIA4.50 LGA4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD1396.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400J",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 371,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 176,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "631"
+                },
+                "id": "GWC2e2-Ad48-xPIq",
+                "cabin": "COACH",
+                "bookingCode": "B",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "L96fCTbL3xzgivNV",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T16:55-05:00",
+                    "departureTime": "2017-05-17T14:59-04:00",
+                    "origin": "MIA",
+                    "destination": "IAH",
+                    "destinationTerminal": "C",
+                    "duration": 176,
+                    "onTimePerformance": 90,
+                    "mileage": 962,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 33
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 162,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "1967"
+                },
+                "id": "G1PxWDCnJrIboqSl",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "1",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LVV-m7om3apy1Xi1",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T20:10-05:00",
+                    "departureTime": "2017-05-17T17:28-05:00",
+                    "origin": "IAH",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 162,
+                    "onTimePerformance": 80,
+                    "mileage": 925,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "A8gSz0k5JYB6icHEchj9tir/0L5+32oJToiEJKlf5lJ/",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "HOU",
+                "basisCode": "BAA0AFEY"
+              },
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AQNCdtI/rt9mLktS5wK1FQL2wU2+YDpC7EGmAex8TOeA",
+                "carrier": "UA",
+                "origin": "HOU",
+                "destination": "CHI",
+                "basisCode": "MAA0AKEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AQNCdtI/rt9mLktS5wK1FQL2wU2+YDpC7EGmAex8TOeA",
+                "segmentId": "G1PxWDCnJrIboqSl"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "A8gSz0k5JYB6icHEchj9tir/0L5+32oJToiEJKlf5lJ/",
+                "segmentId": "GWC2e2-Ad48-xPIq"
+              }
+            ],
+            "baseFareTotal": "USD1278.14",
+            "saleFareTotal": "USD1278.14",
+            "saleTaxTotal": "USD118.66",
+            "saleTotal": "USD1396.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD95.86"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/HOU 800.93BAA0AFEY UA CHI 477.21MAA0AKEY USD 1278.14 END ZP MIA IAH XT 95.86US 8.20ZP 5.60AY 9.00XF MIA4.50 IAH4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD1396.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400K",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 478,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 176,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "631"
+                },
+                "id": "GWC2e2-Ad48-xPIq",
+                "cabin": "COACH",
+                "bookingCode": "B",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "L96fCTbL3xzgivNV",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T16:55-05:00",
+                    "departureTime": "2017-05-17T14:59-04:00",
+                    "origin": "MIA",
+                    "destination": "IAH",
+                    "destinationTerminal": "C",
+                    "duration": 176,
+                    "onTimePerformance": 90,
+                    "mileage": 962,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 140
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 162,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "97"
+                },
+                "id": "G5YgReOjiKq4zbSf",
+                "cabin": "COACH",
+                "bookingCode": "M",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "1",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "L0Aub5lGsOU2QBPL",
+                    "aircraft": "320",
+                    "arrivalTime": "2017-05-17T21:57-05:00",
+                    "departureTime": "2017-05-17T19:15-05:00",
+                    "origin": "IAH",
+                    "destination": "ORD",
+                    "originTerminal": "C",
+                    "destinationTerminal": "1",
+                    "duration": 162,
+                    "mileage": 925,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "A8gSz0k5JYB6icHEchj9tir/0L5+32oJToiEJKlf5lJ/",
+                "carrier": "UA",
+                "origin": "MIA",
+                "destination": "HOU",
+                "basisCode": "BAA0AFEY"
+              },
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AQNCdtI/rt9mLktS5wK1FQL2wU2+YDpC7EGmAex8TOeA",
+                "carrier": "UA",
+                "origin": "HOU",
+                "destination": "CHI",
+                "basisCode": "MAA0AKEY"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AQNCdtI/rt9mLktS5wK1FQL2wU2+YDpC7EGmAex8TOeA",
+                "segmentId": "G5YgReOjiKq4zbSf"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "A8gSz0k5JYB6icHEchj9tir/0L5+32oJToiEJKlf5lJ/",
+                "segmentId": "GWC2e2-Ad48-xPIq"
+              }
+            ],
+            "baseFareTotal": "USD1278.14",
+            "saleFareTotal": "USD1278.14",
+            "saleTaxTotal": "USD118.66",
+            "saleTotal": "USD1396.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD95.86"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA UA X/HOU 800.93BAA0AFEY UA CHI 477.21MAA0AKEY USD 1278.14 END ZP MIA IAH XT 95.86US 8.20ZP 5.60AY 9.00XF MIA4.50 IAH4.50",
+            "latestTicketingTime": "2017-04-26T23:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD1911.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400C",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 475,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 192,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "6175"
+                },
+                "id": "G96QzlXOxcaKOvFA",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LlQ5KFMQugm8dMSr",
+                    "aircraft": "E75",
+                    "arrivalTime": "2017-05-17T16:24-05:00",
+                    "departureTime": "2017-05-17T14:12-04:00",
+                    "origin": "MIA",
+                    "destination": "AUS",
+                    "duration": 192,
+                    "operatingDisclosure": "OPERATED BY REPUBLIC AIRLINES AS AMERICAN EAGLE",
+                    "onTimePerformance": 100,
+                    "mileage": 1101,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 117
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 166,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "8086"
+                },
+                "id": "GNekObiaOM6neFAS",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "1",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LaZhfigYIFDkyM+A",
+                    "aircraft": "738",
+                    "arrivalTime": "2017-05-17T21:07-05:00",
+                    "departureTime": "2017-05-17T18:21-05:00",
+                    "origin": "AUS",
+                    "destination": "ORD",
+                    "destinationTerminal": "3",
+                    "duration": 166,
+                    "operatingDisclosure": "OPERATED BY AMERICAN AIRLINES",
+                    "onTimePerformance": 78,
+                    "mileage": 977,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AbE4dW71fhnPfXTHzcsHizFButT7VG/dg/j9ECeFtoKY",
+                "carrier": "AS",
+                "origin": "MIA",
+                "destination": "AUS",
+                "basisCode": "YA2AA"
+              },
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "A+saO490UCDtLfPEvIzMbt9Bd1onSpjNAQqT+R621y3w",
+                "carrier": "AS",
+                "origin": "AUS",
+                "destination": "CHI",
+                "basisCode": "YA2AA"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AbE4dW71fhnPfXTHzcsHizFButT7VG/dg/j9ECeFtoKY",
+                "segmentId": "G96QzlXOxcaKOvFA"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "A+saO490UCDtLfPEvIzMbt9Bd1onSpjNAQqT+R621y3w",
+                "segmentId": "GNekObiaOM6neFAS"
+              }
+            ],
+            "baseFareTotal": "USD1757.21",
+            "saleFareTotal": "USD1757.21",
+            "saleTaxTotal": "USD154.59",
+            "saleTotal": "USD1911.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD131.79"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA AS X/AUS Q27.91 881.86YA2AA AS CHI Q27.91 819.53YA2AA USD 1757.21 END ZP MIA AUS XT 131.79US 8.20ZP 5.60AY 9.00XF MIA4.50 AUS4.50",
+            "latestTicketingTime": "2017-05-17T18:11+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD1911.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400B",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 459,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 193,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "8439"
+                },
+                "id": "Gr2YBZ8oLYnL0cl4",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LDOncnCDYmKYLPz-",
+                    "aircraft": "E75",
+                    "arrivalTime": "2017-05-17T09:13-05:00",
+                    "departureTime": "2017-05-17T07:00-04:00",
+                    "origin": "MIA",
+                    "destination": "AUS",
+                    "duration": 193,
+                    "operatingDisclosure": "OPERATED BY REPUBLIC AIRLINES AS AMERICAN EAGLE",
+                    "mileage": 1101,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 103
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 163,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "8396"
+                },
+                "id": "GiEixYHQeaMdSqUw",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "1",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LXU4-Z9i6a2HTqWk",
+                    "aircraft": "M80",
+                    "arrivalTime": "2017-05-17T13:39-05:00",
+                    "departureTime": "2017-05-17T10:56-05:00",
+                    "origin": "AUS",
+                    "destination": "ORD",
+                    "destinationTerminal": "3",
+                    "duration": 163,
+                    "operatingDisclosure": "OPERATED BY AMERICAN AIRLINES",
+                    "mileage": 977,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AbE4dW71fhnPfXTHzcsHizFButT7VG/dg/j9ECeFtoKY",
+                "carrier": "AS",
+                "origin": "MIA",
+                "destination": "AUS",
+                "basisCode": "YA2AA"
+              },
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "A+saO490UCDtLfPEvIzMbt9Bd1onSpjNAQqT+R621y3w",
+                "carrier": "AS",
+                "origin": "AUS",
+                "destination": "CHI",
+                "basisCode": "YA2AA"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "A+saO490UCDtLfPEvIzMbt9Bd1onSpjNAQqT+R621y3w",
+                "segmentId": "GiEixYHQeaMdSqUw"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AbE4dW71fhnPfXTHzcsHizFButT7VG/dg/j9ECeFtoKY",
+                "segmentId": "Gr2YBZ8oLYnL0cl4"
+              }
+            ],
+            "baseFareTotal": "USD1757.21",
+            "saleFareTotal": "USD1757.21",
+            "saleTaxTotal": "USD154.59",
+            "saleTotal": "USD1911.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD131.79"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA AS X/AUS Q27.91 881.86YA2AA AS CHI Q27.91 819.53YA2AA USD 1757.21 END ZP MIA AUS XT 131.79US 8.20ZP 5.60AY 9.00XF MIA4.50 AUS4.50",
+            "latestTicketingTime": "2017-05-17T10:59+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD2106.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400D",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 378,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 174,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "6938"
+                },
+                "id": "G8xtFxSKQqa61aa7",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LVE8Xb+vGus30LGC",
+                    "aircraft": "319",
+                    "arrivalTime": "2017-05-17T17:24-05:00",
+                    "departureTime": "2017-05-17T15:30-04:00",
+                    "origin": "MIA",
+                    "destination": "STL",
+                    "destinationTerminal": "1",
+                    "duration": 174,
+                    "operatingDisclosure": "OPERATED BY AMERICAN AIRLINES",
+                    "mileage": 1069,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 126
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 78,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "8109"
+                },
+                "id": "G1hfvDdxkD5VvuLS",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "1",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LmlxELniZJo+wpDI",
+                    "aircraft": "E75",
+                    "arrivalTime": "2017-05-17T20:48-05:00",
+                    "departureTime": "2017-05-17T19:30-05:00",
+                    "origin": "STL",
+                    "destination": "ORD",
+                    "originTerminal": "1",
+                    "destinationTerminal": "3",
+                    "duration": 78,
+                    "operatingDisclosure": "OPERATED BY ENVOY AIR AS AMERICAN EAGLE",
+                    "onTimePerformance": 74,
+                    "mileage": 258,
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "A4ySyNPaHF1xKdyD/Im1lmp8wZC5DUXJPXAwNN3grsqc",
+                "carrier": "AS",
+                "origin": "MIA",
+                "destination": "STL",
+                "basisCode": "YA2AA"
+              },
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AmAFQnGGqzccqj4R0yy7SQ3iQycy4CkHiwhRGqEh6c/E",
+                "carrier": "AS",
+                "origin": "STL",
+                "destination": "CHI",
+                "basisCode": "YA2AA"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "A4ySyNPaHF1xKdyD/Im1lmp8wZC5DUXJPXAwNN3grsqc",
+                "segmentId": "G8xtFxSKQqa61aa7"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AmAFQnGGqzccqj4R0yy7SQ3iQycy4CkHiwhRGqEh6c/E",
+                "segmentId": "G1hfvDdxkD5VvuLS"
+              }
+            ],
+            "baseFareTotal": "USD1938.61",
+            "saleFareTotal": "USD1938.61",
+            "saleTaxTotal": "USD168.19",
+            "saleTotal": "USD2106.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD145.39"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA AS X/STL Q27.91 1031.63YA2AA AS CHI Q27.91 851.16YA2AA USD 1938.61 END ZP MIA STL XT 145.39US 8.20ZP 5.60AY 9.00XF MIA4.50 STL4.50",
+            "latestTicketingTime": "2017-05-17T19:29+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD2106.80",
+        "id": "7WbbmBOTG69TP6EEEWxiZ400E",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 395,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 176,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "6668"
+                },
+                "id": "GPj2J0eXXi51Utwf",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "L1+rM1IiDpjGJA9H",
+                    "aircraft": "E75",
+                    "arrivalTime": "2017-05-17T10:31-05:00",
+                    "departureTime": "2017-05-17T08:35-04:00",
+                    "origin": "MIA",
+                    "destination": "STL",
+                    "destinationTerminal": "1",
+                    "duration": 176,
+                    "operatingDisclosure": "OPERATED BY REPUBLIC AIRLINES AS AMERICAN EAGLE",
+                    "mileage": 1069,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ],
+                "connectionDuration": 141
+              },
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 78,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "4374"
+                },
+                "id": "G1wTzVQ3078dER28",
+                "cabin": "COACH",
+                "bookingCode": "Y",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "1",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LOt-rescCaRi8sWz",
+                    "aircraft": "CR7",
+                    "arrivalTime": "2017-05-17T14:10-05:00",
+                    "departureTime": "2017-05-17T12:52-05:00",
+                    "origin": "STL",
+                    "destination": "ORD",
+                    "originTerminal": "1",
+                    "destinationTerminal": "3",
+                    "duration": 78,
+                    "operatingDisclosure": "OPERATED BY ENVOY AIR AS AMERICAN EAGLE",
+                    "onTimePerformance": 87,
+                    "mileage": 258,
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "A4ySyNPaHF1xKdyD/Im1lmp8wZC5DUXJPXAwNN3grsqc",
+                "carrier": "AS",
+                "origin": "MIA",
+                "destination": "STL",
+                "basisCode": "YA2AA"
+              },
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AmAFQnGGqzccqj4R0yy7SQ3iQycy4CkHiwhRGqEh6c/E",
+                "carrier": "AS",
+                "origin": "STL",
+                "destination": "CHI",
+                "basisCode": "YA2AA"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "A4ySyNPaHF1xKdyD/Im1lmp8wZC5DUXJPXAwNN3grsqc",
+                "segmentId": "GPj2J0eXXi51Utwf"
+              },
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AmAFQnGGqzccqj4R0yy7SQ3iQycy4CkHiwhRGqEh6c/E",
+                "segmentId": "G1wTzVQ3078dER28"
+              }
+            ],
+            "baseFareTotal": "USD1938.61",
+            "saleFareTotal": "USD1938.61",
+            "saleTaxTotal": "USD168.19",
+            "saleTotal": "USD2106.80",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD145.39"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD9.00"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD8.20"
+              }
+            ],
+            "fareCalculation": "MIA AS X/STL Q27.91 1031.63YA2AA AS CHI Q27.91 851.16YA2AA USD 1938.61 END ZP MIA STL XT 145.39US 8.20ZP 5.60AY 9.00XF MIA4.50 STL4.50",
+            "latestTicketingTime": "2017-05-17T12:34+00:00",
+            "ptc": "ADT",
+            "refundable": true
+          }
+        ]
+      }
+    ]
+  }
+}
