@@ -18,97 +18,96 @@
 
 	</div>
 </nav>
-
-
-<div class="row">
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<p>Departing</p>
+<div class="col-md-4 col-md-offset-4">
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<p>Departing</p>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<p>Arriving</p>
+		</div>
 	</div>
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<p>Arriving</p>
+	<div class="form-group row">
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<input class="form-control" type="text" placeholder="Choose City"
+				id="departing-from" ng-model="form.departureCity" auto-complete>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<input class="form-control" type="text" placeholder="Choose City"
+				id="arriving-to" ng-model="form.arrivalCity" auto-complete>
+		</div>
 	</div>
-</div>
-<div class="form-group row">
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<input class="form-control" type="text" placeholder="Choose City"
-			id="departing-from" ng-model="form.departureCity" auto-complete>
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<p>Departure Date</p>
+			{{form.departureDate}}
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<p>Return Date</p>
+			{{form.returnDate}}
+		</div>
 	</div>
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<input class="form-control" type="text" placeholder="Choose City"
-			id="arriving-to" ng-model="form.arrivalCity" auto-complete>
+	<div class="form-group row">
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<input class="form-control" type="text" value="" id="departure-date"
+				ng-model="form.departureDate" datepicker>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-6">
+			<input class="form-control" type="text" value="" id="return-date"
+				ng-model="form.returnDate" datepicker>
+		</div>
 	</div>
-</div>
-<div class="row">
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<p>Departure Date</p>
-		{{form.departureDate}}
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-4">
+			<p>Class</p>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<p>Adults</p>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<p>Children</p>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<p>Max Stops</p>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<p>Refundable</p>
+		</div>
 	</div>
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<p>Return Date</p>
-		{{form.returnDate}}
+	<div class="form-group row">
+		<div class="col-xs-6 col-sm-4 col-md-4">
+			<select class="form-control" value="Coach" ng-model="form.class">
+				<option>Coach</option>
+				<option>Premium Coach</option>
+				<option>Business</option>
+				<option>First</option>
+			</select>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<input class="form-control" type="number" value="1" min="0" max="10"
+				id="number-adults" ng-model="form.numberAdults">
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<input class="form-control" type="number" value="0" min="0" max="10"
+				id="number-children" ng-model="form.numberChildren">
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<select class="form-control" value="Coach" ng-model="form.stops">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+		</div>
+		<div class="col-xs-6 col-sm-4 col-md-2">
+			<select class="form-control" value="Coach" ng-model="form.refundable">
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+		</div>
 	</div>
-</div>
-<div class="form-group row">
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<input class="form-control" type="text" value="" id="departure-date"
-			ng-model="form.departureDate" datepicker>
+	<div class="form-group row">
+		<div class="col-xs-6 col-sm-4 col-md-4">
+			<a class="btn btn-info btn-block" ng-click="search()" href="#results">Search</a>
+		</div>
 	</div>
-	<div class="col-xs-6 col-sm-4 col-md-6">
-		<input class="form-control" type="text" value="" id="return-date"
-			ng-model="form.returnDate" datepicker>
-	</div>
-</div>
-<div class="row">
-	<div class="col-xs-6 col-sm-4 col-md-4">
-		<p>Class</p>
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<p>Adults</p>
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<p>Children</p>
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<p>Max Stops</p>
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<p>Refundable</p>
-	</div>
-</div>
-<div class="form-group row">
-	<div class="col-xs-6 col-sm-4 col-md-4">
-		<select class="form-control" value="Coach" ng-model="form.class">
-			<option>Coach</option>
-			<option>Premium Coach</option>
-			<option>Business</option>
-			<option>First</option>
-		</select>
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<input class="form-control" type="number" value="1" min="0" max="10"
-			id="number-adults" ng-model="form.numberAdults">
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<input class="form-control" type="number" value="0" min="0" max="10"
-			id="number-children" ng-model="form.numberChildren">
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<select class="form-control" value="Coach" ng-model="form.stops">
-			<option>0</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-		</select>
-	</div>
-	<div class="col-xs-6 col-sm-4 col-md-2">
-		<select class="form-control" value="Coach" ng-model="form.refundable">
-			<option>Yes</option>
-			<option>No</option>
-		</select>
-	</div>
-</div>
-<div class="form-group row">
-	<div class="col-xs-6 col-sm-4 col-md-4">
-		<a class="btn btn-info btn-block" ng-click="search()" href="#results">Search</a>
-	</div>
-</div>

@@ -1,30 +1,106 @@
+<!-- Navigation -->
 
-<h2>List of Flights</h2>
-<div class="panel panel-default" ng-repeat="flight in flights">
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-3">Flight# {{ flight.flightNumber }}</div>
-			<div class="col-md-3">{{flight.departureDate}} -
-				{{flight.arrivalDate}}</div>
-			<div class="col-md-3">{{flight.departureCity}} -
-				{{flight.arrivalCity}}</div>
-			<div class="col-md-2">${{flight.price}}</div>
-		</div>
+<nav ng-if="loginbutton" class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<a href="#/login"><button type="button"
+				class="btn btn-default navbar-btn navbar-right">
+				Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+			</button></a>
+
 	</div>
-	<div class="panel-footer">
-		<button class="btn btn-info">Book</button>
+</nav>
+<nav ng-if="logoutbutton" class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<a ng-click="logout()"><button type="button"></button> <a
+			href="#/logout"><button type="button"
+					class="btn btn-default navbar-btn navbar-right">
+					Logout <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+				</button></a>
 	</div>
-	<div class="panel panel-default" ng-repeat="leg in flight.legs">
-		<div class="panel-body">
-			<div class="row">
-				<div class="col-md-3">Flight# {{ leg.flightNumber }}</div>
-				<div class="col-md-3">{{leg.departureDate}} -
-					{{leg.arrivalDate}}</div>
-				<div class="col-md-3">{{leg.departureCity}} -
-					{{leg.arrivalCity}}</div>
-				<div class="col-md-2"></div>
+</nav>
+<div ng-if="showRetrievingResults">
+	<img src="img/loading.gif">
+</div>
+<div class="row">
+	<div class="col-md-3 col-md-offset-1" style="position: fixed" ng-if="showFilterPanel">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>Filter by:</p>
+				<p>Price:</p>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios1"
+						value="option1"> Cheapest
+					</label>
+				</div>
+				<p>Departure Time:</p>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios1"
+						value="option1"> 6:00AM - 10:00AM
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios2"
+						value="option2"> 10:00AM - 2:00PM
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios3"
+						value="option3"> 2:00PM - 6:00PM
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios4"
+						value="option4"> 6:00PM - 10:00PM
+					</label>
+				</div>
+				<p>Duration:</p>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios5"
+						value="option5"> Shortest
+					</label>
+				</div>
+				<p>Stops:</p>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios6"
+						value="option6"> Fewest
+					</label>
+				</div>
 			</div>
 		</div>
-		<div class="panel-footer"></div>
 	</div>
-</div>
+	<div class="col-md-6 col-md-offset-4">
+		<div class="panel panel-default" ng-repeat="flight in flights">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3">Flight# {{ flight.flightNumber }}</div>
+					<div class="col-md-3">{{flight.departureDate}} -
+						{{flight.arrivalDate}}</div>
+					<div class="col-md-3">{{flight.departureCity}} -
+						{{flight.arrivalCity}}</div>
+					<div class="col-md-2">${{flight.price}}</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<button class="btn btn-info">Select</button>
+			</div>
+			<div class="panel panel-default" ng-repeat="leg in flight.legs">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3">Flight# {{ leg.flightNumber }}</div>
+						<div class="col-md-3">{{leg.departureDate}} -
+							{{leg.arrivalDate}}</div>
+						<div class="col-md-3">{{leg.departureCity}} -
+							{{leg.arrivalCity}}</div>
+						<div class="col-md-2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
