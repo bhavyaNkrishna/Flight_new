@@ -30,7 +30,7 @@
 				<div class="form-check">
 					<label class="form-check-label"> <input type="radio"
 						class="form-check-input" name="optionsRadios" id="optionsRadios1"
-						value="option1"> Cheapest
+						value="option1" ng-click="filterPrice()"> Cheapest
 					</label>
 				</div>
 				<p>Departure Time:</p>
@@ -62,14 +62,14 @@
 				<div class="form-check">
 					<label class="form-check-label"> <input type="radio"
 						class="form-check-input" name="optionsRadios" id="optionsRadios5"
-						value="option5"> Shortest
+						value="option5" ng-click="filterDuration()"> Shortest
 					</label>
 				</div>
 				<p>Stops:</p>
 				<div class="form-check">
 					<label class="form-check-label"> <input type="radio"
 						class="form-check-input" name="optionsRadios" id="optionsRadios6"
-						value="option6"> Fewest
+						value="option6" ng-click="filterStops()"> Fewest
 					</label>
 				</div>
 			</div>
@@ -80,10 +80,11 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-3">Flight# {{ flight.flightNumber }}</div>
-					<div class="col-md-3">{{flight.departureDate}} -
+					<div class="col-md-2">{{flight.departureDate}} -
 						{{flight.arrivalDate}}</div>
-					<div class="col-md-3">{{flight.departureCity}} -
+					<div class="col-md-2">{{flight.departureCity}} -
 						{{flight.arrivalCity}}</div>
+					<div class="col-md-2">Duration: {{ flight.duration }}</div>
 					<div class="col-md-2">${{flight.price}}</div>
 				</div>
 			</div>

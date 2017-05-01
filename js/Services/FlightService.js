@@ -30,7 +30,7 @@ App.service('FlightService', ['$http', function($http){
 	                duration = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["duration"];
 	                flightNumber = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["flight"]["carrier"];
 	                flightNumber = flightNumber + this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["flight"]["number"];
-	                price = this.results["trips"]["tripOption"][i]["saleTotal"];
+	                price = this.results["trips"]["tripOption"][i]["saleTotal"].substring(3);
 	                if (j > 0) {
 	                	console.log(j);
 	                	this.flights[i].legs.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, null));
@@ -46,10 +46,10 @@ App.service('FlightService', ['$http', function($http){
         return this.flights;
     }
     
-    /*this.getFlightResultsTESTING = function() {
+    this.getFlightResultsTESTING = function() {
     	return $http.get("/json/exampleresponse.json") 
             .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
-    }*/
+    }
     
     this.getFlightResults = function(formData) {
         if (formData.class == "Coach") {
@@ -103,4 +103,23 @@ App.service('FlightService', ['$http', function($http){
             }) 
                 .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
          }
+    
+    this.filterDuration = function(flights) {
+    	flights.sort(function(a,b) {
+    		return a.duration - b.duration;
+    	});
+    }
+    
+    this.filterPrice = function(flights) {
+    	flights.sort(function(a,b) {
+    		console.log(a.price);
+    		return a.price - b.price;
+    	});
+    }
+    
+    this.filterStops = function(flights) {
+    	flights.sort(function(a,b) {
+    		return a.legs.length - b.legs.length;
+    	});
+    }
 }]);
