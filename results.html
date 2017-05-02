@@ -101,8 +101,8 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-3">Flight# {{ leg.flightNumber }}</div>
-						<div class="col-md-3">{{leg.departureDate}} -
-							{{leg.arrivalDate}}</div>
+						<div class="col-md-3">{{leg.departureDate | convertTime}} -
+							{{leg.arrivalDate | convertTime}}</div>
 						<div class="col-md-3">{{leg.departureCity}} -
 							{{leg.arrivalCity}}</div>
 						<div class="col-md-2"></div>
