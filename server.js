@@ -137,6 +137,47 @@ app.post('/insert', function (req, res) {
 });
 
 
-var server = app.listen(8081);
+app.post('/insertflight', function (req, res) {
+
+	var arrivalCity = req.body.arrivalCity;
+	var arrivalDate = req.body.arrivalDate;
+	var departureCity = req.body.departureCity;
+	var departureDate = req.body.departureDate;
+	var flightNumber = req.body.flightNumber;
+	var price = req.body.price;
+	var uname = req.body.uname;
+
+	log.info(req);
+
+	var flight = {
+			"error": 1,
+			"flight": ""
+	};
+
+	//log.info(pwordCon);
+	log.info('POST Request :: /insertflight: ');
+
+	if (!!arrivalCity && !!arrivalDate && !!departureCity && !!departureDate  && !!flightNumber  && !!price && !!uname ) {
+		pool.getConnection(function (err, connection) {
+			connection.query("INSERT INTO user SET arrivalCity = ?, arrivalDate = ?, departureCity = ?,departureDate = ?,flightNumber = ?,price = ?,uname = ?",
+					[arrivalCity,  arrivalDate, departureCity,departureDate,flightNumber,price, uname], function (err, rows, fields) {
+				if (!!err) {
+					flight.flightDetails = "Error Adding data";
+					log.error(err);
+				} else {
+					flight.error = 0;
+					flight.flightDetails = "flight detail Added Successfully";
+					//log.info("Added: " + [uname, uemail]);
+				}
+				res.json(flight);
+			});
+		});
+	} else {
+		flight.users = "Please provide all required data (i.e : name, password)";
+		res.json(flight);
+	}
+});
+
+var server = app.listen(8084);
 //app.listen(8085);
 

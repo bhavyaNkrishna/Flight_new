@@ -22,7 +22,8 @@
 	<img src="img/loading.gif">
 </div>
 <div class="row">
-	<div class="col-md-3 col-md-offset-1" style="position: fixed" ng-if="showFilterPanel">
+	<div class="col-md-3 col-md-offset-1" style="position: fixed"
+		ng-if="showFilterPanel">
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<p>Filter by:</p>
@@ -88,9 +89,6 @@
 					<div class="col-md-2">${{flight.price}}</div>
 				</div>
 			</div>
-			<div class="panel-footer">
-				<button class="btn btn-info">Select</button>
-			</div>
 			<div class="panel panel-default" ng-repeat="leg in flight.legs">
 				<div class="panel-body">
 					<div class="row">
@@ -103,5 +101,7 @@
 					</div>
 				</div>
 			</div>
+			<a href="#/review"><button type="button" class="panel-footer" ng-click="selectedFlight(flight)">Select
+				</button></a>
 		</div>
 	</div>

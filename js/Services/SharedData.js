@@ -16,6 +16,13 @@ App.service('SharedData', function () {
         },
         setForm: function(value) {
             form = value;
+        },
+        getFlight: function() {
+            return flights;
+        },
+        setFlight: function(value) {
+            console.log(value);
+            flights = value;
         }
     };
 });

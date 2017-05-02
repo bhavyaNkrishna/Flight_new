@@ -1,0 +1,29 @@
+<div class="col-md-6 col-md-offset-4" ng-controller="ReviewController">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-3">Flight# {{ flight.flightNumber }}</div>
+				<div class="col-md-2">{{flight.departureDate}} -
+					{{flight.arrivalDate}}</div>
+				<div class="col-md-2">{{flight.departureCity}} -
+					{{flight.arrivalCity}}</div>
+				<div class="col-md-2">Duration: {{ flight.duration }}</div>
+				<div class="col-md-2">${{flight.price}}</div>
+			</div>
+		</div>
+		<div class="panel panel-default" ng-repeat="leg in flight.legs">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3">Flight# {{ leg.flightNumber }}</div>
+					<div class="col-md-3">{{leg.departureDate}} -
+						{{leg.arrivalDate}}</div>
+					<div class="col-md-3">{{leg.departureCity}} -
+						{{leg.arrivalCity}}</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+		</div>
+		<a href="#/review"><button type="button" class="panel-footer"
+				ng-click="getFlight(flight)">Continue</button></a>
+	</div>
+</div>

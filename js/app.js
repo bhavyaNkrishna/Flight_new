@@ -39,7 +39,10 @@ App.config(['$routeProvider', function ($routeProvider) {
 		templateUrl : "views/registration.html",
 		controller : "RegisterController"
 	})
-
+	.when("/review", {
+		templateUrl : "views/review.html",
+		controller : "ReviewController"
+	})
 	.otherwise({
 		redirectTo: "/"
 	});
