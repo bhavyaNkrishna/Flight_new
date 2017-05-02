@@ -30,9 +30,9 @@ App.service('FlightService', ['$http', function($http){
 	                duration = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["duration"];
 	                flightNumber = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["flight"]["carrier"];
 	                flightNumber = flightNumber + this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["flight"]["number"];
-	                price = this.results["trips"]["tripOption"][i]["saleTotal"].substring(3);
+	                price = this.results["trips"]["tripOption"][i]["pricing"][0]["saleTotal"].substring(3);
 	                if (j > 0) {
-	                	console.log(j);
+	                	this.flights[i].duration += duration;
 	                	this.flights[i].legs.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, null));
 	                } else {
 	                	this.flights.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, flight));
@@ -66,7 +66,7 @@ App.service('FlightService', ['$http', function($http){
         } else {
             formData.refundable = false;
         }
-        console.log('"' + formData.departureCity + '"' + " " + '"' + formData.arrivalCity + '"' + " " + '"' + formData.departureDate + '"' + " " + formData.numberAdults + " " + formData.numberChildren + " " + '"' + formData.class + '"');
+        if (formData.returnDate == undefined) {
             return $http({
                 method: "POST",
                 url: "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBAYG_5X7FRSYs7NM1-VfmXV-U_ne4m5J4",
@@ -102,7 +102,51 @@ App.service('FlightService', ['$http', function($http){
             
             }) 
                 .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
-         }
+        } else if (formData.returnDate != undefined) {
+        	return $http({
+                method: "POST",
+                url: "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBAYG_5X7FRSYs7NM1-VfmXV-U_ne4m5J4",
+                 headers: {
+                    'Content-type': 'application/json'
+                },
+                data:
+                        {
+                          "request": {
+                            "passengers": {
+                              "kind": "qpxexpress#passengerCounts",
+                              "adultCount": formData.numberAdults,
+                              "childCount": formData.numberChildren,
+                              "infantInLapCount": 0,
+                              "infantInSeatCount": 0,
+                              "seniorCount": 0
+                            },
+                            "slice": [
+                              {
+                                "kind": "qpxexpress#sliceInput",
+                                "origin": formData.departureCity.substring(0,4),
+                                "destination": formData.arrivalCity.substring(0,4),
+                                "date": formData.departureDate,
+                                "maxStops": formData.stops
+                              },
+                                {
+                                  "kind": "qpxexpress#sliceInput",
+                                  "origin": formData.arrivalCity.substring(0,4),
+                                  "destination": formData.departureCity.substring(0,4),
+                                  "date": formData.returnDate,
+                                  "maxStops": formData.stops
+                                }
+                              ],
+                            "saleCountry": "US",
+                            "ticketingCountry": "US",
+                            "refundable": formData.refundable,
+                            "solutions": 20
+                          }
+                        }
+            
+            }) 
+                .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
+        }
+    }
     
     this.filterDuration = function(flights) {
     	flights.sort(function(a,b) {
@@ -121,5 +165,55 @@ App.service('FlightService', ['$http', function($http){
     	flights.sort(function(a,b) {
     		return a.legs.length - b.legs.length;
     	});
+    }
+    
+    this.filterEarly = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 6 && parseInt(flights[i].departureDate.substring(0,3)) < 10) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterMidday = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 10 && parseInt(flights[i].departureDate.substring(0,3)) < 14) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterAfternoon = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 14 && parseInt(flights[i].departureDate.substring(0,3)) < 18) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterEvening = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 18 && parseInt(flights[i].departureDate.substring(0,3)) < 22) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterOvernight = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 22 && parseInt(flights[i].departureDate.substring(0,3)) < 6) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
     }
 }]);

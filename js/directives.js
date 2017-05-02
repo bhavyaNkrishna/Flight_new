@@ -50,3 +50,20 @@ App.directive('autoComplete', function ($http, AutocompleteService) {
                 });
         }
 });
+
+App.filter('convertTime', function(){
+	return function(input) {
+		var formated = '';
+		var hours = parseInt(input.substring(0,3));
+		if (hours > 12) {
+			hours -=12;
+			formated = hours + ':' + input.substring(3) + 'PM';
+			return formated;
+		} else if (hours == 12) {
+			formated = hours + ':' + input.substring(3) + 'PM';
+			return formated;
+		} else {
+			return input + "AM";
+		}
+	}
+})

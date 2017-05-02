@@ -38,25 +38,31 @@
 				<div class="form-check">
 					<label class="form-check-label"> <input type="radio"
 						class="form-check-input" name="optionsRadios" id="optionsRadios1"
-						value="option1"> 6:00AM - 10:00AM
+						value="option1" ng-click="filterEarly()"> 6:00AM - 10:00AM
 					</label>
 				</div>
 				<div class="form-check">
 					<label class="form-check-label"> <input type="radio"
 						class="form-check-input" name="optionsRadios" id="optionsRadios2"
-						value="option2"> 10:00AM - 2:00PM
+						value="option2" ng-click="filterMidday()"> 10:00AM - 2:00PM
 					</label>
 				</div>
 				<div class="form-check">
 					<label class="form-check-label"> <input type="radio"
 						class="form-check-input" name="optionsRadios" id="optionsRadios3"
-						value="option3"> 2:00PM - 6:00PM
+						value="option3" ng-click="filterAfternoon()"> 2:00PM - 6:00PM
 					</label>
 				</div>
 				<div class="form-check">
 					<label class="form-check-label"> <input type="radio"
 						class="form-check-input" name="optionsRadios" id="optionsRadios4"
-						value="option4"> 6:00PM - 10:00PM
+						value="option4" ng-click="filterEvening()"> 6:00PM - 10:00PM
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios" id="optionsRadios4"
+						value="option4" ng-click="filterOvernight()"> 10:00PM - 6:00AM
 					</label>
 				</div>
 				<p>Duration:</p>
@@ -81,8 +87,8 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-3">Flight# {{ flight.flightNumber }}</div>
-					<div class="col-md-2">{{flight.departureDate}} -
-						{{flight.arrivalDate}}</div>
+					<div class="col-md-3">{{flight.departureDate | convertTime}} -
+						{{flight.arrivalDate | convertTime}}</div>
 					<div class="col-md-2">{{flight.departureCity}} -
 						{{flight.arrivalCity}}</div>
 					<div class="col-md-2">Duration: {{ flight.duration }}</div>
@@ -93,8 +99,8 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-3">Flight# {{ leg.flightNumber }}</div>
-						<div class="col-md-3">{{leg.departureDate}} -
-							{{leg.arrivalDate}}</div>
+						<div class="col-md-3">{{leg.departureDate | convertTime}} -
+							{{leg.arrivalDate | convertTime}}</div>
 						<div class="col-md-3">{{leg.departureCity}} -
 							{{leg.arrivalCity}}</div>
 						<div class="col-md-2"></div>
