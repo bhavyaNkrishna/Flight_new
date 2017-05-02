@@ -32,7 +32,7 @@ App.service('FlightService', ['$http', function($http){
 	                flightNumber = flightNumber + this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["flight"]["number"];
 	                price = this.results["trips"]["tripOption"][i]["saleTotal"].substring(3);
 	                if (j > 0) {
-	                	console.log(j);
+	                	this.flights[i].duration += duration;
 	                	this.flights[i].legs.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, null));
 	                } else {
 	                	this.flights.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, flight));
@@ -121,5 +121,55 @@ App.service('FlightService', ['$http', function($http){
     	flights.sort(function(a,b) {
     		return a.legs.length - b.legs.length;
     	});
+    }
+    
+    this.filterEarly = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 6 && parseInt(flights[i].departureDate.substring(0,3)) < 10) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterMidday = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 10 && parseInt(flights[i].departureDate.substring(0,3)) < 14) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterAfternoon = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 14 && parseInt(flights[i].departureDate.substring(0,3)) < 18) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterEvening = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 18 && parseInt(flights[i].departureDate.substring(0,3)) < 22) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
+    }
+    
+    this.filterOvernight = function(flights) {
+    	var subflights = [];
+    	for (var i = 0; i < flights.length; i++) {
+    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 22 && parseInt(flights[i].departureDate.substring(0,3)) < 6) {
+    			subflights.push(flights[i]);
+    		}
+    	}
+    	return subflights;
     }
 }]);
