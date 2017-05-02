@@ -2,9 +2,14 @@ App.controller('ReviewController', function($scope, FlightService, BookFlightSer
 
 	$scope.successMessage = false;
 	$scope.errorMessage = false;
-
+	
+	$scope.showReturnDetails = false;
 	$scope.flight = {};
-	$scope.flight = SharedData.getFlight();
+	$scope.flight = SharedData.getDepartureFlight();
+	$scope.returnFlight = SharedData.getReturnFlight();
+	if ($scope.flight.oneway != true) {
+		$scope.showReturnDetails = true;
+	}
 	console.log($scope.flight);
 	console.log($scope.flight.arrivalCity);
 	console.log($scope.flight.flightNumber);
@@ -56,5 +61,4 @@ App.controller('ReviewController', function($scope, FlightService, BookFlightSer
 				}
 		);
 	};
-	
 });

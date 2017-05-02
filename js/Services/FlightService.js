@@ -3,12 +3,13 @@ App.service('FlightService', ['$http', function($http){
     this.flights = [];
     this.results = [];
     
-    this.newFlight = function(departureCity, arrivalCity, departureDate, arrivalDate, duration, flightNumber, price, leg){
-        this.flight = {departureCity: departureCity, arrivalCity: arrivalCity, departureDate: departureDate, arrivalDate: arrivalDate, duration: duration, flightNumber: flightNumber, price: price, legs: leg};
+    this.newFlight = function(departureCity, arrivalCity, departureDate, arrivalDate, duration, flightNumber, price, leg, returnFlight, oneway){
+        this.flight = {departureCity: departureCity, arrivalCity: arrivalCity, departureDate: departureDate, arrivalDate: arrivalDate, duration: duration, flightNumber: flightNumber, price: price, legs: leg, returnFlight: returnFlight, oneway: oneway};
         return this.flight;
     }
     
-    this.populateFlightsList = function(successResponse) {
+    this.populateOnewayList = function(successResponse) {
+    	this.flights = [];
         if (successResponse) {
             this.results = successResponse;
             var origin;
@@ -33,10 +34,89 @@ App.service('FlightService', ['$http', function($http){
 	                price = this.results["trips"]["tripOption"][i]["pricing"][0]["saleTotal"].substring(3);
 	                if (j > 0) {
 	                	this.flights[i].duration += duration;
-	                	this.flights[i].legs.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, null));
+	                	this.flights[i].legs.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, null, false, true));
 	                } else {
-	                	this.flights.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, flight));
+	                	this.flights.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, flight, false, true));
 	                }
+            	}
+            }
+        } else {
+            this.results = [];
+        }
+        console.log(this.flights)
+        return this.flights;
+    }
+    
+    this.populateDeparturesList = function(successResponse) {
+    	this.flights = [];
+        if (successResponse) {
+            this.results = successResponse;
+            var origin;
+            var destination;
+            var departDate;
+            var arriveDate;
+            var duration;
+            var flightNumber;
+            var airline;
+            var price;
+            for (var i = 0; i < this.results["trips"]["tripOption"].length; i++) {
+            	var flight = [];
+            	for (var j = 0; j < this.results["trips"]["tripOption"][i]["slice"][0]["segment"].length; j++) {
+            		console.log(i);
+	                origin = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["leg"][0]["origin"];
+	                destination = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["leg"][0]["destination"];
+	                departDate = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["leg"][0]["departureTime"].substring(11,16);
+	                arriveDate = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["leg"][0]["arrivalTime"].substring(11,16);
+	                duration = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["duration"];
+	                flightNumber = this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["flight"]["carrier"];
+	                flightNumber = flightNumber + this.results["trips"]["tripOption"][i]["slice"][0]["segment"][j]["flight"]["number"];
+	                price = this.results["trips"]["tripOption"][i]["pricing"][0]["saleTotal"].substring(3);
+	                if (j > 0) {
+	                	this.flights[i].duration += duration;
+	                	this.flights[i].legs.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, null, false, false));
+	                } else {
+	                	this.flights.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, flight, false, false));
+	                }
+            	}
+            }
+        } else {
+            this.results = [];
+        }
+        console.log(this.flights)
+        return this.flights;
+    }
+    
+    this.populateReturnsList = function(successResponse) {
+    	this.flights = [];
+        if (successResponse) {
+            this.results = successResponse;
+            var origin;
+            var destination;
+            var departDate;
+            var arriveDate;
+            var duration;
+            var flightNumber;
+            var airline;
+            var price;
+            for (var i = 0; i < this.results["trips"]["tripOption"].length; i++) {
+            	var flight = [];
+            	for (var j = 0; j < this.results["trips"]["tripOption"][i]["slice"][0]["segment"].length; j++) {
+	            		if (this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j] != undefined) {
+		                origin = this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j]["leg"][0]["origin"];
+		                destination = this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j]["leg"][0]["destination"];
+		                departDate = this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j]["leg"][0]["departureTime"].substring(11,16);
+		                arriveDate = this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j]["leg"][0]["arrivalTime"].substring(11,16);
+		                duration = this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j]["duration"];
+		                flightNumber = this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j]["flight"]["carrier"];
+		                flightNumber = flightNumber + this.results["trips"]["tripOption"][i]["slice"][1]["segment"][j]["flight"]["number"];
+		                price = this.results["trips"]["tripOption"][i]["pricing"][0]["saleTotal"].substring(3);
+		                if (j > 0) {
+		                	this.flights[i].duration += duration;
+		                	this.flights[i].legs.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, null, true, false));
+		                } else {
+		                	this.flights.push(this.newFlight(origin, destination, departDate, arriveDate, duration, flightNumber, price, flight, true, false));
+		                }
+            		}
             	}
             }
         } else {

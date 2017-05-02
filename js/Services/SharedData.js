@@ -1,15 +1,23 @@
 App.service('SharedData', function () {
-    var flights = [];
+    var departureFlights = [];
+    var returnFlights = [];
     var form = [];
+    var departureFlight = [];
+    var returnFlight = [];
 
     return {
         //Getter and Setter function for sharing data between controller
-        getFlights: function() {
-            return flights;
+        getDepartureFlights: function() {
+            return departureFlights;
         },
-        setFlights: function(value) {
-            console.log(value);
-            flights = value;
+        setDepartureFlights: function(value) {
+            departureFlights = value;
+        },
+        getReturnFlights: function() {
+            return returnFlights;
+        },
+        setReturnFlights: function(value) {
+            returnFlights = value;
         },
         getForm: function() {
             return form;
@@ -17,12 +25,18 @@ App.service('SharedData', function () {
         setForm: function(value) {
             form = value;
         },
-        getFlight: function() {
-            return flights;
+        getDepartureFlight: function() {
+            return departureFlight;
         },
-        setFlight: function(value) {
+        setDepartureFlight: function(value) {
+        	departureFlight = value;
+        },
+        getReturnFlight: function() {
+            return returnFlight;
+        },
+        setReturnFlight: function(value) {
             console.log(value);
-            flights = value;
+            returnFlight = value;
         }
     };
 });
