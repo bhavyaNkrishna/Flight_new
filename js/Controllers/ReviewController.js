@@ -1,14 +1,15 @@
-App.controller('ReviewController', function($scope, FlightService, BookFlightService, SharedData,$location) {
+App.controller('ReviewController', function($scope,$rootScope,FlightService, BookFlightService, SharedData,$location) {
 
 	$scope.successMessage = false;
 	$scope.errorMessage = false;
 
 	$scope.flight = {};
 	$scope.flight = SharedData.getFlight();
-	console.log($scope.flight);
-	console.log($scope.flight.arrivalCity);
+	//console.log($scope.flight);
+	//console.log($scope.flight.arrivalCity);
 	console.log($scope.flight.flightNumber);
-	console.log($scope.flight.price);
+	console.log($rootScope.uname);
+	
 	
 	
 	$scope.bookFlight = function() {

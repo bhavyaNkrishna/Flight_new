@@ -7,11 +7,15 @@ App.controller('LoginController', function($scope,$cookieStore ,AuthService, $ro
 
 	$rootScope.pageTitle = $route.current.title;
 	$scope.moduleTitle = "Login to Site";
+	$rootScope.uname = $scope.data.email;
+	
 
 
 	$scope.login = function() {
 		console.log("in method");
-
+		
+	$rootScope.uname = $scope.data.email;
+       console.log($rootScope.uname);
 
 		var user = {
 				"uname": "",

@@ -41,6 +41,8 @@ App.factory('AuthService', ['$rootScope','$cookieStore','$http', '$q','SessionSe
                  username: username,
              }
          };
+         console.log("root scope variable");
+        console.log($rootScope.uname);
          SessionService.setCookieData(username);
      }
 		
