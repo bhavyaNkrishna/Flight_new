@@ -23,7 +23,33 @@
 				</div>
 			</div>
 		</div>
-		<a href="#/review"><button type="button" class="panel-footer"
-				ng-click="bookFlight()">Continue</button></a>
+
 	</div>
+	<div class="panel panel-default" ng-if="showReturnDetails">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-3">Flight# {{ returnFlight.flightNumber }}</div>
+				<div class="col-md-2">{{returnFlight.departureDate}} -
+					{{returnFlight.arrivalDate}}</div>
+				<div class="col-md-2">{{returnFlight.departureCity}} -
+					{{returnFlight.arrivalCity}}</div>
+				<div class="col-md-2">Duration: {{ returnFlight.duration }}</div>
+				<div class="col-md-2">${{returnFlight.price}}</div>
+			</div>
+		</div>
+		<div class="panel panel-default" ng-repeat="leg in returnFlight.legs">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3">Flight# {{ leg.flightNumber }}</div>
+					<div class="col-md-3">{{leg.departureDate}} -
+						{{leg.arrivalDate}}</div>
+					<div class="col-md-3">{{leg.departureCity}} -
+						{{leg.arrivalCity}}</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>			
+				<a href="#/review"><button type="button" class="panel-footer"
+				ng-click="bookFlight()">Continue</button></a>
 </div>

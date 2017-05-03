@@ -2,11 +2,21 @@ App.controller('ReviewController', function($scope,$rootScope,FlightService, Boo
 
 	$scope.successMessage = false;
 	$scope.errorMessage = false;
-
+	
+	$scope.showReturnDetails = false;
 	$scope.flight = {};
+
 	$scope.flight = SharedData.getFlight();
 	//console.log($scope.flight);
 	//console.log($scope.flight.arrivalCity);
+
+	$scope.flight = SharedData.getDepartureFlight();
+	$scope.returnFlight = SharedData.getReturnFlight();
+	if ($scope.flight.oneway != true) {
+		$scope.showReturnDetails = true;
+	}
+	console.log($scope.flight);
+	console.log($scope.flight.arrivalCity);
 	console.log($scope.flight.flightNumber);
 	console.log($rootScope.uname);
 	
@@ -57,5 +67,4 @@ App.controller('ReviewController', function($scope,$rootScope,FlightService, Boo
 				}
 		);
 	};
-	
 });

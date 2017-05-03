@@ -2,15 +2,21 @@ App.controller('ResultsController', function($scope, FlightService, SharedData, 
 	$scope.showRetrievingResults = true;
 	$scope.showFilterPanel = false;
 
-	$scope.flights = {};
+	$scope.flights = [];
 	FlightService.getFlightResults(SharedData.getForm()).then(function(successResponse){
-	//FlightService.getFlightResultsTESTING($scope.form).then(function(successResponse){
-		$scope.flights = FlightService.populateFlightsList(successResponse);
-		console.log($scope.flights);
-		SharedData.setFlights($scope.flights);
-		console.log($scope.flights);
-		$scope.showRetrievingResults = false;
+	//FlightService.getFlightResultsTESTING(SharedData.getForm()).then(function(successResponse){
+		$scope.form = SharedData.getForm();
+		if ($scope.form.returnDate == undefined) {
+			SharedData.setDepartureFlights(FlightService.populateOnewayList(successResponse));
+			$scope.flights = SharedData.getDepartureFlights();
+		} else {
+			SharedData.setDepartureFlights(FlightService.populateDeparturesList(successResponse));
+			SharedData.setReturnFlights(FlightService.populateReturnsList(successResponse));
+			$scope.flights = SharedData.getDepartureFlights();
+			$scope.showRetrievingResults = false;
+		}
 		$scope.showFilterPanel = true;
+		$scope.showRetrievingResults = false;
 	});
 	
 	$scope.filterDuration = function() {
@@ -55,7 +61,17 @@ App.controller('ResultsController', function($scope, FlightService, SharedData, 
 	};
 	
 	$scope.selectedFlight = function(flight) {
-		SharedData.setFlight(flight);
-		$location.path("/review");
+		if (flight.oneway == true) {
+			SharedData.setDepartureFlight(flight);
+			$location.path("/review");
+		}
+		if (flight.returnFlight == false) {
+			$scope.flights = [];
+			SharedData.setDepartureFlight(flight);
+			$scope.flights = SharedData.getReturnFlights();
+		} else if (flight.returnFlight == true) {
+			SharedData.setReturnFlight(flight);
+			$location.path("/review");
+		}
 	};
 });
