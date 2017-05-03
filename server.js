@@ -46,7 +46,7 @@ app.post('/verifyUser', function (req, res) {
 			"user": ""
 	};
 	pool.getConnection(function (err, connection) {
-		connection.query('select * from user where username = ? and password=?',[uname,  pword], function (err, rows, fields){
+		connection.query('select * from user_details where username = ? and password=?',[uname,  pword], function (err, rows, fields){
 			if (rows!==undefined) {
 				if( rows.length !== 0 && !err) {
 					data.error = 0;
@@ -117,7 +117,7 @@ app.post('/insert', function (req, res) {
 
 	if (!!uname && !!uemail && !!pword && !!pwordCon) {
 		pool.getConnection(function (err, connection) {
-			connection.query("INSERT INTO user SET username = ?, password = ?, email = ?,confirmpassword = ?",
+			connection.query("INSERT INTO user_details SET username = ?, password = ?, email = ?,confirmpassword = ?",
 					[uname,  pword, uemail, pwordCon], function (err, rows, fields) {
 				if (!!err) {
 					data.user = "Error Adding data";

@@ -7,7 +7,7 @@ App.controller('LoginController', function($scope,$cookieStore ,AuthService, $ro
 
 	$rootScope.pageTitle = $route.current.title;
 	$scope.moduleTitle = "Login to Site";
-	$rootScope.uname = $scope.data.email;
+	
 	
 
 
@@ -37,7 +37,9 @@ App.controller('LoginController', function($scope,$cookieStore ,AuthService, $ro
 					
 						AuthService.setCredentials(user.uname);
 						
-						
+						$rootScope.uname = $scope.data.email;
+						console.log("root scope");
+						console.log($rootScope.uname);
 						$location.path("/");
 					}
 					console.log("In Controller : ");

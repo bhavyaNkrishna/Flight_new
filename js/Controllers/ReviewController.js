@@ -6,7 +6,7 @@ App.controller('ReviewController', function($scope,$rootScope,FlightService, Boo
 	$scope.showReturnDetails = false;
 	$scope.flight = {};
 
-	$scope.flight = SharedData.getFlight();
+	//$scope.flight = SharedData.getFlight();
 	//console.log($scope.flight);
 	//console.log($scope.flight.arrivalCity);
 
@@ -17,9 +17,11 @@ App.controller('ReviewController', function($scope,$rootScope,FlightService, Boo
 	}
 	console.log($scope.flight);
 	console.log($scope.flight.arrivalCity);
+	console.log($scope.flight.arrivalDate);
 	console.log($scope.flight.flightNumber);
 	console.log($rootScope.uname);
-	
+	$scope.date = new Date();
+	console.log($scope.date);
 	
 	
 	$scope.bookFlight = function() {
