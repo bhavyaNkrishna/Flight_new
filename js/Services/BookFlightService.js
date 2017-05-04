@@ -8,10 +8,11 @@ App.factory('BookFlightService', ['$http', '$q', function($http, $q){
     return factory;
     
     
-    function bookFlight(flight) {
+    function bookFlight(data) {
         var deferred = $q.defer();
         console.log("in flight service");
-        $http.post('/insertflight', flight)
+        console.log(data);
+        $http.post('/insertflight', data)
             .then(
             function (response) {
                 deferred.resolve(response.data);

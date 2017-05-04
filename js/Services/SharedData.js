@@ -5,6 +5,7 @@ App.service('SharedData', function () {
     var form = [];
     var departureFlight = [];
     var returnFlight = [];
+    var uname = "";
 
     return {
         //Getter and Setter function for sharing data between controller
@@ -44,6 +45,14 @@ App.service('SharedData', function () {
         setReturnFlight: function(value) {
             console.log(value);
             returnFlight = value;
+        },
+        
+        getUname: function() {
+            return uname;
+        },
+        setUname: function(value) {
+            console.log(value);
+            uname = value;
         }
     };
 });

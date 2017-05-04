@@ -19,39 +19,33 @@ App.controller('ReviewController', function($scope,$rootScope,FlightService, Boo
 	console.log($scope.flight.arrivalCity);
 	console.log($scope.flight.arrivalDate);
 	console.log($scope.flight.flightNumber);
-	console.log($rootScope.uname);
-	$scope.date = new Date();
-	console.log($scope.date);
+	console.log($scope.flight.arrivalTime);
 	
+	for(var i=0;i<$scope.flight.legs.length;i++){
+		console.log("leg details");
+		console.log($scope.flight.legs[i].flightNumber);
+	}
 	
+	//console.log($rootScope.uname);
+	//var uname = $rootScope.uname;
+	//$scope.date = new Date();
+	//submittedDate = $scope.date;
+	//console.log($scope.date);
+	
+	var uname = SharedData.getUname();
+	 
 	$scope.bookFlight = function() {
 		console.log("in book function");
-
-		var flightDetails = {
-				"arrivalCity": "",
-				"arrivalDate": "",
-				"departureCity" : "",
-				"departureDate" : "",
-				"flightNumber" : "",
-				"price" :"",
-				"uname" : ""
-				
-				
-				
-		};
-
-		flightDetails.arrivalCity = $scope.flight.arrivalCity;
-		flightDetails.arrivalDate = $scope.flight.arrivalDate;
-		flightDetails.departureCity = $scope.flight.departureCity;
-		flightDetails.departureDate = $scope.flight.departureDate;
-		flightDetails.flightNumber = $scope.flight.flightNumber;
-		flightDetails.price = $scope.flight.price;
-		flightDetails.uname = $scope.data.uname;
-	
-	   BookFlightService.bookFlight(flightDetails)
+		   var data = {
+	        		flight : "",
+	        		uname : ""
+	        };
+	        data.flight = $scope.flight;
+	        data.uname = uname;
+	   BookFlightService.bookFlight(data)
 		.then(
-				function(flight) {
-					if(flight.error===1){
+				function(flightResponse) {
+					if(flightResponse.error===1){
 						$scope.successMessage= false;
 						$scope.errorMessage="User not registered Click on SignUp to register";
 
