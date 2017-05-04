@@ -12,8 +12,8 @@ App.controller('ResultsController', function($scope, FlightService, SessionServi
 	$scope.showFilterPanel = false;
 
 	$scope.flights = [];
-	//FlightService.getFlightResults(SharedData.getForm()).then(function(successResponse){
-	FlightService.getFlightResultsTESTING(SharedData.getForm()).then(function(successResponse){
+	FlightService.getFlightResults(SharedData.getForm()).then(function(successResponse){
+	//FlightService.getFlightResultsTESTING(SharedData.getForm()).then(function(successResponse){
 		$scope.form = SharedData.getForm();
 		if ($scope.form.returnDate == undefined) {
 			SharedData.setDepartureFlights(FlightService.populateOnewayList(successResponse));
