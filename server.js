@@ -285,8 +285,9 @@ app.post('/insertflight', function (req, res) {
 				var id;
 				var stop;
 				log.info(legAndStopMap);
-				log.info("the leg details are leg id" +legAndStopMap[id]);
-				log.info("the leg details are stop number" +legAndStopMap[stop]);
+				
+				log.info("the leg details are leg id" +legAndStopMap[0].id);
+				log.info("the leg details are stop number" +legAndStopMap[0].stop);
 				if(!legAndStopMap){
 					connection.query('INSERT INTO leg_details  SET Reservation_ID = ?, Initial_Flight_ID = ?',  
 								[reservationID,initialId], function(err, results, fields) {
@@ -307,10 +308,11 @@ app.post('/insertflight', function (req, res) {
 						});
 				}
 				else{
-					async.each(legs,function(leg,callback){
+					async.each(legAndStopMap,function(legAndStopMap,callback){
 						var i=0;
-						connection.query('INSERT INTO leg_details  SET Reservation_ID = ?, Flight_Leg_ID = ?, Stop_Number = ?',  
-								[reservationID,legAndStopMap, leg.arrivalDate, leg.departureDate,leg.departureCity,leg.arrivalTime,leg.departureTime,leg.duration], function(err, results, fields) {
+						log.info("inside else block");
+						connection.query('INSERT INTO leg_details  SET Reservation_ID = ?,Initial_Flight_ID = ?, Flight_Leg_ID = ?, Stop_Number = ?',  
+								[reservationID,initialId,legAndStopMap.id,legAndStopMap.stop], function(err, results, fields) {
 
 							log.info(results);
 							if (!!err) {
@@ -320,18 +322,17 @@ app.post('/insertflight', function (req, res) {
 							} else {
 								responseData.error = 0;
 								responseData.flight = "Selected Userid Successfully";
-								log.info("Added: legs data ");
-								legAndStopMap.push({id:results.insertId,stop:++i});
-								log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
+								log.info("Added: legs data in leg details table");
+								//legAndStopMap.push({id:results.insertId,stop:++i});
+								//log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
 								callback();
 							}
 						});
 					},function(err) {
-						log.info("completed");
-						callback(null,userID,reservationID,initialId,legAndStopMap);
+						log.info("completed fourth function");
+						callback(null);
 					});
-					
-					
+			
 				}
 			}
 
@@ -339,36 +340,6 @@ app.post('/insertflight', function (req, res) {
 			log.info("in final function");
 		});
 
-
-		//log.info("outside");
-		//log.info(userId);
-		/*connection.query('INSERT INTO reservation_details  SET User_ID = ?, SubmittedDate = ?, IsReserved = ?,Reservation_Price = ?',        
-							[uname,  submittedDate , false , price], function(err, rows) {
-						if (!!err) {
-							data.user = "Error Adding data";
-							log.error(err);
-						} else {
-							data.error = 0;
-							data.user = "User Added Successfully";
-							log.info("Added: " + [uname, uemail]);
-						}
-					});
-
-					function insertToFlight(flight, callback) {
-					connection.query('INSERT INTO flight_details  SET Flight_Number = ?, Arrival_City = ?, Arrival_Date = ?,Departure_Date = ? ,'+
-							'Departure_City = ?,Arrival_Time = ?,Departure_Time = ?,Flight_Duration = ?',        
-							[flightNumber,arrivalCity, arrivalDate, departureDate, departureCity, arrivalTime,departureTime,duration], function(err, rows) {
-						if (!!err) {
-							data.user = "Error Adding data";
-							log.error(err);
-						} else {
-							data.error = 0;
-							data.user = "User Added Successfully";
-							log.info("Added: " + [uname, uemail]);
-						}
-					});	*/				
-
-		//}
 	});
 	//}
 });

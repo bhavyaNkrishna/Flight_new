@@ -47,6 +47,10 @@ App.config(['$routeProvider', function ($routeProvider) {
 		templateUrl : "views/trips.html",
 		controller : "TripsController"
 	})
+	.when("/bookingForm", {
+		templateUrl : "views/bookingForm.html",
+		controller : "TripsController"
+	})
 	.otherwise({
 		redirectTo: "/"
 	});
