@@ -280,10 +280,59 @@ app.post('/insertflight', function (req, res) {
 					 
 			},
 			//Leg and Stop Details
-			function(userID,reservationID,flightID,legAndStopMap,callback){
+			function(userID,reservationID,initialId,legAndStopMap,callback){
 				log.info("in fourth function");
+				var id;
+				var stop;
 				log.info(legAndStopMap);
-				callback(null);
+				log.info("the leg details are leg id" +legAndStopMap[id]);
+				log.info("the leg details are stop number" +legAndStopMap[stop]);
+				if(!legAndStopMap){
+					connection.query('INSERT INTO leg_details  SET Reservation_ID = ?, Initial_Flight_ID = ?',  
+								[reservationID,initialId], function(err, results, fields) {
+
+							log.info(results);
+							if (!!err) {
+								responseData.flight = "Error selecting data";
+								log.error(err);
+								callback(err);
+							} else {
+								responseData.error = 0;
+								responseData.flight = "Selected Userid Successfully";
+								log.info("Added: into legDetails table with initial id ");
+								//legAndStopMap.push({id:results.insertId,stop:++i});
+								//log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
+								callback(null);
+							}
+						});
+				}
+				else{
+					async.each(legs,function(leg,callback){
+						var i=0;
+						connection.query('INSERT INTO leg_details  SET Reservation_ID = ?, Flight_Leg_ID = ?, Stop_Number = ?',  
+								[reservationID,legAndStopMap, leg.arrivalDate, leg.departureDate,leg.departureCity,leg.arrivalTime,leg.departureTime,leg.duration], function(err, results, fields) {
+
+							log.info(results);
+							if (!!err) {
+								responseData.flight = "Error selecting data";
+								log.error(err);
+								callback(err);
+							} else {
+								responseData.error = 0;
+								responseData.flight = "Selected Userid Successfully";
+								log.info("Added: legs data ");
+								legAndStopMap.push({id:results.insertId,stop:++i});
+								log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
+								callback();
+							}
+						});
+					},function(err) {
+						log.info("completed");
+						callback(null,userID,reservationID,initialId,legAndStopMap);
+					});
+					
+					
+				}
 			}
 
 			], function(err,result) {

@@ -26,7 +26,7 @@ App.controller('ReviewController', function($scope,$rootScope,FlightService, Boo
 		console.log($scope.flight.legs[i].flightNumber);
 	}
 	
-	//console.log($rootScope.uname);
+console.log($rootScope.uname);
 	//var uname = $rootScope.uname;
 	//$scope.date = new Date();
 	//submittedDate = $scope.date;
