@@ -1,21 +1,36 @@
 <!-- Navigation -->
-<nav ng-if="loginbutton" class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
-		<a href="#/login"><button type="button"
-				class="btn btn-default navbar-btn navbar-right">
-				Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-			</button></a>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header navbar-right"">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar-collapse"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+		</div>
 
-	</div>
-</nav>
-<!-- Navigation -->
-<nav ng-if="logoutbutton" class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
-		<a href="#/logout"><button type="button"
-				class="btn btn-default navbar-btn navbar-right">
-				Logout <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-			</button></a>
-
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#/search"> New Search <span
+						class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				</a></li>
+				<li><a href="#/search"> Profile <span
+						class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				</a></li>
+				<li><a href="#/trips""> My Trips <span
+						class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+				</a></li>
+				<li ng-if="loginbutton"><a href="#/login">
+						Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+				</a></li>
+				<li ng-if="logoutbutton"><a href="#/logout"> Logout <span
+						class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+				</a></li>
+			</ul>
+		</div>
 	</div>
 </nav>
 <div class="col-md-4 col-md-offset-4">
