@@ -1,4 +1,12 @@
-App.controller('ReviewController', function($scope,$rootScope,FlightService, BookFlightService, SharedData,$location) {
+App.controller('ReviewController', function($scope, $rootScope, FlightService, BookFlightService, SessionService, SharedData, $location) {
+	
+	if(!SessionService.getCookieData()) {
+		$scope.loginbutton = true;
+		$scope.logoutbutton = false;
+	} else {
+		$scope.loginbutton = false;
+		$scope.logoutbutton = true;
+	}
 
 	$scope.successMessage = false;
 	$scope.errorMessage = false;

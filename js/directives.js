@@ -22,7 +22,6 @@ App.directive('datepicker', function () {
     }
 });
 
-
 App.directive('pwCheck', [function () {
 return {
     require: 'ngModel',

@@ -1,4 +1,13 @@
-App.controller('ResultsController', function($scope, FlightService, SharedData, $location) {
+App.controller('ResultsController', function($scope, FlightService, SessionService, SharedData, $location) {
+	
+	if(!SessionService.getCookieData()) {
+		$scope.loginbutton = true;
+		$scope.logoutbutton = false;
+	} else {
+		$scope.loginbutton = false;
+		$scope.logoutbutton = true;
+	}
+	
 	$scope.showRetrievingResults = true;
 	$scope.showFilterPanel = false;
 
