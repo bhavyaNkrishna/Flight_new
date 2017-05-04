@@ -1,44 +1,10 @@
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header navbar-right"">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#navbar-collapse"
-				aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="navbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#/search"> New Search <span
-						class="glyphicon glyphicon-search" aria-hidden="true"></span>
-				</a></li>
-				<li><a href="#/search"> Profile <span
-						class="glyphicon glyphicon-user" aria-hidden="true"></span>
-				</a></li>
-				<li><a href="#/trips""> My Trips <span
-						class="glyphicon glyphicon-plane" aria-hidden="true"></span>
-				</a></li>
-				<li ng-if="loginbutton"><a href="#/login">
-						Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-				</a></li>
-				<li ng-if="logoutbutton"><a href="#/logout"> Logout <span
-						class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-				</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
-<div class="row" id="itineraries">
+<div class="row">
 	<div class="col-md-4 col-md-offset-2">
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<p>Booked Itineraries</p>
-				<p>Booked flights go here</p>
+				<p id="itineraries">Booked flights go here</p>
+				<button ng-click="print()">Print</button>
 			</div>
 		</div>
 	</div>

@@ -188,7 +188,7 @@ App.service('FlightService', ['$http', function($http){
                             "saleCountry": "US",
                             "ticketingCountry": "US",
                             "refundable": formData.refundable,
-                            "solutions": 20
+                            "solutions": 100
                           }
                         }
             
@@ -231,7 +231,7 @@ App.service('FlightService', ['$http', function($http){
                             "saleCountry": "US",
                             "ticketingCountry": "US",
                             "refundable": formData.refundable,
-                            "solutions": 20
+                            "solutions": 100
                           }
                         }
             
@@ -262,7 +262,7 @@ App.service('FlightService', ['$http', function($http){
     this.filterEarly = function(flights) {
     	var subflights = [];
     	for (var i = 0; i < flights.length; i++) {
-    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 6 && parseInt(flights[i].departureDate.substring(0,3)) < 10) {
+    		if (parseInt(flights[i].departureTime.substring(0,3)) >= 6 && parseInt(flights[i].departureTime.substring(0,3)) < 10) {
     			subflights.push(flights[i]);
     		}
     	}
@@ -272,7 +272,7 @@ App.service('FlightService', ['$http', function($http){
     this.filterMidday = function(flights) {
     	var subflights = [];
     	for (var i = 0; i < flights.length; i++) {
-    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 10 && parseInt(flights[i].departureDate.substring(0,3)) < 14) {
+    		if (parseInt(flights[i].departureTime.substring(0,3)) >= 10 && parseInt(flights[i].departureTime.substring(0,3)) < 14) {
     			subflights.push(flights[i]);
     		}
     	}
@@ -282,7 +282,7 @@ App.service('FlightService', ['$http', function($http){
     this.filterAfternoon = function(flights) {
     	var subflights = [];
     	for (var i = 0; i < flights.length; i++) {
-    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 14 && parseInt(flights[i].departureDate.substring(0,3)) < 18) {
+    		if (parseInt(flights[i].departureTime.substring(0,3)) >= 14 && parseInt(flights[i].departureTime.substring(0,3)) < 18) {
     			subflights.push(flights[i]);
     		}
     	}
@@ -292,7 +292,7 @@ App.service('FlightService', ['$http', function($http){
     this.filterEvening = function(flights) {
     	var subflights = [];
     	for (var i = 0; i < flights.length; i++) {
-    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 18 && parseInt(flights[i].departureDate.substring(0,3)) < 22) {
+    		if (parseInt(flights[i].departureTime.substring(0,3)) >= 18 && parseInt(flights[i].departureTime.substring(0,3)) < 22) {
     			subflights.push(flights[i]);
     		}
     	}
@@ -302,7 +302,7 @@ App.service('FlightService', ['$http', function($http){
     this.filterOvernight = function(flights) {
     	var subflights = [];
     	for (var i = 0; i < flights.length; i++) {
-    		if (parseInt(flights[i].departureDate.substring(0,3)) >= 22 && parseInt(flights[i].departureDate.substring(0,3)) < 6) {
+    		if (parseInt(flights[i].departureTime.substring(0,3)) >= 22 && parseInt(flights[i].departureTime.substring(0,3)) < 6) {
     			subflights.push(flights[i]);
     		}
     	}
