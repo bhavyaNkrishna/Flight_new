@@ -25,9 +25,11 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 	}
 	console.log($scope.flight);
 	console.log($scope.flight.arrivalCity);
+	console.log($scope.flight.arrivalDate);
 	console.log($scope.flight.flightNumber);
 	console.log($rootScope.uname);
-	
+	$scope.date = new Date();
+	console.log($scope.date);
 	
 	
 	$scope.bookFlight = function() {
