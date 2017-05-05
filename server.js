@@ -153,6 +153,7 @@ app.post('/insertflight', function (req, res) {
 	var returnFlight =  req.body.flight.returnFlight;
 	var oneway = req.body.flight.oneway;
 	var uname = req.body.uname;
+	var reservationId = req.body.reservationId;
 
 	var userId ;
 
@@ -171,7 +172,8 @@ app.post('/insertflight', function (req, res) {
 
 	var responseData = {
 			"error": 1,
-			"flight": ""
+			"errorMsg" : "",
+			"reservationId": ""
 	};
 
 	//log.info(pwordCon);
@@ -181,88 +183,99 @@ app.post('/insertflight', function (req, res) {
 	log.info("inside inf");
 	pool.getConnection(function (err, connection) {
 
+		log.info("reservation conditions");
+		log.info(reservationId);
+		log.info(!reservationId);
+		log.info(!!reservationId);
+
 		async.waterfall([
 			//UserId
 			function(callback) {
-				connection.query('SELECT user_id FROM user_details WHERE username = ?',        
-						uname, function(err, rows, fields) {
-					//log.info(results);
-					//log.info("Row");
-					log.info(rows);
-					if (!!err) {
-						responseData.flight = "Error selecting data";
-						log.error(err);
-						callback(err);
-					} else {
-						responseData.error = 0;
-						responseData.flight = "Selected Userid Successfully";
-						log.info("Added: ");
-						callback(null,rows[0].user_id);
-					}
-				});
+				if(!reservationId) {
+					connection.query('SELECT user_id FROM user_details WHERE username = ?',        
+							uname, function(err, rows, fields) {
+						//log.info(results);
+						//log.info("Row");
+						log.info(rows);
+						if (!!err) {
+							responseData.errorMsg = "Error selecting data from user details table";
+							log.error(err);
+							callback(err);
+						} else {
+							responseData.error = 0;
+							log.info("Added: ");
+							callback(null,rows[0].user_id);
+						}
+					});
+				} else {
+					callback(null,0);
+				}
 			},
 			//Reservation
 			function(userID,callback){
 				log.info("in second function");
 				log.info(price);
-				connection.query('INSERT INTO reservation_details  SET User_ID = ?, IsReserved = ?, Reservation_Price = ?',        
-						[userID, false , price], function(err, results, fields) {
-					//log.info(results);
-					//log.info("Row");
-					//log.info(rows);
-					if (!!err) {
-						responseData.flight = "Error selecting data";
-						log.error(err);
-						callback(err);
-					} else {
-						responseData.error = 0;
-						responseData.flight = "Selected Userid Successfully";
-						log.info("Added: ");
-						callback(null,userID,results.insertId);
-					}
-				});
+				if(!reservationId) {
+					connection.query('INSERT INTO reservation_details  SET User_ID = ?, IsReserved = ?, Reservation_Price = ?',        
+							[userID, false , price], function(err, results, fields) {
+						//log.info(results);
+						//log.info("Row");
+						//log.info(rows);
+						if (!!err) {
+							responseData.errorMsg = "Error Inserting data into reservation details table";
+							log.error(err);
+							callback(err);
+						} else {
+							responseData.error = 0;
+							log.info("Added: ");
+							responseData.reservationId = results.insertId;
+							callback(null,results.insertId);
+						}
+					});
+				} else {
+					callback(null,reservationId);
+					responseData.reservationId = reservationId;
+				}
 			},
 			//flight
-			function(userID,reservationID,callback){
+			function(reservationID,callback){
 				log.info("in third function");
 				//log.info(userID + " " + reservationID);
 				var initialId = "";
-				connection.query('INSERT INTO flight_details  SET Flight_Number = ?, Arrival_City = ?, Arrival_Date = ? ,Departure_Date = ?,Departure_City =?, Arrival_Time =?,Departure_Time=?,Flight_Duration=?',  
-						[flightNumber, arrivalCity , arrivalDate,departureDate,departureCity,arrivalTime,departureTime,duration], function(err, results, fields) {
+				connection.query('INSERT INTO flight_details  SET Flight_Number = ?, Arrival_City = ?, Arrival_Date = ? ,Departure_Date = ?,Departure_City =?, Arrival_Time =?,Departure_Time=?,Flight_Duration=? ,Return_Flight = ? ' ,  
+						[flightNumber, arrivalCity , arrivalDate,departureDate,departureCity,arrivalTime,departureTime,duration,returnFlight], function(err, results, fields) {
 
 					log.info(results);
 					if (!!err) {
-						responseData.flight = "Error selecting data";
+						responseData.errorMsg = "Error Inserting data into flight details table";
 						log.error(err);
 						callback(err);
 					} else {
 						responseData.error = 0;
-						responseData.flight = "Selected Userid Successfully";
 						log.info("Added Third intial flight: ");
 						initialId = results.insertId;
-						callback(null,userID,reservationID,initialId);
+						callback(null,reservationID,initialId);
 					}
 				});
 
 
 			},
 			//Leg Details
-			function(userID,reservationID,initialId,callback) {
+			function(reservationID,initialId,callback) {
 				var legAndStopMap = [];
 				if(!!legs) {
 					var i=0;
 					async.each(legs,function(leg,legCallback){
-						connection.query('INSERT INTO flight_details  SET Flight_Number = ?, Arrival_City = ?, Arrival_Date = ? ,Departure_Date = ?,Departure_City =?, Arrival_Time =?,Departure_Time=?,Flight_Duration=?',  
-								[leg.flightNumber,leg.arrivalCity , leg.arrivalDate, leg.departureDate,leg.departureCity,leg.arrivalTime,leg.departureTime,leg.duration], function(err, results, fields) {
+						connection.query('INSERT INTO flight_details  SET Flight_Number = ?, Arrival_City = ?, Arrival_Date = ? ,Departure_Date = ?,Departure_City =?, Arrival_Time =?,Departure_Time=?,Flight_Duration=?,Return_Flight=?',  
+								[leg.flightNumber,leg.arrivalCity , leg.arrivalDate, leg.departureDate,leg.departureCity,leg.arrivalTime,leg.departureTime,leg.duration,leg.returnFlight], function(err, results, fields) {
 
 							log.info(results);
 							if (!!err) {
-								responseData.flight = "Error selecting data";
+								responseData.errorMsg = "Error Inserting data into flight details table";
 								log.error(err);
 								legCallback(err);
 							} else {
 								responseData.error = 0;
-								responseData.flight = "Selected Userid Successfully";
 								log.info("Added: legs data ");
 								legAndStopMap.push({id:results.insertId,stop:++i});
 								log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
@@ -271,41 +284,40 @@ app.post('/insertflight', function (req, res) {
 						});
 					},function(err) {
 						log.info("completed");
-						callback(null,userID,reservationID,initialId,legAndStopMap);
+						callback(null,reservationID,initialId,legAndStopMap);
 					});
 				} else {
-					callback(null,userID,reservationID,initialId,legAndStopMap);
+					callback(null,reservationID,initialId,legAndStopMap);
 
 				}
-					 
+
 			},
 			//Leg and Stop Details
-			function(userID,reservationID,initialId,legAndStopMap,callback){
+			function(reservationID,initialId,legAndStopMap,callback){
 				log.info("in fourth function");
 				var id;
 				var stop;
 				log.info(legAndStopMap);
-				
+
 				log.info("the leg details are leg id" +legAndStopMap[0].id);
 				log.info("the leg details are stop number" +legAndStopMap[0].stop);
 				if(!legAndStopMap){
 					connection.query('INSERT INTO leg_details  SET Reservation_ID = ?, Initial_Flight_ID = ?',  
-								[reservationID,initialId], function(err, results, fields) {
+							[reservationID,initialId], function(err, results, fields) {
 
-							log.info(results);
-							if (!!err) {
-								responseData.flight = "Error selecting data";
-								log.error(err);
-								callback(err);
-							} else {
-								responseData.error = 0;
-								responseData.flight = "Selected Userid Successfully";
-								log.info("Added: into legDetails table with initial id ");
-								//legAndStopMap.push({id:results.insertId,stop:++i});
-								//log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
-								callback(null);
-							}
-						});
+						log.info(results);
+						if (!!err) {
+							responseData.errorMsg = "Error Inserting data into leg details table";
+							log.error(err);
+							callback(err);
+						} else {
+							responseData.error = 0;
+							log.info("Added: into legDetails table with initial id ");
+							//legAndStopMap.push({id:results.insertId,stop:++i});
+							//log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
+							callback(null);
+						}
+					});
 				}
 				else{
 					async.each(legAndStopMap,function(legAndStopMap,callback){
@@ -316,12 +328,11 @@ app.post('/insertflight', function (req, res) {
 
 							log.info(results);
 							if (!!err) {
-								responseData.flight = "Error selecting data";
+								responseData.errorMsg = "Error Inserting data into leg details table";
 								log.error(err);
 								callback(err);
 							} else {
 								responseData.error = 0;
-								responseData.flight = "Selected Userid Successfully";
 								log.info("Added: legs data in leg details table");
 								//legAndStopMap.push({id:results.insertId,stop:++i});
 								//log.info("after legs" + legAndStopMap.length+ " : "+legs.length);
@@ -332,12 +343,13 @@ app.post('/insertflight', function (req, res) {
 						log.info("completed fourth function");
 						callback(null);
 					});
-			
+
 				}
 			}
 
 			], function(err,result) {
 			log.info("in final function");
+			res.json(responseData);
 		});
 
 	});

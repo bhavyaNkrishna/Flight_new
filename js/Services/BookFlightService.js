@@ -1,8 +1,7 @@
 App.factory('BookFlightService', ['$http', '$q', function($http, $q){
 
     var factory = {
-    		bookFlight: bookFlight
-        
+    		bookFlight: bookFlight       
     };
 
     return factory;
@@ -15,6 +14,8 @@ App.factory('BookFlightService', ['$http', '$q', function($http, $q){
         $http.post('/insertflight', data)
             .then(
             function (response) {
+            	console.log("Response after call");
+            	console.log(response);
                 deferred.resolve(response.data);
             },
             function(errResponse){
