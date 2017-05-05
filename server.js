@@ -20,8 +20,9 @@ var pool = mysql.createPool({
 	connectionLimit : 100,
 	host: "127.0.0.1",
 	user: "root",
-	password: "Password123",
+	password: "Pt9@mysql",
 	database: "synechron_db",
+	dateStrings:true,
 	port: "3306"
 });
 
@@ -41,7 +42,7 @@ pool.getConnection(function (err, connection) {
 app.post('/verifyUser', function (req, res) {
 	var uname = req.body.uname;
 	var pword = req.body.pword;
-	log.info(req);
+	//log.info(req);
 	var data = {
 			"error": 1,
 			"user": ""
@@ -52,6 +53,7 @@ app.post('/verifyUser', function (req, res) {
 				if( rows.length !== 0 && !err) {
 					data.error = 0;
 					data.user = rows;
+					//log.info(data.user);
 					res.json(data);
 				} else if (rows.length === 0) {
 					data.error = 1;
@@ -60,6 +62,44 @@ app.post('/verifyUser', function (req, res) {
 			}  else {				
 				data.error = 1;
 				res.json(data);
+				log.error('Error while performing Query: ' + err);
+			}
+		});
+	});
+});
+
+app.post('/bookedFlight', function (req, res) {
+	var uname = req.body.uname;
+	log.info(req);
+	log.info("entered");
+	var data = {
+			"error": 1,
+			"userid": {},
+			"reserveid": {},
+			"subdate": {},
+			"reserved": {},
+			"price": {}
+	};
+	pool.getConnection(function (err, connection) {
+		connection.query('select * from reservation_details where USER_ID like (select user_id from user_details where username=?)',uname, function (err, rows, fields){
+			if (rows!==undefined) {
+				if( rows.length !== 0 && !err) {
+					data.error = 0;
+					for(var i in rows){
+					data.reserveid = rows[i].Reservation_ID;
+					data.userid = rows[i].User_ID;
+					data.subdate = rows[i].date;
+					data.reserved = rows[i].IsReserved;
+					data.price = rows[i].Reservation_Price;
+					}
+				    res.send(data);
+				} else if (rows.length === 0) {
+					data.error = 1;
+					res.send(data);
+				}
+			}  else {				
+				data.error = 1;
+				res.send(data);
 				log.error('Error while performing Query: ' + err);
 			}
 		});
@@ -373,6 +413,6 @@ app.post('/insertflight', function (req, res) {
 	//}
 });
 
-var server = app.listen(8084);
+var server = app.listen(8086);
 //app.listen(8085);
 
