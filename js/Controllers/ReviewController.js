@@ -42,8 +42,6 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 
 	var uname = SharedData.getUname();
     console.log(uname);
-    $rootScope.uname = uname;
-    console.log("the rootscope is" +$rootScope.uname);
 	$scope.bookFlight = function() {
 		console.log("in book function");
 		var data = {
@@ -126,7 +124,6 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 					$scope.errorMessage="Flight is not Reserved";
 				} else {
 					$scope.errorMessage= false;
-					$location.path("/thankYou");
 				}
 				console.log("In Controller : ");
 				console.log(data);

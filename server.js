@@ -38,7 +38,7 @@ pool.getConnection(function (err, connection) {
 		log.error('Error connecting database ... ');
 	}
 	var task=cron.schedule('* * * * *', function() {
-		connection.query('delete from synechron_db.reservation_details where IsReserved=0 and NOW() >= SubmittedDate +  INTERVAL 24 hour',function (err, rows, fields){
+		connection.query('delete from reservation_details where IsReserved=0 and NOW() >= SubmittedDate +  INTERVAL 24 hour',function (err, rows, fields){
 			if(!err)
 				{
 				log.info('cron job started');
@@ -55,6 +55,7 @@ pool.getConnection(function (err, connection) {
 
 app.post('/verifyUser', function (req, res) {
 	var uname = req.body.uname;
+	log.info("username check " + uname);
 	var pword = req.body.pword;
 	//log.info(req);
 	var data = {
@@ -82,33 +83,39 @@ app.post('/verifyUser', function (req, res) {
 	});
 });
 
-app.post('/autocomplete', function (req, res) {
-	var term1 = req.body.term + "%";
-	var term2 = "%" + req.body.term + "%";
+
+app.post('/bookedFlight', function (req, res) {
+	var uname = req.body.uname;
+	log.info(req);
+	log.info("entered");
 	var data = {
-			"value": ""
+			"error": 1,
+			"cronerror":1,
+	        "fldata": []
 	};
 	pool.getConnection(function (err, connection) {
-
-		connection.query('select code, name from airports where city like ? or name like ? or state like ?',[term1, term2, term2], function (err, rows, fields){
-			log.info(rows);
-
+		connection.query('select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved,r.Reservation_Price from flight_details f  JOIN leg_details l JOIN reservation_details r ON f.Flight_ID = l.Initial_Flight_ID  and l.Reservation_ID = r.Reservation_ID and r.User_ID like  (select user_id from user_details where username=?)',uname, function (err, rows, fields){
 			if (rows!==undefined) {
 				if( rows.length !== 0 && !err) {
-					for (var i = 0; i < rows.length; i++) {
-						data.value = rows[i]["code"] + " - " + rows[i]["name"];
-					}
-					res.json(data);
-				} else if (rows.length === 0) {
+					data.error = 0;
+					for(var i in rows){
+						data.fldata.push({flightid:rows[i].Flight_ID, flightno:rows[i].Flight_Number, arrcity:rows[i].Arrival_City,arrdate:rows[i].Arrival_Date,depdate:rows[i].Departure_Date,
+							       depcity:rows[i].Departure_City,arrtime:rows[i].Arrival_Time, deptime:rows[i].Departure_Time, flightdur:rows[i].Flight_Duration,
+							       round:rows[i].Return_Flight,isr:rows[i].IsReserved,price:rows[i].Reservation_Price});
+						}
+				    res.json(data);
+				}else if (rows.length === 0) {
 					data.error = 1;
 					res.json(data);
 				}
-			}  else {				
+			} else {
+
 				data.error = 1;
 				res.json(data);
 				log.error('Error while performing Query: ' + err);
 			}
 		});
+
 
 	});
 
@@ -239,6 +246,9 @@ app.post('/insertflight', function (req, res) {
 			//UserId
 			function(callback) {
 				if(!reservationId) {
+					log.info("USERNAME IS " + uname);
+					log.info("ONEWAY IS " + oneway);
+					log.info("DEPARTURE CITY IS" + departureCity);
 					connection.query('SELECT user_id FROM user_details WHERE username = ?',        
 							[uname], function(err, rows, fields) {
 						//log.info(results);
