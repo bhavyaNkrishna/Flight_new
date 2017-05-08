@@ -1,21 +1,13 @@
 'use strict';
 App.controller('MainController',['$rootScope','$window', '$scope','$location','FlightService','SharedData','AuthService','SessionService',  function($rootScope,$window, $scope,$location, 
 		FlightService, SharedData,AuthService,SessionService) {
-	
-	if(!SessionService.getCookieData()) {
-		$scope.loginbutton = true;
-		$scope.logoutbutton = false;
-	} else {
-		$scope.loginbutton = false;
-		$scope.logoutbutton = true;
-	}
-	
+
 	$scope.roundTrip = false;
 	$scope.switchSearchForm = function(event) {
-		if (event.target.name == "oneWay") {
+		if (event.target.name === "oneWay") {
 			$scope.returnDateLabel = false;
 			$scope.returnDate = false;
-		} else if (event.target.name == "roundTrip") {
+		} else if (event.target.name === "roundTrip") {
 			$scope.returnDateLabel = true;
 			$scope.returnDate = true;
 		}
