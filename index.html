@@ -44,14 +44,21 @@
 <script src="js/pdfmake.min.js"></script>
 <script src="js/vfs_fonts.js"></script>
 
+<!-- For passwords encryption -->
+<script src="js/angular-md5.js"></script>
+
+
 <!-- Bootstrap Core JavaScript -->
 
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 <script src="js/bootstrap.min.js"></script>
-<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/ui-darkness/jquery-ui.min.css"
+<link
+	href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/ui-darkness/jquery-ui.min.css"
 	rel="stylesheet">
 
 <!-- Bootstrap Core JavaScript -->
@@ -81,8 +88,57 @@
 
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="HomeController">
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar-collapse"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<br> <a href="#/" class="navbar-left"><img
+					src="img/flight4.gif" style="padding-right: 10px"></a> 
+					<a class="navbar-brand" href="#/search"> New Search <span
+					class="glyphicon glyphicon-search" aria-hidden="true"> </span>
+					</a>
+			</div>
 
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+
+				<ul class="nav navbar-nav pull-right" ng-if="logoutbutton">
+					<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false"> 
+						<!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
+						My Profile <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#/">User Name : {{user.uname}}</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#/">E-mail{{user.uname}}:</a></li>
+						</ul></li>
+				</ul>
+
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="#/trips" ng-if="logoutbutton"> My Trips <span
+							class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+					</a></li>
+					<li ng-if="loginbutton"><a href="#/login"> Login <span
+							class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+					</a></li>
+					<li ng-if="logoutbutton"><a href="#/" ng-click="logout()"> Logout <span
+							class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+					</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
 	<!-- Header -->
 	<header id="top" class="header" style="padding-top: 50px">
 		<div class="text-vertical-center">

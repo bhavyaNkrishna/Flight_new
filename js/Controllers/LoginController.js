@@ -1,7 +1,7 @@
 
 'use strict';
 
-App.controller('LoginController', function($scope,$cookieStore,SharedData ,AuthService, $route, $rootScope,$location) {
+App.controller('LoginController', function($scope,$cookieStore, md5, SharedData ,AuthService, $route, $rootScope,$location) {
 	$scope.data = {};
 	$scope.errorMessage = false;
 
@@ -17,7 +17,8 @@ App.controller('LoginController', function($scope,$cookieStore,SharedData ,AuthS
 		};
 
 		user.uname = $scope.data.email;
-		user.pword = $scope.data.password;
+		var hashPword = md5.createHash($scope.data.password);
+		user.pword = hashPword;
 
 		console.log( $scope.data.email);
 		console.log(user.pword);
@@ -35,7 +36,8 @@ App.controller('LoginController', function($scope,$cookieStore,SharedData ,AuthS
 						//$rootScope.uname = $scope.data.email;
 						//console.log("root scope");
 						//console.log($rootScope.uname);
-						$location.path("/");
+						console.log("Previous " + $rootScope.previousLocation);
+						$location.path($rootScope.previousLocation);
 					}
 					console.log("In Controller : ");
 					console.log(data);

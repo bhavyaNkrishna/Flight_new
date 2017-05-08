@@ -1,7 +1,7 @@
 
 'use strict';
 
-App.controller('RegisterController', function($scope, RegisterService, $route, $rootScope,$location) {
+App.controller('RegisterController', function($scope, RegisterService, md5, $route, $rootScope,$location) {
 	$scope.data = {};
 	$scope.successMessage = false;
 	$scope.errorMessage = false;
@@ -22,8 +22,11 @@ App.controller('RegisterController', function($scope, RegisterService, $route, $
 
 		user.uname = $scope.data.uname;
 		user.uemail = $scope.data.uemail;
-		user.pword = $scope.data.password;
-		user.pwordCon = $scope.data.passwordConfirm;
+		 var hashPassword = md5.createHash($scope.data.password);
+		 console.log(hashPassword);
+		user.pword = hashPassword;
+		 var hashConfirmPassword = md5.createHash($scope.data.passwordConfirm);
+		user.pwordCon = hashConfirmPassword;
 
 		RegisterService.createUser(user)
 		.then(

@@ -41,7 +41,9 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 	//console.log($scope.date);
 
 	var uname = SharedData.getUname();
-
+    console.log(uname);
+    $rootScope.uname = uname;
+    console.log("the rootscope is" +$rootScope.uname);
 	$scope.bookFlight = function() {
 		console.log("in book function");
 		var data = {
@@ -59,10 +61,18 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 						$scope.errorMessage=flightResponse.errorMsg;
 
 					} else {
-						SharedData.setReservationId(flightResponse.reservationId);
+						console.log("reservationid");
+						console.log(flightResponse.reservationId);
+						var reservation = SharedData.setReservationId(flightResponse.reservationId);
+						console.log("The reservation "+reservation);
 						$scope.errorMessage= false;
 						$scope.successMessage="Flight has been reserved succesfully";
-						if(!!$scope.returnFlight) {
+						console.log("Checking");
+						console.log($scope.returnFlight);
+						console.log(!$scope.returnFlight);
+						console.log(!!$scope.returnFlight);
+						if(!$scope.returnFlight) {
+							
 							var returnData = {
 									flight : "",
 									uname : "",
@@ -102,7 +112,29 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 	
 	$scope.updateBooking = function() {
 		console.log("inside update booking");
-	
+		$scope.reservationId = SharedData.getReservationId();
+		console.log("the id id");
+		console.log($scope.reservationId);
+		var data = {
+				reservationId:""
+		};
+		data.reservationId = $scope.reservationId;
+		BookFlightService.updateReservation(data)
+		.then(
+             function (data){
+				if(data.error===1){
+					$scope.errorMessage="Flight is not Reserved";
+				} else {
+					$scope.errorMessage= false;
+					$location.path("/thankYou");
+				}
+				console.log("In Controller : ");
+				console.log(data);
+             },
+				function(errResponse){
+					console.error('Error while reservation of Flight');
+				}
+		);
 	};
 	
 });
