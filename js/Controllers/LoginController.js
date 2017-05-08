@@ -28,9 +28,10 @@ App.controller('LoginController', function($scope,$cookieStore,SharedData ,AuthS
 						$scope.errorMessage="Username and Password does not match";
 					} else {
 						$scope.errorMessage= false;
-
+						console.log(data.user);
 						AuthService.setCredentials(user.uname);
-						SharedData.setUname($scope.data.email);
+						//SharedData.setUname($scope.data.email);
+						SharedData.setUname(data.user.username);
 						//$rootScope.uname = $scope.data.email;
 						//console.log("root scope");
 						//console.log($rootScope.uname);

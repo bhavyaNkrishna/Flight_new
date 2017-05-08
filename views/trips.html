@@ -1,7 +1,6 @@
-<!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
-		<div class="navbar-header navbar-right"">
+		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#navbar-collapse"
 				aria-expanded="false">
@@ -9,49 +8,119 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
+			<a class="navbar-brand" href="#/search"> New Search <span
+						class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#/search"> New Search <span
-						class="glyphicon glyphicon-search" aria-hidden="true"></span>
-				</a></li>
-				<li><a href="#/search"> Profile <span
-						class="glyphicon glyphicon-user" aria-hidden="true"></span>
-				</a></li>
+			
+				<ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
+                        <div class="img-rounded profile-img"></div>
+                        My Profile <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">User Name</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="#">E-mail</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+       <ul class="nav navbar-nav pull-right">
+
 				<li><a href="#/trips""> My Trips <span
 						class="glyphicon glyphicon-plane" aria-hidden="true"></span>
 				</a></li>
-				<li ng-if="loginbutton"><a href="#/login">
-						Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+				<li ng-if="loginbutton"><a href="#/login"> Login <span
+						class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
 				</a></li>
 				<li ng-if="logoutbutton"><a href="#/logout"> Logout <span
 						class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
 				</a></li>
 			</ul>
 		</div>
+		
 	</div>
 </nav>
+<button id="booked" class="btn btn-info" ng-click="bflight()">Show all my Booked/Held Flights</button>
 <div class="row" id="itineraries">
 	<div class="col-md-4 col-md-offset-2">
 		<div class="panel panel-default">
-			<div class="panel-body">
+					<div class="panel-body">
 				<p>Booked Itineraries</p>
-				<div ng-if="message" ng-hide="data"> {{ message }}</div>
-				<div ng-if="data">
-					<p>Reservation ID: {{ data.reserveid }}</p>
-					<p>price: {{ data.price }}</p>
-					</div>
-				<a class="btn btn-info btn-block" ng-click="bflight()">Booked Flights</a>
+				<!-- <a class="btn btn-info btn-block" ng-click="bflight()">Booked Flights</a> -->
+				<p>All My Booked flights/Print Itineraries</p>
+                <div ng-if="message" ng-hide="data"> {{ message }}</div>
+				<div ng-if="b"><p>No Booked FLight</p></div>
+				 <div class="panel panel-default" ng-repeat= "fl in data">
+				 <div  class="panel-body" ng-if="fl.isr==1">
+				 <div class="row">
+					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
+					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
+					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
+					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+				</div> 
+				<div class="row">
+					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
+					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
+					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
+				</div>
+				<div class="row">
+					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div> 
+					<div class="col-md-3">Round Trip: {{ fl.round }}</div> 
+					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
+					<div class="col-md-3">Price : {{ fl.price }}</div> 
+				</div> 
+				</div>
+			    </div> 
+				</div>
 			</div>
-		</div>
-	</div>
+		</div> 
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<p>Held Flights</p>
-			</div>
+				<p>Booked Itineraries</p>
+				<!-- <a class="btn btn-info btn-block" ng-click="hflight()">Held Flights</a> -->
+              <!-- <button id="held" class="btn btn-info btn-block" ng-click="bflight()">Held Flights</button> -->
+				<p>All My Held flights/Print Itineraries</p>
+                <div ng-if="message" ng-hide="data"> {{ message }}</div>
+                <div ng-if="h"><p> NO Held Flights</p></div>
+				 <div class="panel panel-default" ng-repeat= "fl in data">
+				 <div  class="panel-body" ng-if="fl.isr==0">
+			<div class="row">
+					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
+					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
+					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
+					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+				</div> 
+				<div class="row">
+					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
+					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
+					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
+				</div>
+				<div class="row">
+					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div> 
+					<div class="col-md-3">Round Trip: {{ fl.round }}</div> 
+					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
+					<div class="col-md-3">Price : {{ fl.price }}</div> 
+				</div> 
+           </div>
 		</div>
 	</div>
-</div>
+	</div>
+	</div>
+	</div>

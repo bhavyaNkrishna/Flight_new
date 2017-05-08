@@ -1,16 +1,20 @@
 'use strict';
 App.controller('MainController',['$rootScope','$window', '$scope','$location','FlightService','SharedData','AuthService','SessionService',  function($rootScope,$window, $scope,$location, 
 		FlightService, SharedData,AuthService,SessionService) {
-
-	//12.We are using the currentUser globals value, stored in authservice, when user is succesfully logged in.
-	//we use this to shuffle between login and logout.
-	if(!SessionService.getCookieData()) {
+	
+	/*if(!SessionService.getCookieData()) {
 		$scope.loginbutton = true;
 		$scope.logoutbutton = false;
 	} else {
 		$scope.loginbutton = false;
 		$scope.logoutbutton = true;
-	}
+	}*/
+	var name = SharedData.getUname();
+	console.log(SharedData.getUname());
+	if(name != undefined)
+		{
+		  $scope.yourname = "welcome" + name; 
+		}
 	
 	$scope.roundTrip = false;
 	$scope.switchSearchForm = function(event) {

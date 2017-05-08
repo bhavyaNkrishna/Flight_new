@@ -20,6 +20,7 @@ App.factory('AuthService', ['$rootScope','$cookieStore','$http', '$q','SessionSe
 				function (response) {
 					console.log(response);
 	                // promise is fulfilled
+					console.log(response.data.user);
 					deferred.resolve(response.data);
 
 				},

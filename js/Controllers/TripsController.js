@@ -10,35 +10,15 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 		$scope.logoutbutton = true;
 	}
 	$scope.bflight = function() {
-		$scope.data = {};
+		$scope.data = [];
+		$scope.b = 0;
+		$scope.h = 0;
 		console.log("in booked");
 		console.log(SessionService.getCookieData());
 		var user = {
 				"uname": ""
 		};
 		user.uname = SessionService.getCookieData();
-		/*TripService.bookFli(name).then(
-				function(data) {
-					if(data.error===1){
-						$scope.errorMessage="Username and Password does not match";
-					} else {
-						$scope.errorMessage= false;
-
-						AuthService.setCredentials(user.uname);
-						SharedData.setUname($scope.data.email);
-						//$rootScope.uname = $scope.data.email;
-						//console.log("root scope");
-						//console.log($rootScope.uname);
-						$location.path("/");
-						$scope.data = data;
-					}
-					console.log("In Controller : ");
-					console.log(data);
-				},
-				function(errResponse){
-					console.error('Error while validating credentials');
-				}
-		);*/
 		var deferred = $q.defer();
 		$http.post('/bookedFlight', user)
 		.then(
@@ -46,13 +26,22 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					console.log(response);
 	                // promise is fulfilled
 					deferred.resolve(response.data);
-					$scope.data.err = response.data.error;
-					$scope.data.id = response.data.userid;
-					$scope.data.reserveid = response.data.reserveid;
-					$scope.data.date = response.data.subdate;
-					$scope.data.res = response.data.reserved;
-					$scope.data.price = response.data.price;
-					if($scope.data.err == 1)
+					console.log(response.data.error);
+					$scope.error = response.data.error;
+					for( var i in response.data.fldata){
+	      $scope.data.push({id:response.data.fldata[i].flightid, flightno:response.data.fldata[i].flightno,
+	    	  arrcity:response.data.fldata[i].arrcity, arrdate:response.data.fldata[i].arrdate,
+	    	  depdate:response.data.fldata[i].depdate,depcity:response.data.fldata[i].depcity,
+	    	  arrtime:response.data.fldata[i].arrtime, deptime:response.data.fldata[i].deptime,
+	             flightdur:response.data.fldata[i].flightdur,round:response.data.fldata[i].round,
+	             origin:response.data.fldata[i].origin,isr:response.data.fldata[i].isr,
+	             price:response.data.fldata[i].price});
+	               if($scope.data[i].isr === 1)
+	            	   $scope.b = $scope.b+1;
+	               else if($scope.data[i].isr === 0)
+	            	   $scope.h = $scope.h+1;
+					}
+					if($scope.error === 1)
 						{
 						  $scope.message = "NO Flights";
 						  $scope.data = false;
@@ -60,6 +49,16 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					else
 						{
 						$scope.message = false;
+						if($scope.h === 0)
+						{
+						  $scope.h = true;
+						  $scope.b = false;
+						}
+					else if($scope.b === 0)
+						{
+					      $scope.b = true;
+					      $scope.h = false;
+						}
 						}
 				},
 				function(errResponse){
@@ -68,7 +67,7 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					deferred.reject(errResponse);
 				}
 		);
-		console.log($scope.data.date);
+		console.log($scope.data);
         // promise is returned
 		return deferred.promise;
 	}
