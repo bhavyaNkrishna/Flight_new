@@ -186,7 +186,34 @@ app.post('/insert', function (req, res) {
 		res.json(data);
 	}
 });
+//update the reservation table with id
 
+app.put('/updateFlight', function (req, res) {
+    var reservationId = req.body.reservationId;
+    log.info(reservationId);
+    var data = {
+        "error": 1,
+        "id": ""
+    };
+	log.info('PUT Request :: /update: ');
+    if (!!reservationId) {
+		pool.getConnection(function (err, connection) {
+			connection.query("UPDATE reservation_details SET IsReserved = ? WHERE Reservation_ID=?",[true,  reservationId], function (err, rows, fields) {
+				if (!!err) {
+					data.id = "Error Updating reservation";
+					log.error(err);
+				} else {
+					data.error = 0;
+					data.id = "Updated reservation sucessfully";
+				}
+				res.json(data);
+			});
+		});
+    } else {
+        data.id = "Please provide all required data (i.e :reservation id)";
+        res.json(data);
+    }
+});
 
 app.post('/insertflight', function (req, res) {
 
@@ -199,7 +226,11 @@ app.post('/insertflight', function (req, res) {
 	var duration = req.body.flight.duration;
 	var arrivalTime = req.body.flight.arrivalTime;
 	var departureTime = req.body.flight.departureTime;
-	var legs = req.body.flight.legs.slice();
+	var legs;
+	if(!!req.body.flight.legs) {
+		legs = req.body.flight.legs.slice();
+	}
+
 	var returnFlight =  req.body.flight.returnFlight;
 	var oneway = req.body.flight.oneway;
 	var uname = req.body.uname;
