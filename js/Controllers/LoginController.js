@@ -17,6 +17,7 @@ App.controller('LoginController', function($scope,$cookieStore, md5, SharedData 
 		};
 
 		user.uname = $scope.data.email;
+		console.log(user.uname + "from Login function");
 		var hashPword = md5.createHash($scope.data.password);
 		user.pword = hashPword;
 
@@ -29,10 +30,11 @@ App.controller('LoginController', function($scope,$cookieStore, md5, SharedData 
 						$scope.errorMessage="Username and Password does not match";
 					} else {
 						$scope.errorMessage= false;
-						console.log(data.user);
+						console.log(user.uname + "in login controller");
 						AuthService.setCredentials(user.uname);
 						//SharedData.setUname($scope.data.email);
-						SharedData.setUname(data.user.username);
+						SharedData.setUname(user.uname);
+						console.log("Testing get username " + SharedData.getUname());
 						//$rootScope.uname = $scope.data.email;
 						//console.log("root scope");
 						//console.log($rootScope.uname);

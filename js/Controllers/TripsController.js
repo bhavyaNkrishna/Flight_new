@@ -34,7 +34,7 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 	    	  depdate:response.data.fldata[i].depdate,depcity:response.data.fldata[i].depcity,
 	    	  arrtime:response.data.fldata[i].arrtime, deptime:response.data.fldata[i].deptime,
 	             flightdur:response.data.fldata[i].flightdur,round:response.data.fldata[i].round,
-	             origin:response.data.fldata[i].origin,isr:response.data.fldata[i].isr,
+	             isr:response.data.fldata[i].isr,
 	             price:response.data.fldata[i].price});
 	               if($scope.data[i].isr === 1)
 	            	   $scope.b = $scope.b+1;
