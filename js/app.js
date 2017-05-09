@@ -2,9 +2,7 @@
 var App = angular.module('myApp', ['ngRoute','angular-md5','ngCookies']);
 
 App.controller('HomeController', function($scope,$cookieStore,SharedData,AuthService,SessionService,$rootScope,$location) {
-	var uname = SharedData.getUname();
-
-	console.log(uname);
+	
 
 	if(!SessionService.getCookieData()) {
 		$rootScope.loginbutton = true;

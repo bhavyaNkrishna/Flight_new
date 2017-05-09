@@ -38,16 +38,19 @@
 							<label for="passwordsignup" class="youpasswd">Your
 								password </label> <input id="passwordsignup" name="passwordsignup"
 								required="required" type="password" placeholder="eg. X8df!90EO"
-								ng-model="data.password"  password-match="password2"/>
+								ng-model="data.password"/>
 						</p>
 						<p>
 							<label for="passwordsignup_confirm" class="youpasswd">Please
 								confirm your password </label> <input id="passwordsignup_confirm"
 								name="passwordsignup_confirm" required="required"
 								type="password" placeholder="eg. X8df!90EO"
-								ng-model="data.passwordConfirm" />
+								ng-model="data.passwordsignup_confirm" match-password="data.password"/>
 						</p>
-						<span id='message'></span>
+						
+					<div ng-show="form.passwordsignup_confirm.$error.matchPassword">
+       				 Passwords are not equal!</div>
+       				 
 						<p class="signin button">
 							<input type="submit" value="Sign up" ng-click="register()" />
 						</p>

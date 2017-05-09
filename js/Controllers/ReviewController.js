@@ -20,7 +20,7 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 
 	$scope.flight = SharedData.getDepartureFlight();
 	$scope.returnFlight = SharedData.getReturnFlight();
-	if ($scope.flight.oneway != true) {
+	if ($scope.flight.oneway !== true) {
 		$scope.showReturnDetails = true;
 	}
 	console.log($scope.flight);
@@ -61,16 +61,15 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 					} else {
 						console.log("reservationid");
 						console.log(flightResponse.reservationId);
-						var reservation = SharedData.setReservationId(flightResponse.reservationId);
-						console.log("The reservation "+reservation);
+						SharedData.setReservationId(flightResponse.reservationId);
 						$scope.errorMessage= false;
 						$scope.successMessage="Flight has been reserved succesfully";
 						console.log("Checking");
 						console.log($scope.returnFlight);
 						console.log(!$scope.returnFlight);
 						console.log(!!$scope.returnFlight);
-						if(!$scope.returnFlight) {
-							
+						if(!$scope.returnFlight.length) {
+							console.log("Entered return flight method");
 							var returnData = {
 									flight : "",
 									uname : "",

@@ -22,23 +22,40 @@ App.directive('datepicker', function () {
     }
 });
 
-App.directive('pwCheck', [function () {
-return {
+
+App.directive('passwordVerify', [function () {
+  return {
     require: 'ngModel',
     link: function (scope, elem, attrs, ctrl) {
-        var firstPassword = '#' + attrs.pwCheck;
-        elem.add(firstPassword).on('keyup', function () {
-            scope.$apply(function () {
-            	console.log("here");
-                 console.log(elem.val() === $(firstPassword).val());
-                ctrl.$setValidity('pwmatch', elem.val() === $(firstPassword).val());
-            });
+      var firstPassword = '#' + attrs.passwordVerify;
+      elem.add(firstPassword).on('keyup', function () {
+        scope.$apply(function () {
+          var v = elem.val()===$(firstPassword).val();
+          ctrl.$setValidity('passwordVerify', v);
         });
+      });
     }
-}
+  }
 }]);
 
+App.directive("matchPassword", function () {
+    return {
+        require: "ngModel",
+        scope: {
+            otherModelValue: "=matchPassword"
+        },
+        link: function(scope, element, attributes, ngModel) {
 
+            ngModel.$validators.matchPassword = function(modelValue) {
+                return modelValue === scope.otherModelValue;
+            };
+
+            scope.$watch("otherModelValue", function() {
+                ngModel.$validate();
+            });
+        }
+    };
+});
 App.directive('autoComplete', function ($http, AutocompleteService) {
         return function postLink(scope, iElement, iAttrs) {
         	var list = AutocompleteService.getArray();
