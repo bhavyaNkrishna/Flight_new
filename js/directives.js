@@ -36,32 +36,27 @@ App.directive('datepickerRet', function (SharedData) {
     }
 });
 
-App.directive('pwCheck', [function () {
-return {
-    require: 'ngModel',
-    link: function (scope, elem, attrs, ctrl) {
-        var firstPassword = '#' + attrs.pwCheck;
-        elem.add(firstPassword).on('keyup', function () {
-            scope.$apply(function () {
-            	console.log("here");
-                 console.log(elem.val() === $(firstPassword).val());
-                ctrl.$setValidity('pwmatch', elem.val() === $(firstPassword).val());
-            });
-        });
-    }
-}
-}]);
-
+App.directive('validPasswordC', function () {
+	return {
+		require: 'ngModel',
+		link: function (scope, elm, attrs, ctrl) {
+			ctrl.$parsers.unshift(function (viewValue, $scope) {
+				var noMatch = viewValue !== scope.registrationForm.passwordsignup.$viewValue;
+				ctrl.$setValidity('noMatch', !noMatch);
+			});
+		}
+	};
+});
 
 App.directive('autoComplete', function ($http, AutocompleteService) {
-        return function postLink(scope, iElement, iAttrs) {
-        	var list = AutocompleteService.getArray();
-        	
-                $( iElement ).autocomplete({
-                    source: list,
-                    minLength: 3
-                });
-        }
+	return function postLink(scope, iElement, iAttrs) {
+		var list = AutocompleteService.getArray();
+
+		$( iElement ).autocomplete({
+			source: list,
+			minLength: 3
+		});
+	}
 });
 
 App.filter('convertTime', function(){
@@ -80,3 +75,4 @@ App.filter('convertTime', function(){
 		}
 	}
 })
+

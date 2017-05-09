@@ -20,9 +20,9 @@ var log = log4js.getLogger("server");
 var pool = mysql.createPool({
 	connectionLimit : 100,
 	host: "127.0.0.1",
-	user: "user",
-	password: "password",
-	database: "project",
+	user: "root",
+	password: "Password123",
+	database: "synechron_db",
 	dateStrings:true,
 	port: "3306"
 });
@@ -39,14 +39,12 @@ pool.getConnection(function (err, connection) {
 	}
 	var task=cron.schedule('* * * * *', function() {
 		connection.query('delete from reservation_details where IsReserved=0 and NOW() >= SubmittedDate +  INTERVAL 24 hour',function (err, rows, fields){
-			if(!err)
-				{
+			if(!err) {
 				log.info('cron job started');
-				}
-			else
-				{
+			}
+			else {
 				log.error('Error while performing Query:' +err);
-				}
+			}
 		});
 	});
 	task.start();
@@ -83,6 +81,7 @@ app.post('/verifyUser', function (req, res) {
 	});
 });
 
+
 app.post('/bookedFlight', function (req, res) {
 	var uname = req.body.uname;
 	log.info(req);
@@ -90,32 +89,66 @@ app.post('/bookedFlight', function (req, res) {
 	var data = {
 			"error": 1,
 			"cronerror":1,
-	        "fldata": []
+			"fldata": []
 	};
 	pool.getConnection(function (err, connection) {
-		connection.query('select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved,r.Reservation_Price from flight_details f  JOIN leg_details l JOIN reservation_details r ON f.Flight_ID = l.Initial_Flight_ID  and l.Reservation_ID = r.Reservation_ID and r.User_ID like  (select user_id from user_details where username=?)',uname, function (err, rows, fields){
+		connection.query('select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Initial_Flight_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 0 and r.User_ID like (select user_id from user_details where username=?) union select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Flight_Leg_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 0 and r.User_ID like (select user_id from user_details where username=?) order by Flight_ID',[uname,uname], function (err, rows, fields){
 			if (rows!==undefined) {
 				if( rows.length !== 0 && !err) {
 					data.error = 0;
 					for(var i in rows){
 						data.fldata.push({flightid:rows[i].Flight_ID, flightno:rows[i].Flight_Number, arrcity:rows[i].Arrival_City,arrdate:rows[i].Arrival_Date,depdate:rows[i].Departure_Date,
-							       depcity:rows[i].Departure_City,arrtime:rows[i].Arrival_Time, deptime:rows[i].Departure_Time, flightdur:rows[i].Flight_Duration,
-							       round:rows[i].Return_Flight,isr:rows[i].IsReserved,price:rows[i].Reservation_Price});
-						}
-				    res.json(data);
+							depcity:rows[i].Departure_City,arrtime:rows[i].Arrival_Time, deptime:rows[i].Departure_Time, flightdur:rows[i].Flight_Duration,
+							round:rows[i].Return_Flight,isr:rows[i].IsReserved,price:rows[i].Reservation_Price});
+					}
+					res.json(data);
 				}else if (rows.length === 0) {
 					data.error = 1;
 					res.json(data);
 				}
 			} else {
+
 				data.error = 1;
 				res.json(data);
 				log.error('Error while performing Query: ' + err);
 			}
 		});
 	});
-	
 });
+app.post('/heldFlight', function (req, res) {
+	var uname = req.body.uname;
+	log.info(req);
+	log.info("entered");
+	var data = {
+			"error": 1,
+			"cronerror":1,
+			"fldata": []
+	};
+	pool.getConnection(function (err, connection) {
+		connection.query('select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Initial_Flight_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 1 and r.User_ID like (select user_id from user_details where username=?) union select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Flight_Leg_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 1 and r.User_ID like (select user_id from user_details where username=?) order by Flight_ID',[uname,uname], function (err, rows, fields){
+			if (rows!==undefined) {
+				if( rows.length !== 0 && !err) {
+					data.error = 0;
+					for(var i in rows){
+						data.fldata.push({flightid:rows[i].Flight_ID, flightno:rows[i].Flight_Number, arrcity:rows[i].Arrival_City,arrdate:rows[i].Arrival_Date,depdate:rows[i].Departure_Date,
+							depcity:rows[i].Departure_City,arrtime:rows[i].Arrival_Time, deptime:rows[i].Departure_Time, flightdur:rows[i].Flight_Duration,
+							round:rows[i].Return_Flight,isr:rows[i].IsReserved,price:rows[i].Reservation_Price});
+					}
+					res.json(data);
+				}else if (rows.length === 0) {
+					data.error = 1;
+					res.json(data);
+				}
+			} else {
+
+				data.error = 1;
+				res.json(data);
+				log.error('Error while performing Query: ' + err);
+			}
+		});
+	});
+});
+
 
 app.post('/insert', function (req, res) {
 
@@ -157,14 +190,14 @@ app.post('/insert', function (req, res) {
 //update the reservation table with id
 
 app.put('/updateFlight', function (req, res) {
-    var reservationId = req.body.reservationId;
-    log.info(reservationId);
-    var data = {
-        "error": 1,
-        "id": ""
-    };
+	var reservationId = req.body.reservationId;
+	log.info(reservationId);
+	var data = {
+			"error": 1,
+			"id": ""
+	};
 	log.info('PUT Request :: /update: ');
-    if (!!reservationId) {
+	if (!!reservationId) {
 		pool.getConnection(function (err, connection) {
 			connection.query("UPDATE reservation_details SET IsReserved = ? WHERE Reservation_ID=?",[true,  reservationId], function (err, rows, fields) {
 				if (!!err) {
@@ -177,10 +210,10 @@ app.put('/updateFlight', function (req, res) {
 				res.json(data);
 			});
 		});
-    } else {
-        data.id = "Please provide all required data (i.e :reservation id)";
-        res.json(data);
-    }
+	} else {
+		data.id = "Please provide all required data (i.e :reservation id)";
+		res.json(data);
+	}
 });
 
 app.post('/insertflight', function (req, res) {
@@ -245,7 +278,7 @@ app.post('/insertflight', function (req, res) {
 					log.info("ONEWAY IS " + oneway);
 					log.info("DEPARTURE CITY IS" + departureCity);
 					connection.query('SELECT user_id FROM user_details WHERE username = ?',        
-							uname, function(err, rows, fields) {
+							[uname], function(err, rows, fields) {
 						//log.info(results);
 						//log.info("Row");
 						log.info(rows);
@@ -289,6 +322,7 @@ app.post('/insertflight', function (req, res) {
 					responseData.reservationId = reservationId;
 				}
 			},
+
 			//flight
 			function(reservationID,callback){
 				log.info("in third function");
