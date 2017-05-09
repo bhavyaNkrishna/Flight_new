@@ -9,8 +9,10 @@
 				<p>All My Booked flights/Print Itineraries</p>
                 <div ng-if="message" ng-hide="data"> {{ message }}</div>
 				<!-- <div ng-if="b"><p>No Booked FLight</p></div> -->
+				<span> Departure Flights</span>
 				 <div class="panel panel-default" ng-repeat= "fl in data">
 				 <div  class="panel-body" ng-if="fl.isr==1">
+				 <div class="panel-body" ng-if="fl.round==0">
 				 <div class="row">
 					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
 					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
@@ -27,10 +29,36 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div> 
-					<div class="col-md-3">Round Trip: {{ fl.round }}</div> 
 					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
 					<div class="col-md-3">Price : {{ fl.price }}</div> 
 				</div> 
+				</div>
+				</div>
+				</div>
+				<span>Return Flights</span>
+				<div class="panel panel-default" ng-repeat= "fl in data">
+				 <div  class="panel-body" ng-if="fl.isr==1">
+				<div class="panel-body" ng-if="fl.round==1">
+				 <div class="row">
+					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
+					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
+					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
+					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+				</div> 
+				<div class="row">
+					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
+					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
+					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
+				</div>
+				<div class="row">
+					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>  
+					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
+					<div class="col-md-3">Price : {{ fl.price }}</div> 
+				</div> 
+				</div>
 				</div>
 			    </div> 
 				</div>
@@ -45,17 +73,14 @@
 				<p>All My Held flights/Print Itineraries</p>
                 <div ng-if="message" ng-hide="data"> {{ message }}</div>
                 <!-- <div ng-if="h"><p> NO Held Flights</p></div> -->
+                <span>Departure Flights</span>
 				 <div class="panel panel-default" ng-repeat= "fl in data">
 				 <div  class="panel-body" ng-if="fl.isr==0">
+				 <div  class="panel-body" ng-if="fl.round==0">
 			<div class="row">
 					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
 					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
-
-			<div class="panel-body">				
-				<div>
-					<p> View Held flights</p>
-
-				</div>
+					</div>				
 				<div class="row">
 					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
 					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
@@ -68,12 +93,38 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div> 
-					<div class="col-md-3">Round Trip: {{ fl.round }}</div> 
 					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
 					<div class="col-md-3">Price : {{ fl.price }}</div> 
 				</div> 
-           </div>
+			</div>
+			</div>
+			</div>
+			<span>Return Flights</span>
+			<div class="panel panel-default" ng-repeat= "fl in data">
+			<div  class="panel-body" ng-if="fl.isr==0">
+			<div  class="panel-body" ng-if="fl.round==1">
+			<div class="row">
+					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
+					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
+					</div>				
+				<div class="row">
+					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
+					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
+					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+				</div> 
+				<div class="row">
+					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
+					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
+					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
+				</div>
+				<div class="row">
+					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>  
+					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
+					<div class="col-md-3">Price : {{ fl.price }}</div> 
+				</div> 
+			</div>
 		</div>
+	</div>
 	</div>
 	</div>
 	</div>
