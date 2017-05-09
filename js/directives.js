@@ -1,4 +1,4 @@
-App.directive('datepickerDep', function (SharedData) {
+App.directive('datepickerDep', function () {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -7,7 +7,6 @@ App.directive('datepickerDep', function (SharedData) {
 				  dateFormat: 'yy-mm-dd',
 				  minDate : 0,
 				  onSelect: function (date) {
-					  		SharedData.setDate(date);
 					  		ngModelCtrl.$setViewValue(date);
 					  		$('#return-date').datepicker('option', 'minDate', date);
 					  		scope.$apply();
@@ -17,7 +16,7 @@ App.directive('datepickerDep', function (SharedData) {
     }
 });
 
-App.directive('datepickerRet', function (SharedData) {
+App.directive('datepickerRet', function () {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -27,7 +26,6 @@ App.directive('datepickerRet', function (SharedData) {
 				  dateFormat: 'yy-mm-dd',
 				  minDate : 0,
 				  onSelect: function (date) {
-					  		//SharedData.setDate(date);
 					  		ngModelCtrl.$setViewValue(date);
 					  		scope.$apply();
 	                }
