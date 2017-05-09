@@ -92,7 +92,40 @@ app.post('/bookedFlight', function (req, res) {
 			"fldata": []
 	};
 	pool.getConnection(function (err, connection) {
-		connection.query('select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved,r.Reservation_Price from flight_details f  JOIN leg_details l JOIN reservation_details r ON f.Flight_ID = l.Initial_Flight_ID  and l.Reservation_ID = r.Reservation_ID and r.User_ID like  (select user_id from user_details where username=?)',uname, function (err, rows, fields){
+		connection.query('select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Initial_Flight_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 0 and r.User_ID like (select user_id from user_details where username=?) union select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Flight_Leg_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 0 and r.User_ID like (select user_id from user_details where username=?) order by Flight_ID',[uname,uname], function (err, rows, fields){
+			if (rows!==undefined) {
+				if( rows.length !== 0 && !err) {
+					data.error = 0;
+					for(var i in rows){
+						data.fldata.push({flightid:rows[i].Flight_ID, flightno:rows[i].Flight_Number, arrcity:rows[i].Arrival_City,arrdate:rows[i].Arrival_Date,depdate:rows[i].Departure_Date,
+							depcity:rows[i].Departure_City,arrtime:rows[i].Arrival_Time, deptime:rows[i].Departure_Time, flightdur:rows[i].Flight_Duration,
+							round:rows[i].Return_Flight,isr:rows[i].IsReserved,price:rows[i].Reservation_Price});
+					}
+					res.json(data);
+				}else if (rows.length === 0) {
+					data.error = 1;
+					res.json(data);
+				}
+			} else {
+
+				data.error = 1;
+				res.json(data);
+				log.error('Error while performing Query: ' + err);
+			}
+		});
+	});
+});
+app.post('/heldFlight', function (req, res) {
+	var uname = req.body.uname;
+	log.info(req);
+	log.info("entered");
+	var data = {
+			"error": 1,
+			"cronerror":1,
+			"fldata": []
+	};
+	pool.getConnection(function (err, connection) {
+		connection.query('select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Initial_Flight_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 1 and r.User_ID like (select user_id from user_details where username=?) union select f.Flight_ID,f.Flight_Number,f.Arrival_City,f.Arrival_Date,f.Departure_Date,f.Departure_City,f.Arrival_Time,f.Departure_Time,f.Flight_Duration,f.Return_Flight,r.IsReserved, r.Reservation_Price from synechron_db.flight_details f JOIN synechron_db.leg_details l JOIN synechron_db.reservation_details r ON f.Flight_ID = l.Flight_Leg_ID and l.Reservation_ID = r.Reservation_ID where r.IsReserved = 1 and r.User_ID like (select user_id from user_details where username=?) order by Flight_ID',[uname,uname], function (err, rows, fields){
 			if (rows!==undefined) {
 				if( rows.length !== 0 && !err) {
 					data.error = 0;

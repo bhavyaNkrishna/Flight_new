@@ -1,5 +1,5 @@
 'use strict';
-var App = angular.module('myApp', ['ngRoute','angular-md5','ngCookies']);
+var App = angular.module('myApp', ['ngRoute','angular-md5','ngCookies', 'ngMessages']);
 
 App.controller('HomeController', function($scope,$cookieStore,SharedData,AuthService,SessionService,$rootScope,$location) {
 	

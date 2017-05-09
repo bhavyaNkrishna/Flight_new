@@ -3,11 +3,12 @@
 	<section>
 		<div id="container_demo">
 			<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-			<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor" id="tologin"></a>
+			<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
+				id="tologin"></a>
 			<div id="wrapper">
 				<div id="register" class="animate form">
 					<form name=registrationForm autocomplete="on">
-					
+
 						<h1>Sign up</h1>
 
 						<div class="alert alert-success fade in" ng-if="successMessage">
@@ -16,41 +17,41 @@
 								<a href="#/login"><input type="submit" value="Login" /></a>
 							</p>
 						</div>
-                     
-                   <div class="alert alert-danger fade in" ng-if="errorMessage">{{ errorMessage }}</div>
-                  
-                      <div  ng-hide = "successMessage">
-						<p >
-							<label for="usernamesignup" class="uname">Your username</label> <input
-								id="usernamesignup" name="usernamesignup" required="required"
-								type="text" placeholder="mysuperusername690"
-								ng-model="data.uname" />
-						</p>
-						<p>
-							<label for="emailsignup" class="youmail"> Your email</label> <input
-								id="emailsignup" name="emailsignup" required="required"
-								type="email" placeholder="mysupermail@mail.com"
-								ng-model="data.uemail" />
-						</p>
-						
-						
-						<p>
-							<label for="passwordsignup" class="youpasswd">Your
-								password </label> <input id="passwordsignup" name="passwordsignup"
-								required="required" type="password" placeholder="eg. X8df!90EO"
-								ng-model="data.password"/>
-						</p>
-						<p>
-							<label for="passwordsignup_confirm" class="youpasswd">Please
-								confirm your password </label> <input id="passwordsignup_confirm"
-								name="passwordsignup_confirm" required="required"
-								type="password" placeholder="eg. X8df!90EO"
-								ng-model="data.passwordsignup_confirm" match-password="data.password"/>
-						</p>
-						
-					<div ng-show="form.passwordsignup_confirm.$error.matchPassword">
-       				 Passwords are not equal!</div>
-       				 
+
+						<div class="alert alert-danger fade in" ng-if="errorMessage">{{
+							errorMessage }}</div>
+
+						<div ng-hide="successMessage">
+							<p>
+								<label for="usernamesignup" class="uname">Your username</label>
+								<input id="usernamesignup" name="usernamesignup"
+									required="required" type="text"
+									placeholder="mysuperusername690" ng-model="data.uname" />
+							</p>
+							<p>
+								<label for="emailsignup" class="youmail"> Your email</label> <input
+									id="emailsignup" name="emailsignup" required="required"
+									type="email" placeholder="mysupermail@mail.com"
+									ng-model="data.uemail" />
+							</p>
+
+
+							<p>
+								<label for="passwordsignup" class="youpasswd">Your
+									password </label> <input id="passwordsignup" name="passwordsignup"
+									required="required" type="password" placeholder="eg. X8df!90EO"
+									ng-model="data.password" />
+							</p>
+							<p>
+								<label for="passwordsignup_confirm" class="youpasswd">Please
+									confirm your password </label> <input id="passwordsignup_confirm"
+									name="passwordsignup_confirm" required="required"
+									type="password" placeholder="eg. X8df!90EO"
+									ng-model="data.passwordConfirm"
+									required valid-password-c />
+							</p>
+                 <span ng-show="registrationForm.passwordsignup_confirm.$error.noMatch"> Passwords do not match.</span>
+
 						<p class="signin button">
 							<input type="submit" value="Sign up" ng-click="register()" />
 						</p>
@@ -58,10 +59,10 @@
 							Already a member ? <a href="#/login" class="to_register"> Go
 								and log in </a>
 						</p>
-						</div>
-					</form>
 				</div>
+				</form>
 			</div>
 		</div>
-	</section>
+</div>
+</section>
 </div>

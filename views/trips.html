@@ -1,4 +1,4 @@
-<button id="booked" class="btn btn-info" ng-click="bflight()">Show all my Booked/Held Flights</button>
+<button id="booked" class="btn btn-info" ng-click="bflight();hflight()">Show all my Booked/Held Flights</button>
 
 <div class="row" id="itineraries">
 	<div class="col-md-4 col-md-offset-2">
@@ -8,7 +8,7 @@
 				<!-- <a class="btn btn-info btn-block" ng-click="bflight()">Booked Flights</a> -->
 				<p>All My Booked flights/Print Itineraries</p>
                 <div ng-if="message" ng-hide="data"> {{ message }}</div>
-				<div ng-if="b"><p>No Booked FLight</p></div>
+				<!-- <div ng-if="b"><p>No Booked FLight</p></div> -->
 				 <div class="panel panel-default" ng-repeat= "fl in data">
 				 <div  class="panel-body" ng-if="fl.isr==1">
 				 <div class="row">
@@ -44,7 +44,7 @@
               <!-- <button id="held" class="btn btn-info btn-block" ng-click="bflight()">Held Flights</button> -->
 				<p>All My Held flights/Print Itineraries</p>
                 <div ng-if="message" ng-hide="data"> {{ message }}</div>
-                <div ng-if="h"><p> NO Held Flights</p></div>
+                <!-- <div ng-if="h"><p> NO Held Flights</p></div> -->
 				 <div class="panel panel-default" ng-repeat= "fl in data">
 				 <div  class="panel-body" ng-if="fl.isr==0">
 			<div class="row">

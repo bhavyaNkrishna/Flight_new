@@ -24,13 +24,14 @@ App.controller('RegisterController', function($scope, RegisterService, md5, $rou
 		user.uemail = $scope.data.uemail;
 		 var hashPassword = md5.createHash($scope.data.password);
 		 console.log(hashPassword);
-		user.pword = hashPassword;
+		user.pword = hashPassword;                              
 		 var hashConfirmPassword = md5.createHash($scope.data.passwordConfirm);
-		user.pwordCon = hashConfirmPassword;
+		 console.log(hashConfirmPassword);
+		user.pwordCon = hashConfirmPassword; 
 
-		RegisterService.createUser(user)
+		RegisterService.createUser(user) 
 		.then(
-				function(data) {
+ 				function(data) {
 					if(data.error===1){
 						$scope.successMessage= false;
 						$scope.errorMessage="User not registered Click on SignUp to register";
