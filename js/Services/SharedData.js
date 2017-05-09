@@ -60,6 +60,6 @@ App.service('SharedData', function () {
         },
         getReservationId : function() {
         	return reservationId;
-        }
+        },
     };
 });

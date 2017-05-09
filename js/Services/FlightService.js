@@ -193,7 +193,7 @@ App.service('FlightService', ['$http', function($http){
                         }
             
             }) 
-                .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
+                .then(function(response){console.log(response.data);return response.data}, function(){return null});
         } else if (formData.returnDate != undefined) {
         	return $http({
                 method: "POST",
@@ -236,7 +236,7 @@ App.service('FlightService', ['$http', function($http){
                         }
             
             }) 
-                .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
+                .then(function(response){console.log(response.data);return response.data}, function(){return null});
         }
     }
     

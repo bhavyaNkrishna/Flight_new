@@ -71,4 +71,28 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
         // promise is returned
 		return deferred.promise;
 	}
+	
+	$scope.print = function(fl) {
+		var data = [{ text: 'SkyKey', style: 'header' },
+			{ text: 'Itinerary', style: 'subhead' },
+			"\nFlight ID: " + fl.id + "\n" +
+					   "Flight NO: " + fl.flightno + "\n" +
+					   "\nDeparture City: " + fl.depcity + "\n" +
+						"Departure Date: " + fl.depdate + "\n" +
+						"Departure Time: " + fl.deptime + "\n"]
+		var docDefinition = {content: data, styles: {
+		     header: {
+		         fontSize: 24,
+		         bold: true,
+		         alignment: "center"
+		       },
+		       subhead: {
+			         fontSize: 16,
+			         bold: true,
+			         alignment: "left"
+			       }
+			}
+		};
+		pdfMake.createPdf(docDefinition).open();
+	}
 });

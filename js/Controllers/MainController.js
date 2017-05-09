@@ -9,6 +9,12 @@ App.controller('MainController',['$rootScope','$window', '$scope','$location','F
 		$scope.loginbutton = false;
 		$scope.logoutbutton = true;
 	}*/
+	$scope.form = [];
+	$scope.form.cabin = "Coach";
+	$scope.form.numberAdults = 1;
+	$scope.form.numberChildren = 0;
+	$scope.form.stops = '0';
+	$scope.form.refundable = "Yes";
 	var name = SharedData.getUname();
 	console.log(SharedData.getUname());
 	if(name != undefined)
@@ -28,13 +34,16 @@ App.controller('MainController',['$rootScope','$window', '$scope','$location','F
 	}
 
 	$scope.search = function() {
-		SharedData.setForm($scope.form);
-		/*FlightService.getFlightResults($scope.form).then(function(successResponse){
-	   //FlightService.populateFlightsListTESTING($scope.form).then(function(successResponse){
-		   $scope.flights = FlightService.populateFlightsList(successResponse);
-		   console.log($scope.flights);
-           SharedData.setFlights($scope.flights);
-           console.log($scope.flights);
-	   })*/
+		if ($scope.form.departureCity != null && $scope.form.arrivalCity != null && $scope.form.departureDate != null && $scope.form.cabin != null && $scope.form.numberAdults != null && $scope.form.numberChildren != null && $scope.form.stops != null && $scope.form.refundable != null) {
+			if ($scope.returnDate == true) {
+				if ($scope.form.returnDate != null) {
+					SharedData.setForm($scope.form);
+					$location.path( "/results" );
+				}
+			} else {
+				SharedData.setForm($scope.form);
+				$location.path( "/results" );
+			}
+		}
 	};
 }]);

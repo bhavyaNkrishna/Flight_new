@@ -8,6 +8,7 @@ App.controller('ResultsController', function($scope, FlightService, SessionServi
 		$scope.logoutbutton = true;
 	}
 	
+	$scope.noResults = false;
 	$scope.showRetrievingResults = true;
 	$scope.showFilterPanel = false;
 
@@ -15,18 +16,24 @@ App.controller('ResultsController', function($scope, FlightService, SessionServi
 	FlightService.getFlightResults(SharedData.getForm()).then(function(successResponse){
 	//FlightService.getFlightResultsTESTING(SharedData.getForm()).then(function(successResponse){
 		$scope.form = SharedData.getForm();
-		if ($scope.form.returnDate == undefined) {
-			SharedData.setDepartureFlights(FlightService.populateOnewayList(successResponse));
-			$scope.flights = SharedData.getDepartureFlights();
-			SharedData.setFlights($scope.flights);
-		} else {
-			SharedData.setDepartureFlights(FlightService.populateDeparturesList(successResponse));
-			SharedData.setReturnFlights(FlightService.populateReturnsList(successResponse));
-			$scope.flights = SharedData.getDepartureFlights();
-			SharedData.setFlights($scope.flights);
+		if (successResponse == null || successResponse.trips.tripOption == undefined) {
+			$scope.showRetrievingResults = false;
+			$scope.noResults = true;
 		}
-		$scope.showFilterPanel = true;
-		$scope.showRetrievingResults = false;
+		else {
+			if ($scope.form.returnDate == undefined) {
+				SharedData.setDepartureFlights(FlightService.populateOnewayList(successResponse));
+				$scope.flights = SharedData.getDepartureFlights();
+				SharedData.setFlights($scope.flights);
+			} else {
+				SharedData.setDepartureFlights(FlightService.populateDeparturesList(successResponse));
+				SharedData.setReturnFlights(FlightService.populateReturnsList(successResponse));
+				$scope.flights = SharedData.getDepartureFlights();
+				SharedData.setFlights($scope.flights);
+			}
+			$scope.showFilterPanel = true;
+			$scope.showRetrievingResults = false;
+		}
 	});
 	
 	$scope.filterDuration = function() {

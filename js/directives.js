@@ -1,4 +1,4 @@
-App.directive('datepicker', function () {
+App.directive('datepickerDep', function (SharedData) {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -7,15 +7,29 @@ App.directive('datepicker', function () {
 				  dateFormat: 'yy-mm-dd',
 				  minDate : 0,
 				  onSelect: function (date) {
-					  	if(this.attributes['ng-model'].value == "form.departureDate") {
-					  		console.log(this.attributes['ng-model'].value);
+					  		SharedData.setDate(date);
 					  		ngModelCtrl.$setViewValue(date);
-					  	}
-					  	if(this.attributes['ng-model'].value == "form.returnDate") {
-					  		console.log(this.attributes['ng-model'].value);
+					  		$('#return-date').datepicker('option', 'minDate', date);
+					  		scope.$apply();
+	                }
+			  });
+         }
+    }
+});
+
+App.directive('datepickerRet', function (SharedData) {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+         link: function (scope, element, attrs, ngModelCtrl) {
+        	 console.log($(element).datepicker);
+			  $(element).datepicker({
+				  dateFormat: 'yy-mm-dd',
+				  minDate : 0,
+				  onSelect: function (date) {
+					  		//SharedData.setDate(date);
 					  		ngModelCtrl.$setViewValue(date);
-					  	}
-	                    scope.$apply();
+					  		scope.$apply();
 	                }
 			  });
          }
