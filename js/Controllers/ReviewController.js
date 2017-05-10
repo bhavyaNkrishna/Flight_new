@@ -108,6 +108,7 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 	};
 	
 	$scope.updateBooking = function() {
+		if ($scope.data.fname != null && $scope.data.lname != null && $scope.data.mname != null && $scope.data.phone != null && $scope.data.mail != null && $scope.data.gender != null && $scope.data.cardName != null && $scope.data.cardNo != null) {
 		console.log("inside update booking");
 		$scope.reservationId = SharedData.getReservationId();
 		console.log("the id id");
@@ -126,11 +127,12 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 				}
 				console.log("In Controller : ");
 				console.log(data);
+				$location.path("/thankYou");
              },
 				function(errResponse){
 					console.error('Error while reservation of Flight');
 				}
 		);
+	}
 	};
-	
 });

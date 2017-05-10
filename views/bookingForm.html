@@ -1,22 +1,20 @@
-<form name=BookingForm class="form-style-9" autocomplete="on">
+<form class="form-style-9" autocomplete="on">
 	<h2>Secure booking - only takes a few minutes!</h2>
 	<br></br> <br>
-	<!-- This div is to display the error message, when credentials doesnot match. -->
 	<ul>
-		<li><label>First Name<input type="text" name="field1"
-				required /></label> <label>Middle Name<input type="text"
-				name="field1" required="required" /></label> <label>Last Name<input
-				type="text" name="field1" required="required" /></label></li>
-		<li><label>Phone Number<input type="number" name="field1"
-				required="required"/></label></li>
-		<li><label>Email Address<input type="email" name="field1"
-				required="required" /></label></li>
-		<li><label>Gender <input type="radio" name="gender"
-				value="male" checked required />Male<br> <input type="radio"
-				name="gender" value="female" /> Female
-		</label></li>
-		<li><label for="inputdob">Date Of Birth <select
-				name="DOBMonth" required>
+		<li><label>First Name<input type="text" name="field1" required  ng-model="data.fname" /></label>
+		    <label>Middle Name<input type="text" name="field1" required  ng-model="data.mname" /></label> 
+		    <label>Last Name<input type="text" name="field1" required="required" ng-model="data.lname"/></label>
+	   </li>
+		<li><label>Phone Number<input type="number" name="field1" required="required" ng-model="data.phone" /></label>
+		</li>
+		<li><label>Email Address<input type="email" name="field1" required="required" ng-model="data.mail"/></label>
+		</li>
+		<li><label>Gender <input type="radio" name="gender" value="male" checked required  ng-model="data.gender"/>Male<br>
+		                  <input type="radio" name="gender" value="female" /> Female </label>
+		</li>
+		<li><label for="inputdob">Date Of Birth 
+			<select name="DOBMonth" required>
 					<option>Month</option>
 					<option value="January">January</option>
 					<option value="Febuary">Febuary</option>
@@ -30,7 +28,8 @@
 					<option value="October">October</option>
 					<option value="November">November</option>
 					<option value="December">December</option>
-			</select> <select name="DOBDay">
+			</select>
+			 <select name="DOBDay" required>
 					<option>Day</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -63,7 +62,8 @@
 					<option value="29">29</option>
 					<option value="30">30</option>
 					<option value="31">31</option>
-			</select> <select name="DOBYear">
+			</select> 
+			<select name="DOBYear" required>
 					<option>Year</option>
 					<option value="1993">1993</option>
 					<option value="1992">1992</option>
@@ -120,12 +120,10 @@
 		<h2>How would you Like to pay?</h2>
 		<br>
 		<br>
-		<li><label>CardHolder Name <input type="text"
-				placeholder="Enter CardHolder name" name="cname" required="required"></label></li>
-		<li><label> Debit/Credit Card number <input type="text"
-				placeholder="Enter Credit/debit card" name="card" required="required"></li>
-		<li></label> <label>Card Expiration Date <select name='expireMM'
-				id='expireMM'>
+		<li><label>CardHolder Name <input type="text" placeholder="Enter CardHolder name" name="cname" required="required"></label></li>
+		<li><label> Debit/Credit Card number <input type="text" placeholder="Enter Credit/debit card" name="card" required="required"></label></li>
+		<li> <label>Card Expiration Date 
+		<select name='expireMM' id='expireMM'>
 					<option value=''>Month</option>
 					<option value='01'>January</option>
 					<option value='02'>February</option>
@@ -139,7 +137,8 @@
 					<option value='10'>October</option>
 					<option value='11'>November</option>
 					<option value='12'>December</option>
-			</select> <select name='expireYY' id='expireYY'>
+			</select> 
+			<select name='expireYY' id='expireYY'>
 					<option value=''>Year</option>
 					<option value='10'>2010</option>
 					<option value='11'>2011</option>
@@ -150,14 +149,12 @@
 					<option value='12'>2016</option>
 			</select></li>
 		<li></label> <label>Security Code <input type="number"
-				placeholder="Enter Security code" name="security" required="required">
+				placeholder="Enter Security code" name="security"
+				required="required">
 		</label></li>
-
-
-		<li>
+	<li>
 			<p class="Book button">
-				<a href="#/thankYou" ng-click="updateBooking()"><input
-					type="submit" value="Complete Booking" /> </a>
+				<input type="submit" ng-click="updateBooking()" value="Complete Booking" />
 			</p>
 		</li>
 	</ul>
