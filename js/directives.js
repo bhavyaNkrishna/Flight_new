@@ -34,6 +34,49 @@ App.directive('datepickerRet', function () {
     }
 });
 
+App.directive('datepickerExp', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+         link: function (scope, element, attrs, ngModelCtrl) {
+			  $(element).datepicker({
+				  changeMonth: true,
+				    changeYear: true,
+				    showButtonPanel: true,
+				    dateFormat: 'MM yy',
+				    onClose: function(dateText, inst) { 
+				        var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+				        var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+				        $(this).datepicker('setDate', new Date(year, month, 1));
+				    }
+				  /*onSelect: function (date) {
+					  		ngModelCtrl.$setViewValue(date);
+					  		scope.$apply();
+	                }*/
+			  });
+         }
+    }
+});
+
+App.directive('datepickerBd', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+         link: function (scope, element, attrs, ngModelCtrl) {
+			  $(element).datepicker({
+				  maxDate: new Date(),
+				  changeMonth: true,
+			      changeYear: true,
+			      yearRange: "-120:+00",
+				  onSelect: function (date) {
+					  		ngModelCtrl.$setViewValue(date);
+					  		scope.$apply();
+	                }
+			  });
+         }
+    }
+});
+
 App.directive('validPasswordC', function () {
 	return {
 		require: 'ngModel',

@@ -13,6 +13,7 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 
 	$scope.showReturnDetails = false;
 	$scope.flight = {};
+	$scope.data = [];
 
 	//$scope.flight = SharedData.getFlight();
 	//console.log($scope.flight);
@@ -108,31 +109,50 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 	};
 	
 	$scope.updateBooking = function() {
-		if ($scope.data.fname != null && $scope.data.lname != null && $scope.data.mname != null && $scope.data.phone != null && $scope.data.mail != null && $scope.data.gender != null && $scope.data.cardName != null && $scope.data.cardNo != null) {
-		console.log("inside update booking");
-		$scope.reservationId = SharedData.getReservationId();
-		console.log("the id id");
-		console.log($scope.reservationId);
-		var data = {
-				reservationId:""
-		};
-		data.reservationId = $scope.reservationId;
-		BookFlightService.updateReservation(data)
-		.then(
-             function (data){
-				if(data.error===1){
-					$scope.errorMessage="Flight is not Reserved";
-				} else {
-					$scope.errorMessage= false;
-				}
-				console.log("In Controller : ");
-				console.log(data);
-				$location.path("/thankYou");
-             },
-				function(errResponse){
-					console.error('Error while reservation of Flight');
-				}
-		);
-	}
+		$scope.cardMessage = "";
+		if ($scope.data.fname != null && 
+			$scope.data.lname != null && 
+			$scope.data.mname != null && 
+			$scope.data.phone != null && 
+			$scope.data.mail != null && 
+			$scope.data.gender != null && 
+			$scope.data.dob != null && 
+			$scope.data.cardName != null && 
+			$scope.data.cardNo != null) {
+			console.log("inside update booking");
+			$scope.reservationId = SharedData.getReservationId();
+			console.log("the id id");
+			console.log($scope.reservationId);
+			$scope.successMessage = false;
+			$scope.errorMessage = false;
+
+
+			if($scope.data.cardName == "Bhavya" && $scope.data.cardNum == "105105105105100" && $scope.data.security == "345" && $scope.data.expMonth == "08" && $scope.data.expYear == "22"){
+				$scope.cardMessage="Card details are valid";
+				var data = {
+						reservationId:""
+				};
+				data.reservationId = $scope.reservationId;
+				BookFlightService.updateReservation(data)
+				.then(
+						function (data){
+							if(data.error===1){
+								$scope.errorMessage="Flight is not Reserved";
+							} else {
+								$scope.errorMessage= false;
+							}
+							console.log("In Controller : ");
+							console.log(data);
+							$location.path("/thankYou");
+						},
+						function(errResponse){
+							console.error('Error while reservation of Flight');
+						}
+				);
+			}
+			else{
+				$scope.cardMessage = "Card details are not valid";
+			}
+		}
 	};
 });

@@ -144,14 +144,14 @@ App.service('FlightService', ['$http', function($http){
     }
     
     this.getFlightResults = function(formData) {
-        if (formData.class == "Coach") {
-            formData.class = "COACH";
+        if (formData.cabin == "Coach") {
+            formData.cabin = "COACH";
         } else if (formData.class == "Premium Coach") {
-            formData.class = "PREMIUM_COACH";
+            formData.cabin = "PREMIUM_COACH";
         } else if (formData.class == "Business") {
-            formData.class = "BUSINESS";
+            formData.cabin = "BUSINESS";
         } else {
-            formData.class = "FIRST";
+            formData.cabin = "FIRST";
         }
         if (formData.refundable == "Yes") {
             formData.refundable = true;
