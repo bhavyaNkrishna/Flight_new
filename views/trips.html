@@ -57,7 +57,7 @@
 						</div>
 						<div class="panel-footer">
 							<button class="btn btn-info" ng-click="print()">Print</button>
-							<button class="btn btn-info">Cancel</button>
+							<button ng-click="deleteBooking(bk)" class="btn btn-info">Cancel</button>
 						</div>
 					</div>
 				</div>
@@ -122,8 +122,8 @@
 						</div>
 						<div class="panel-footer">
 						<button type="button" class="btn btn-info"
-			ng-click="completeHeldBooking(bk)">Complete Booking</button>
-							<button class="btn btn-info">Cancel</button>
+						ng-click="completeHeldBooking(bk)">Complete Booking</button>
+							<button ng-click="deleteBooking(bk)" class="btn btn-info">Cancel</button>
 						</div>
 					</div>
 				</div>
