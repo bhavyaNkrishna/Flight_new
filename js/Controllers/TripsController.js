@@ -10,7 +10,7 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 		$scope.logoutbutton = true;
 	}
 	$scope.bflight = function() {
-		$scope.data = [];
+		$scope.fldata = [];
 		console.log("in booked");
 		console.log(SessionService.getCookieData());
 		var user = {
@@ -26,28 +26,38 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					deferred.resolve(response.data);
 					console.log(response.data.error);
 					$scope.error = response.data.error;
-					for( var i in response.data.fldata){
-						$scope.data.push({id:response.data.fldata[i].flightid, flightno:response.data.fldata[i].flightno,
+					//for(var i in response.data.fldata){
+						/*$scope.fldata.push({resid:response.data.fldata[i].resid,id:response.data.fldata[i].flightid, flightno:response.data.fldata[i].flightno,
 							arrcity:response.data.fldata[i].arrcity, arrdate:response.data.fldata[i].arrdate,
 							depdate:response.data.fldata[i].depdate,depcity:response.data.fldata[i].depcity,
 							arrtime:response.data.fldata[i].arrtime, deptime:response.data.fldata[i].deptime,
 							flightdur:response.data.fldata[i].flightdur,round:response.data.fldata[i].round,
-							isr:response.data.fldata[i].isr,
-							price:response.data.fldata[i].price});
+							isr:response.data.fldata[i].isr,price:response.data.fldata[i].price});
 						if($scope.data[i].isr === 1) {
 							$scope.b = $scope.b+1;
 						}
 						else if($scope.data[i].isr === 0) {
 							$scope.h = $scope.h+1;
-						}
+						}*/
+						console.log(response.data.fldata);
+						$scope.fldata.push(response.data.fldata);
 						if($scope.error === 1) {
 							$scope.message = "NO Flights";
-							//$scope.data = false;
+							$scope.data = false;
 						}
 						else {
 							$scope.message = false;
+							/*if($scope.b === 0)
+								{
+								$scope.b = true;
+							    $scope.h = false;
+								}
+							if($scope.h === 0)
+								{
+								$scope.b = false;
+							    $scope.h = true;
+								}*/
 						}
-					}
 				},
 				function(errResponse){
 					console.log('Error while validating the credentials');
@@ -55,12 +65,11 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					deferred.reject(errResponse);
 				}
 		);
-		console.log($scope.data);
 		// promise is returned
 		return deferred.promise;
 	}
 
-	$scope.hflight = function() {
+	/*$scope.hflight = function() {
 		$scope.data = [];
 		console.log("in booked");
 		console.log(SessionService.getCookieData());
@@ -78,7 +87,7 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					console.log(response.data.error);
 					$scope.error = response.data.error;
 					for( var i in response.data.fldata){
-						$scope.data.push({id:response.data.fldata[i].flightid, flightno:response.data.fldata[i].flightno,
+						$scope.data.push({resid:response.data.fldata[i].resid,id:response.data.fldata[i].flightid, flightno:response.data.fldata[i].flightno,
 							arrcity:response.data.fldata[i].arrcity, arrdate:response.data.fldata[i].arrdate,
 							depdate:response.data.fldata[i].depdate,depcity:response.data.fldata[i].depcity,
 							arrtime:response.data.fldata[i].arrtime, deptime:response.data.fldata[i].deptime,
@@ -103,7 +112,7 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 		console.log($scope.data);
 		// promise is returned
 		return deferred.promise;
-	};
+	};*/
 	
 	$scope.print = function(fl) {
 		var data = [{ text: 'SkyKey', style: 'header' },

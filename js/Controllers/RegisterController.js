@@ -5,6 +5,10 @@ App.controller('RegisterController', function($scope, RegisterService, md5, $rou
 	$scope.data = {};
 	$scope.successMessage = false;
 	$scope.errorMessage = false;
+	
+	$scope.data.password = '';
+	
+	$scope.data.passwordConfirm = '';
 
 	$rootScope.pageTitle = $route.current.title;
 	$scope.moduleTitle = "Login to Site";
