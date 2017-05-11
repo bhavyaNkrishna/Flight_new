@@ -96,14 +96,38 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 
 
 	
-	$scope.print = function(fl) {
+	$scope.print = function(bk) {
+		var flightInfo = "\nDeparture:\n";
+		for (var i = 0; i < bk.length; i++) {
+			if (bk[i].round == 0) {
+				flightInfo = flightInfo + "\n" +
+				   "Flight NO: " + bk[i].flightno + "\n" +
+				   "Departure City: " + bk[i].depcity + "\n" +
+					"Departure Date: " + bk[i].depdate + "\n" +
+					"Departure Time: " + bk[i].deptime + "\n" +
+					"Arrival City: " + bk[i].arrcity + "\n" +
+					"Arrival Date: " + bk[i].arrdate + "\n" +
+					"Arrival Time: " + bk[i].arrtime + "\n";
+			}
+		}
+		flightInfo = flightInfo + "\nReturn:\n";
+		for (var i = 0; i < bk.length; i++) {
+			if (bk[i].round == 1) {
+				flightInfo = flightInfo + "\n" +
+				   "Flight NO: " + bk[i].flightno + "\n" +
+				   "Departure City: " + bk[i].depcity + "\n" +
+					"Departure Date: " + bk[i].depdate + "\n" +
+					"Departure Time: " + bk[i].deptime + "\n" +
+					"Arrival City: " + bk[i].arrcity + "\n" +
+					"Arrival Date: " + bk[i].arrdate + "\n" +
+					"Arrival Time: " + bk[i].arrtime + "\n";
+			}
+		}
 		var data = [{ text: 'SkyKey', style: 'header' },
-			{ text: 'Itinerary', style: 'subhead' },
-			"\nFlight ID: " + fl.id + "\n" +
-					   "Flight NO: " + fl.flightno + "\n" +
-					   "\nDeparture City: " + fl.depcity + "\n" +
-						"Departure Date: " + fl.depdate + "\n" +
-						"Departure Time: " + fl.deptime + "\n"]
+			{text: '\nImportant Information', style: 'subhead'},
+			{text: "Be sure to bring all necessary documentation (e.g. passport, visa, driver's license)."},
+			{ text: '\nItinerary', style: 'subhead' },
+			flightInfo]
 		var docDefinition = {content: data, styles: {
 		     header: {
 		         fontSize: 24,

@@ -15,15 +15,15 @@
 									<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
 									<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-3">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-3">Departure Time: {{ fl.deptime | convertTime }}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-3">Arrival Time: {{ fl.arrtime | convertTime }}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-3">Flight Duration: {{ fl.flightdur }} min</div>
 
 									<div class="col-md-3">Price : {{ fl.price }}</div>
 								</div>
@@ -40,15 +40,15 @@
 
 									<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-3">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-3">Departure Time: {{ fl.deptime | convertTime }}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-3">Arrival Time: {{ fl.arrtime | convertTime }}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-3">Flight Duration: {{ fl.flightdur }} min</div>
 
 									<div class="col-md-3">Price : {{ fl.price }}</div>
 								</div>
@@ -56,7 +56,7 @@
 							<hr>
 						</div>
 						<div class="panel-footer">
-							<button class="btn btn-info" ng-click="print()">Print</button>
+							<button class="btn btn-info" ng-click="print(bk)">Print</button>
 							<button class="btn btn-info">Cancel</button>
 						</div>
 					</div>
@@ -81,15 +81,15 @@
 
 									<div class="col-md-4">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-4">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-4">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-4">Departure Time: {{ fl.deptime | convertTime }}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-4">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-4">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-4">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-4">Arrival Time: {{ fl.arrtime | convertTime }}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-4">Flight Duration: {{ fl.flightdur }} min</div>
 
 									<div class="col-md-4">Price : {{ fl.price }}</div>
 								</div>
@@ -106,15 +106,15 @@
 
 									<div class="col-md-4">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-4">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-4">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-4">Departure Time: {{ fl.deptime | convertTime}}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-4">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-4">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-4">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-4">Arrival Time: {{ fl.arrtime | convertTime}}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-4">Flight Duration: {{ fl.flightdur }} min</div>
 									<div class="col-md-4">Price : {{ fl.price }}</div>
 								</div>
 							</div>
