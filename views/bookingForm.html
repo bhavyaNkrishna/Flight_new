@@ -1,74 +1,120 @@
-<form class="form-style-9" autocomplete="on">
-	<h2>Secure booking - only takes a few minutes!</h2>
-	<br></br> <br>
-	<ul>
-		<li><label>First Name<input type="text" name="field1" required  ng-model="data.fname" /></label>
-		    <label>Middle Name<input type="text" name="field1" required  ng-model="data.mname" /></label> 
-		    <label>Last Name<input type="text" name="field1" required="required" ng-model="data.lname"/></label>
-	   </li>
-		<li><label>Phone Number<input type="number" name="field1" required="required" ng-model="data.phone" /></label>
-		</li>
-		<li><label>Email Address<input type="email" name="field1" required="required" ng-model="data.mail"/></label>
-		</li>
-		<li><label>Gender <input type="radio" name="gender" value="male" checked required  ng-model="data.gender"/>Male<br>
-		                  <input type="radio" name="gender" value="female" /> Female </label>
-		</li>
-		<li><label for="inputdob">Date Of Birth 
-			<input type="text" value="" id="dob"
-				ng-model="data.dob" datepicker-bd required>
-		</label></li>
-	</ul>
-	<p>{{data.gender}}</p>
-	<p>{{data.dob}}</p>
-	<ul>
-		<h2>How would you Like to pay?</h2>
-		<br>
-		<br>
-		<p>{{data.expMonth}}</p>
-		<p>{{data.expYear}}</p>
-		<p>{{cardMessage}}</p>
-		<li><label>CardHolder Name <input type="text" placeholder="Enter CardHolder name" name="cname" ng-model="data.cardName" required="required"></label></li>
-		<li><label> Debit/Credit Card number <input type="text" placeholder="Enter Credit/debit card" name="card" ng-model="data.cardNo" required="required"></label></li>
-		<li> <label>Card Expiration Date
-		<select ng-model="data.expMonth">
-			<option value="01">01</option>
-			<option value="02">02</option>
-			<option value="03">03</option>
-			<option value="04">04</option>
-			<option value="05">05</option>
-			<option value="06">06</option>
-			<option value="07">07</option>
-			<option value="08">08</option>
-			<option value="09">09</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-		</select>
-		<select ng-model="data.expYear">
-			<option value="17">17</option>
-			<option value="18">18</option>
-			<option value="19">19</option>
-			<option value="20">20</option>
-			<option value="21">21</option>
-			<option value="22">22</option>
-			<option value="23">23</option>
-			<option value="24">24</option>
-			<option value="25">25</option>
-			<option value="26">26</option>
-			<option value="27">27</option>
-			<option value="28">28</option>
-			<option value="29">29</option>
-			<option value="30">30</option>
-		</select></label></li>
-		<li> <label>Security Code <input type="number"
-				placeholder="Enter Security code" name="security"
-				required="required">
-		</label></li>
-	<li>
-			<p class="Book button">
-				<input type="submit" ng-click="updateBooking()" value="Complete Booking" />
-			</p>
-		</li>
-	</ul>
-	<p Thank you for Choosing Us />
+<form>
+	<div class="row">
+		<h2>Secure booking - only takes a few minutes!</h2>
+	</div>
+	<div class="row">
+	<div class="col-md-5 col-md-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>Personal Information</p>
+				<div class="form-group row">
+					<label class="form-check-label">First Name<input
+						type="text" class="form-control" name="field1" required
+						ng-model="data.fname"></label> <label class="form-check-label">Last
+						Name<input type="text" class="form-control" name="field1"
+						required="required" ng-model="data.lname">
+					</label>
+				</div>
+				<div class="form-group row">
+					<label class="form-check-label">Middle Name<input
+						type="text" class="form-control" name="field1" required
+						ng-model="data.mname"></label>
+				</div>
+				<div class="form-group row">
+					<label class="form-check-label">Phone Number<input
+						type="number" class="form-control" name="field1"
+						required="required" ng-model="data.phone"></label>
+				
+					<label class="form-check-label">Email Address<input
+						type="email" class="form-control" name="field1"
+						required="required" ng-model="data.mail"></label>
+				</div>
+				<div class="form-group row">
+					<label class="form-check-label">Male <input type="radio"
+						class="form-check-input" name="gender" value="male"
+						ng-model="data.gender"></label> <label class="form-check-label">Female
+						<input type="radio" class="form-check-input" name="gender"
+						value="female" ng-model="data.gender">
+					</label>
+				</div>
+				<div class="form-group row">
+					<label class="form-check-label">Date Of Birth <input
+						type="text" class="form-control" value="" id="dob"
+						ng-model="data.dob" datepicker-bd required>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>Payment Information</p>
+				<div class="alert alert-danger" ng-if="cardMessageDisplay">{{cardMessage}}</div>
+				<div class="form-group row">
+					<label class="form-check-label">CardHolder Name <input
+						type="text"
+						class="form-control" name="cname" ng-model="data.cardName"
+						required="required"></label>
+				</div>
+				<div class="form-group row">
+					<label class="form-check-label"> Debit/Credit Card number <input
+						type="text"
+						class="form-control" name="card" ng-model="data.cardNum"
+						required="required"></label>
+				</div>
+				<div class="form-group row">
+					<label class="form-check-label">Card Expiration Date </label>
+					<div class="form-group row">
+					<div class="col-md-3 col-md-offset-3">
+					<select
+						class="form-control" ng-model="data.expMonth">
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+					</select>
+					</div>
+					<div class="col-md-3">
+					<select class="form-control" ng-model="data.expYear">
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+					</select>
+					</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="form-check-label">Security Code <input
+						type="number"
+						class="form-control" name="security" ng-model="data.security" required="required">
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="row">
+				<input type="submit" class="btn btn-info" ng-click="updateBooking()"
+					value="Complete Booking">
+		</div>
 </form>

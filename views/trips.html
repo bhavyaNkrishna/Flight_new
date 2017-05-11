@@ -1,131 +1,133 @@
-<button id="booked" class="btn btn-info" ng-click="bflight();hflight()">Show all my Booked/Held Flights</button>
-
-<div class="row" id="itineraries">
-	<div class="col-md-4 col-md-offset-2">
-		<div class="panel panel-default">
-					<div class="panel-body">
-				<p>Booked Itineraries</p>
-				<!-- <a class="btn btn-info btn-block" ng-click="bflight()">Booked Flights</a> -->
-				<p>All My Booked flights/Print Itineraries</p>
-                <div ng-if="message" ng-hide="data"> {{ message }}</div>
-				<!-- <div ng-if="b"><p>No Booked FLight</p></div> -->
-				<span> Departure Flights</span>
-				 <div class="panel panel-default" ng-repeat= "fl in data">
-				 <div  class="panel-body" ng-if="fl.isr==1">
-				 <div class="panel-body" ng-if="fl.round==0">
-				 <div class="row">
-					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
-					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
-					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
-					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
-				</div> 
-				<div class="row">
-					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
-					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
-					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
-				</div>
-				<div class="row">
-					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div> 
-					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
-					<div class="col-md-3">Price : {{ fl.price }}</div> 
-				</div> 
-				</div>
-				</div>
-				</div>
-				<span>Return Flights</span>
-				<div class="panel panel-default" ng-repeat= "fl in data">
-				 <div  class="panel-body" ng-if="fl.isr==1">
-				<div class="panel-body" ng-if="fl.round==1">
-				 <div class="row">
-					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
-					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
-					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
-					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
-				</div> 
-				<div class="row">
-					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
-					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
-					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
-				</div>
-				<div class="row">
-					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>  
-					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
-					<div class="col-md-3">Price : {{ fl.price }}</div> 
-				</div> 
-				</div>
-				</div>
-			    </div> 
-				</div>
-			</div>
-		</div> 
-	<div class="col-md-4">
+<div class="row" id="itineraries" ng-init="bflight()">
+	<div class="col-md-5 col-md-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<p>Booked Itineraries</p>
-				<!-- <a class="btn btn-info btn-block" ng-click="hflight()">Held Flights</a> -->
-              <!-- <button id="held" class="btn btn-info btn-block" ng-click="bflight()">Held Flights</button> -->
-				<p>All My Held flights/Print Itineraries</p>
-                <div ng-if="message" ng-hide="data"> {{ message }}</div>
-                <!-- <div ng-if="h"><p> NO Held Flights</p></div> -->
-                <span>Departure Flights</span>
-				 <div class="panel panel-default" ng-repeat= "fl in data">
-				 <div  class="panel-body" ng-if="fl.isr==0">
-				 <div  class="panel-body" ng-if="fl.round==0">
-			<div class="row">
-					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
-					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
-					</div>				
-				<div class="row">
-					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
-					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
-					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
-				</div> 
-				<div class="row">
-					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
-					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
-					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
+				<h2>Booked Itineraries</h2>
+				<div ng-if="message" ng-hide="datar">{{ message }}</div>
+				<div class="panel panel-info" ng-repeat="bk in datar">
+					<div ng-if="bk.length">
+						<div class="panel-heading"><h3>Booking: {{$indexOf+1}}</h3></div>
+						<div class="panel-heading"><h3>Departure Flights:</h3></div>
+						<div ng-repeat="fl in bk">
+							<div ng-if="fl.round==0">
+								<div class="row">
+
+									<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
+									<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
+									<div class="col-md-3">Departure Date: {{ fl.depdate }}</div>
+									<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
+									<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div>
+									<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>
+
+									<div class="col-md-3">Price : {{ fl.price }}</div>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<hr>
+						<div class="panel-heading"><h3>Return Flights: </h3></div>
+						<div ng-repeat="fl in bk">
+							<div ng-if="fl.round==1">
+								<div class="row">
+
+									<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
+
+									<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
+									<div class="col-md-3">Departure Date: {{ fl.depdate }}</div>
+									<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
+									<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div>
+									<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>
+
+									<div class="col-md-3">Price : {{ fl.price }}</div>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="panel-footer">
+							<button class="btn btn-info" ng-click="print()">Print</button>
+							<button class="btn btn-info">Cancel</button>
+						</div>
+					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div> 
-					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
-					<div class="col-md-3">Price : {{ fl.price }}</div> 
-				</div> 
-			</div>
-			</div>
-			</div>
-			<span>Return Flights</span>
-			<div class="panel panel-default" ng-repeat= "fl in data">
-			<div  class="panel-body" ng-if="fl.isr==0">
-			<div  class="panel-body" ng-if="fl.round==1">
-			<div class="row">
-					<div class="col-md-3">Flight ID: {{ fl.id }}</div>			
-					<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
-					</div>				
-				<div class="row">
-					<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
-					<div class="col-md-3">Departure Date: {{ fl.depdate }}</div> 
-					<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
-				</div> 
-				<div class="row">
-					<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
-					<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div> 
-					<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div> 
-				</div>
-				<div class="row">
-					<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>  
-					<div class="col-md-3">Origin : {{ fl.origin }}</div> 
-					<div class="col-md-3">Price : {{ fl.price }}</div> 
-				</div> 
 			</div>
 		</div>
 	</div>
+	<div class="col-md-5">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h2>Held Flights</h2>
+				<div ng-if="message" ng-hide="datah">{{ message }}</div>
+				<div class="panel panel-info" ng-repeat="bk in datah">
+					<div ng-if="bk.length">
+						<div class="panel-heading"><h3>Booking {{$indexOf+1}}:</h3></div>
+						<div class="page-header"><h3>Departure Flights:</h3></div>
+						<div ng-repeat="fl in bk">
+							<div ng-if="fl.round==0">
+								<div class="row">
+
+									<div class="col-md-4">Flight NO: {{ fl.flightno }}</div>
+
+									<div class="col-md-4">Departure City: {{ fl.depcity }}</div>
+									<div class="col-md-4">Departure Date: {{ fl.depdate }}</div>
+									<div class="col-md-4">Departure Time: {{ fl.deptime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">Arrival city: {{ fl.arrcity }}</div>
+									<div class="col-md-4">Arrival Date: {{ fl.arrdate }}</div>
+									<div class="col-md-4">Arrival Time: {{ fl.arrtime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}</div>
+
+									<div class="col-md-4">Price : {{ fl.price }}</div>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<hr>
+						<div class="page-header"><h3>Return Flights: </h3></div>
+						<div ng-repeat="fl in bk">
+							<div ng-if="fl.round==1">
+								<div class="row">
+
+									<div class="col-md-4">Flight NO: {{ fl.flightno }}</div>
+
+									<div class="col-md-4">Departure City: {{ fl.depcity }}</div>
+									<div class="col-md-4">Departure Date: {{ fl.depdate }}</div>
+									<div class="col-md-4">Departure Time: {{ fl.deptime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">Arrival city: {{ fl.arrcity }}</div>
+									<div class="col-md-4">Arrival Date: {{ fl.arrdate }}</div>
+									<div class="col-md-4">Arrival Time: {{ fl.arrtime }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-4">Price : {{ fl.price }}</div>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="panel-footer">
+						<button type="button" class="btn btn-info"
+			ng-click="completeHeldBooking(bk)">Complete Booking</button>
+							<button class="btn btn-info">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	</div>
-	</div>
-	</div>
+</div>

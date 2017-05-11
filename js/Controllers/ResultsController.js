@@ -11,7 +11,12 @@ App.controller('ResultsController', function($scope, FlightService, SessionServi
 	$scope.noResults = false;
 	$scope.showRetrievingResults = true;
 	$scope.showFilterPanel = false;
-
+	SharedData.setDepartureFlights(undefined);
+	SharedData.setReturnFlights(undefined);
+	SharedData.setDepartureFlight(undefined);
+	SharedData.setReturnFlight(undefined);
+	
+	
 	$scope.flights = [];
 	FlightService.getFlightResults(SharedData.getForm()).then(function(successResponse){
 	//FlightService.getFlightResultsTESTING(SharedData.getForm()).then(function(successResponse){
@@ -25,6 +30,8 @@ App.controller('ResultsController', function($scope, FlightService, SessionServi
 				SharedData.setDepartureFlights(FlightService.populateOnewayList(successResponse));
 				$scope.flights = SharedData.getDepartureFlights();
 				SharedData.setFlights($scope.flights);
+				//The issue is, if you select round trip first and then select a one-way, you are not clearing
+				//the returnflight shared data. You need to clear that, whenever you land into search page. 
 			} else {
 				SharedData.setDepartureFlights(FlightService.populateDeparturesList(successResponse));
 				SharedData.setReturnFlights(FlightService.populateReturnsList(successResponse));
@@ -77,17 +84,19 @@ App.controller('ResultsController', function($scope, FlightService, SessionServi
 		$scope.flights = FlightService.filterOvernight($scope.flights);
 	};
 	
+	//The issue is, if you select round trip first and then select a one-way, you are not clearing
+	//the returnflight shared data. You need to clear that, whenever you land into search page. 
 	$scope.selectedFlight = function(flight) {
-		if (flight.oneway == true) {
+		if (flight.oneway === true) {
 			SharedData.setDepartureFlight(flight);
 			$location.path("/review");
 		}
-		if (flight.returnFlight == false) {
+		if (flight.returnFlight === false) {
 			$scope.flights = [];
 			SharedData.setDepartureFlight(flight);
 			$scope.flights = SharedData.getReturnFlights();
 			SharedData.setFlights($scope.flights);
-		} else if (flight.returnFlight == true) {
+		} else if (flight.returnFlight === true) {
 			SharedData.setReturnFlight(flight);
 			$location.path("/review");
 		}

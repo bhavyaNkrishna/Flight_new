@@ -24,18 +24,7 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 	if ($scope.flight.oneway !== true) {
 		$scope.showReturnDetails = true;
 	}
-	console.log($scope.flight);
-	console.log($scope.flight.arrivalCity);
-	console.log($scope.flight.arrivalDate);
-	console.log($scope.flight.flightNumber);
-	console.log($scope.flight.arrivalTime);
 
-	for(var i=0;i<$scope.flight.legs.length;i++){
-		console.log("leg details");
-		console.log($scope.flight.legs[i].flightNumber);
-	}
-
-	console.log($rootScope.uname);
 	//var uname = $rootScope.uname;
 	//$scope.date = new Date();
 	//submittedDate = $scope.date;
@@ -43,6 +32,7 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 
 	var uname = SharedData.getUname();
     console.log(uname);
+    
 	$scope.bookFlight = function() {
 		console.log("in book function");
 		var data = {
@@ -69,7 +59,7 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 						console.log($scope.returnFlight);
 						console.log(!$scope.returnFlight);
 						console.log(!!$scope.returnFlight);
-						if(!$scope.returnFlight.length) {
+						if(!!$scope.returnFlight) {
 							console.log("Entered return flight method");
 							var returnData = {
 									flight : "",
@@ -108,7 +98,22 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 		);
 	};
 	
+	
+	$scope.completeHeldBooking = function(bk){
+
+		console.log("in book function");
+		var data = {
+				reservationId:""
+		};
+		data.reservationId = bk[0].reservation;
+	   console.log("Thre reservation id by held flight" +data.reservationId);
+		SharedData.setReservationId(data.reservationId);
+		$location.path("/");
+	
+	}
+	
 	$scope.updateBooking = function() {
+		console.log("inside update");
 		$scope.cardMessage = "";
 		if ($scope.data.fname != null && 
 			$scope.data.lname != null && 
@@ -118,7 +123,7 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 			$scope.data.gender != null && 
 			$scope.data.dob != null && 
 			$scope.data.cardName != null && 
-			$scope.data.cardNo != null) {
+			$scope.data.cardNum != null) {
 			console.log("inside update booking");
 			$scope.reservationId = SharedData.getReservationId();
 			console.log("the id id");
@@ -128,10 +133,12 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 
 
 			if($scope.data.cardName == "Bhavya" && $scope.data.cardNum == "105105105105100" && $scope.data.security == "345" && $scope.data.expMonth == "08" && $scope.data.expYear == "22"){
+				console.log("inside card validated if block");
 				$scope.cardMessage="Card details are valid";
 				var data = {
 						reservationId:""
 				};
+				
 				data.reservationId = $scope.reservationId;
 				BookFlightService.updateReservation(data)
 				.then(
@@ -151,7 +158,9 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 				);
 			}
 			else{
+				console.log($scope.data.cardName, $scope.data.cardNum, $scope.data.security, $scope.data.expMonth, $scope.data.expYear);
 				$scope.cardMessage = "Card details are not valid";
+				$scope.cardMessageDisplay = true;
 			}
 		}
 	};
