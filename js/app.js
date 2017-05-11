@@ -1,5 +1,5 @@
 'use strict';
-var App = angular.module('myApp', ['ngRoute','angular-md5','ngCookies', 'ngMessages']);
+var App = angular.module('myApp', ['ngRoute','angular-md5','ngCookies']);
 
 App.controller('HomeController', function($scope,$cookieStore,SharedData,AuthService,SessionService,$rootScope,$location) {
 	
@@ -10,6 +10,7 @@ App.controller('HomeController', function($scope,$cookieStore,SharedData,AuthSer
 	} else {
 		$rootScope.loginbutton = false;
 		$rootScope.logoutbutton = true;
+		SharedData.setUname(SessionService.getCookieData());
 	}
 	// at the bottom of your controller
 	$scope.logout = function() {

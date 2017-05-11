@@ -9,8 +9,22 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 		$scope.loginbutton = false;
 		$scope.logoutbutton = true;
 	}
+	
+	$scope.completeHeldBooking = function(bk){
+
+		console.log("in book function");
+		var data = {
+				reservationId:""
+		};
+		data.reservationId = bk[0].reservation;
+	   console.log("Thre reservation id by held flight" +data.reservationId);
+		SharedData.setReservationId(data.reservationId);
+		$location.path("/bookingForm");
+	}
+	
 	$scope.bflight = function() {
-		$scope.fldata = [];
+		$scope.datar = [];
+		$scope.datah = [];
 		console.log("in booked");
 		console.log(SessionService.getCookieData());
 		var user = {
@@ -24,84 +38,50 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					console.log(response);
 					// promise is fulfilled
 					deferred.resolve(response.data);
-					console.log(response.data.error);
+					console.log(response.data);
 					$scope.error = response.data.error;
-					//for(var i in response.data.fldata){
-						/*$scope.fldata.push({resid:response.data.fldata[i].resid,id:response.data.fldata[i].flightid, flightno:response.data.fldata[i].flightno,
-							arrcity:response.data.fldata[i].arrcity, arrdate:response.data.fldata[i].arrdate,
-							depdate:response.data.fldata[i].depdate,depcity:response.data.fldata[i].depcity,
-							arrtime:response.data.fldata[i].arrtime, deptime:response.data.fldata[i].deptime,
-							flightdur:response.data.fldata[i].flightdur,round:response.data.fldata[i].round,
-							isr:response.data.fldata[i].isr,price:response.data.fldata[i].price});
-						if($scope.data[i].isr === 1) {
-							$scope.b = $scope.b+1;
+					$scope.datar.push([]);
+					$scope.datah.push([]);
+					var flight;
+					var i = 0;
+					var j = 0;
+					while (response.data.fldata.length > 0){
+						console.log(response.data.fldata.length);
+						flight = {id:response.data.fldata[0].flightid, flightno:response.data.fldata[0].flightno,
+							arrcity:response.data.fldata[0].arrcity, arrdate:response.data.fldata[0].arrdate,
+							depdate:response.data.fldata[0].depdate,depcity:response.data.fldata[0].depcity,
+							arrtime:response.data.fldata[0].arrtime, deptime:response.data.fldata[0].deptime,
+							flightdur:response.data.fldata[0].flightdur,round:response.data.fldata[0].round,
+							isr:response.data.fldata[0].isr,reservation:response.data.fldata[0].bookingid,
+							price:response.data.fldata[0].price};
+						if (response.data.fldata[0].isr == 1) {
+							if (response.data.fldata[1] != null && response.data.fldata[0].bookingid != response.data.fldata[1].bookingid) {
+								$scope.datar[i].push(flight);
+								$scope.datar.push([]);
+								i++;
+							} else {
+								$scope.datar[i].push(flight);
+							}
+							response.data.fldata.shift();
+						} else if (response.data.fldata[0].isr == 0) {
+							if (response.data.fldata[1] != null && response.data.fldata[0].bookingid != response.data.fldata[1].bookingid) {
+								$scope.datah[j].push(flight);
+								$scope.datah.push([]);
+								j++;
+							} else {
+								$scope.datah[j].push(flight);
+							}
+							response.data.fldata.shift();
 						}
-						else if($scope.data[i].isr === 0) {
-							$scope.h = $scope.h+1;
-						}*/
-						console.log(response.data.fldata);
-						$scope.fldata.push(response.data.fldata);
 						if($scope.error === 1) {
-							$scope.message = "NO Flights";
-							$scope.data = false;
-						}
-						else {
-							$scope.message = false;
-							/*if($scope.b === 0)
-								{
-								$scope.b = true;
-							    $scope.h = false;
-								}
-							if($scope.h === 0)
-								{
-								$scope.b = false;
-							    $scope.h = true;
-								}*/
-						}
-				},
-				function(errResponse){
-					console.log('Error while validating the credentials');
-					// the following line rejects the promise 
-					deferred.reject(errResponse);
-				}
-		);
-		// promise is returned
-		return deferred.promise;
-	}
-
-	/*$scope.hflight = function() {
-		$scope.data = [];
-		console.log("in booked");
-		console.log(SessionService.getCookieData());
-		var user = {
-				"uname": ""
-		};
-		user.uname = SessionService.getCookieData();
-		var deferred = $q.defer();
-		$http.post('/heldFlight', user)
-		.then(
-				function (response) {
-					console.log(response);
-					// promise is fulfilled
-					deferred.resolve(response.data);
-					console.log(response.data.error);
-					$scope.error = response.data.error;
-					for( var i in response.data.fldata){
-						$scope.data.push({resid:response.data.fldata[i].resid,id:response.data.fldata[i].flightid, flightno:response.data.fldata[i].flightno,
-							arrcity:response.data.fldata[i].arrcity, arrdate:response.data.fldata[i].arrdate,
-							depdate:response.data.fldata[i].depdate,depcity:response.data.fldata[i].depcity,
-							arrtime:response.data.fldata[i].arrtime, deptime:response.data.fldata[i].deptime,
-							flightdur:response.data.fldata[i].flightdur,round:response.data.fldata[i].round,
-							isr:response.data.fldata[i].isr,
-							price:response.data.fldata[i].price});
-						if($scope.error === 1) {
-							$scope.message = "NO Flights";
-							//$scope.data = false;
+							$scope.message = "No Flights";
 						}
 						else {
 							$scope.message = false;
 						}
 					}
+					console.log($scope.datar);
+					console.log($scope.datah);
 				},
 				function(errResponse){
 					console.log('Error while validating the credentials');
@@ -109,10 +89,12 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 					deferred.reject(errResponse);
 				}
 		);
-		console.log($scope.data);
+		console.log($scope.datar);
 		// promise is returned
 		return deferred.promise;
-	};*/
+	}
+
+
 	
 	$scope.print = function(fl) {
 		var data = [{ text: 'SkyKey', style: 'header' },

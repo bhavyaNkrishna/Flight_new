@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-
+	 "angular-jwt":"0.1.9",
     "angular-md5": "^0.1.10",
     "async": "2.4.0",
     "body-parser": "~1.15.1",

@@ -1,4 +1,4 @@
-App.factory('AuthService', ['$rootScope','$cookieStore','$http', '$q','SessionService', function($rootScope,$cookieStore,$http, $q,SessionService){
+App.factory('AuthService', ['$rootScope', '$cookieStore','$http', '$q','SessionService', function($rootScope,$cookieStore,$http, $q,SessionService){
 
 	var userName = "";
 
