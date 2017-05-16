@@ -219,6 +219,34 @@ app.put('/updateFlight', function (req, res) {
 	}
 });
 
+app.put('/deleteBooking', function (req, res) {
+	var reservationId = req.body.reservationId;
+	
+	log.info(reservationId);
+	var data = {
+			"error": 1,
+			"id": ""
+	};
+	log.info('delete request');
+	if (!!reservationId) {
+		pool.getConnection(function (err, connection) {
+			connection.query("delete  from reservation_details  WHERE Reservation_ID=?",[reservationId], function (err, rows, fields) {
+				if (!!err) {
+					data.id = "Error deleting reservation";
+					log.error(err);
+				} else {
+					data.error = 0;
+					data.id = "Deleted reservation sucessfully";
+				}
+				res.json(data);
+			});
+		});
+	} else {
+		data.id = "Please provide all required data (i.e :reservation id)";
+		res.json(data);
+	}
+});
+
 app.post('/insertflight', function (req, res) {
 
 	var arrivalCity = req.body.flight.arrivalCity;

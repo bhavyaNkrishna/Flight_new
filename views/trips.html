@@ -6,8 +6,12 @@
 				<div ng-if="message" ng-hide="datar">{{ message }}</div>
 				<div class="panel panel-info" ng-repeat="bk in datar">
 					<div ng-if="bk.length">
-						<div class="panel-heading"><h3>Booking: {{$indexOf+1}}</h3></div>
-						<div class="panel-heading"><h3>Departure Flights:</h3></div>
+						<div class="panel-heading">
+							<h3>Booking: {{$indexOf+1}}</h3>
+						</div>
+						<div class="panel-heading">
+							<h3>Departure Flights:</h3>
+						</div>
 						<div ng-repeat="fl in bk">
 							<div ng-if="fl.round==0">
 								<div class="row">
@@ -15,15 +19,18 @@
 									<div class="col-md-3">Flight NO: {{ fl.flightno }}</div>
 									<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-3">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-3">Departure Time: {{ fl.deptime |
+										convertTime }}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-3">Arrival Time: {{ fl.arrtime |
+										convertTime }}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}
+										min</div>
 
 									<div class="col-md-3">Price : {{ fl.price }}</div>
 								</div>
@@ -31,7 +38,9 @@
 							<hr>
 						</div>
 						<hr>
-						<div class="panel-heading"><h3>Return Flights: </h3></div>
+						<div class="panel-heading">
+							<h3>Return Flights:</h3>
+						</div>
 						<div ng-repeat="fl in bk">
 							<div ng-if="fl.round==1">
 								<div class="row">
@@ -40,15 +49,18 @@
 
 									<div class="col-md-3">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-3">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-3">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-3">Departure Time: {{ fl.deptime |
+										convertTime }}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-3">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-3">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-3">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-3">Arrival Time: {{ fl.arrtime |
+										convertTime }}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-3">Flight Duration: {{ fl.flightdur }}
+										min</div>
 
 									<div class="col-md-3">Price : {{ fl.price }}</div>
 								</div>
@@ -56,8 +68,12 @@
 							<hr>
 						</div>
 						<div class="panel-footer">
-							<button class="btn btn-info" ng-click="print()">Print</button>
-							<button class="btn btn-info">Cancel</button>
+							<button class="btn btn-info" ng-click="print(bk)">Print</button>
+							<button ng-click="deleteBooking(bk)" class="btn btn-info">Cancel</button>
+
+
+
+
 						</div>
 					</div>
 				</div>
@@ -71,8 +87,12 @@
 				<div ng-if="message" ng-hide="datah">{{ message }}</div>
 				<div class="panel panel-info" ng-repeat="bk in datah">
 					<div ng-if="bk.length">
-						<div class="panel-heading"><h3>Booking {{$indexOf+1}}:</h3></div>
-						<div class="page-header"><h3>Departure Flights:</h3></div>
+						<div class="panel-heading">
+							<h3>Booking {{$indexOf+1}}:</h3>
+						</div>
+						<div class="page-header">
+							<h3>Departure Flights:</h3>
+						</div>
 						<div ng-repeat="fl in bk">
 							<div ng-if="fl.round==0">
 								<div class="row">
@@ -81,15 +101,18 @@
 
 									<div class="col-md-4">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-4">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-4">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-4">Departure Time: {{ fl.deptime |
+										convertTime }}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-4">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-4">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-4">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-4">Arrival Time: {{ fl.arrtime |
+										convertTime }}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}
+										min</div>
 
 									<div class="col-md-4">Price : {{ fl.price }}</div>
 								</div>
@@ -97,7 +120,9 @@
 							<hr>
 						</div>
 						<hr>
-						<div class="page-header"><h3>Return Flights: </h3></div>
+						<div class="page-header">
+							<h3>Return Flights:</h3>
+						</div>
 						<div ng-repeat="fl in bk">
 							<div ng-if="fl.round==1">
 								<div class="row">
@@ -106,24 +131,27 @@
 
 									<div class="col-md-4">Departure City: {{ fl.depcity }}</div>
 									<div class="col-md-4">Departure Date: {{ fl.depdate }}</div>
-									<div class="col-md-4">Departure Time: {{ fl.deptime }}</div>
+									<div class="col-md-4">Departure Time: {{ fl.deptime |
+										convertTime}}</div>
 								</div>
 								<div class="row">
 									<div class="col-md-4">Arrival city: {{ fl.arrcity }}</div>
 									<div class="col-md-4">Arrival Date: {{ fl.arrdate }}</div>
-									<div class="col-md-4">Arrival Time: {{ fl.arrtime }}</div>
+									<div class="col-md-4">Arrival Time: {{ fl.arrtime |
+										convertTime}}</div>
 								</div>
 								<div class="row">
-									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}</div>
+									<div class="col-md-4">Flight Duration: {{ fl.flightdur }}
+										min</div>
 									<div class="col-md-4">Price : {{ fl.price }}</div>
 								</div>
 							</div>
 							<hr>
 						</div>
 						<div class="panel-footer">
-						<button type="button" class="btn btn-info"
-			ng-click="completeHeldBooking(bk)">Complete Booking</button>
-							<button class="btn btn-info">Cancel</button>
+							<button type="button" class="btn btn-info"
+								ng-click="completeHeldBooking(bk)">Complete Booking</button>
+							<button ng-click="deleteBooking(bk)" class="btn btn-info">Cancel</button>
 						</div>
 					</div>
 				</div>

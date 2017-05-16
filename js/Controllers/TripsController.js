@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('TripsController', function($scope, $http, $q, FlightService, SessionService, SharedData, $location) {
+App.controller('TripsController', function($scope, $http, $q,$window, TripService,FlightService, SessionService, SharedData, $location) {
 
 	if(!SessionService.getCookieData()) {
 		$scope.loginbutton = true;
@@ -21,6 +21,40 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 		SharedData.setReservationId(data.reservationId);
 		$location.path("/bookingForm");
 	}
+	
+	$scope.deleteBooking = function(bk){
+
+		console.log("in delete function");
+		var data = {
+				reservationId:""
+		};
+		data.reservationId = bk[0].reservation;
+	   console.log("Thre reservation id by held flight" +data.reservationId);
+		SharedData.setReservationId(data.reservationId);
+		var r = $window.confirm('Are you sure? You are deleting the Booking');
+		if(r == true){
+		TripService.deleteReservation(data)
+				.then(
+						function (data){
+							if(data.error===1){
+								$scope.errorMessage="Flight is not canceled";
+							} else {
+								$scope.errorMessage= false;
+							}
+							console.log("In Controller : ");
+							console.log(data);
+						},
+						function(errResponse){
+							console.error('Error while cancellation of Flight');
+						}
+				);
+			
+		}
+		else {
+			
+		}
+		};
+	
 	
 	$scope.bflight = function() {
 		$scope.datar = [];
@@ -96,14 +130,38 @@ App.controller('TripsController', function($scope, $http, $q, FlightService, Ses
 
 
 	
-	$scope.print = function(fl) {
+	$scope.print = function(bk) {
+		var flightInfo = "\nDeparture:\n";
+		for (var i = 0; i < bk.length; i++) {
+			if (bk[i].round == 0) {
+				flightInfo = flightInfo + "\n" +
+				   "Flight NO: " + bk[i].flightno + "\n" +
+				   "Departure City: " + bk[i].depcity + "\n" +
+					"Departure Date: " + bk[i].depdate + "\n" +
+					"Departure Time: " + bk[i].deptime + "\n" +
+					"Arrival City: " + bk[i].arrcity + "\n" +
+					"Arrival Date: " + bk[i].arrdate + "\n" +
+					"Arrival Time: " + bk[i].arrtime + "\n";
+			}
+		}
+		flightInfo = flightInfo + "\nReturn:\n";
+		for (var i = 0; i < bk.length; i++) {
+			if (bk[i].round == 1) {
+				flightInfo = flightInfo + "\n" +
+				   "Flight NO: " + bk[i].flightno + "\n" +
+				   "Departure City: " + bk[i].depcity + "\n" +
+					"Departure Date: " + bk[i].depdate + "\n" +
+					"Departure Time: " + bk[i].deptime + "\n" +
+					"Arrival City: " + bk[i].arrcity + "\n" +
+					"Arrival Date: " + bk[i].arrdate + "\n" +
+					"Arrival Time: " + bk[i].arrtime + "\n";
+			}
+		}
 		var data = [{ text: 'SkyKey', style: 'header' },
-			{ text: 'Itinerary', style: 'subhead' },
-			"\nFlight ID: " + fl.id + "\n" +
-					   "Flight NO: " + fl.flightno + "\n" +
-					   "\nDeparture City: " + fl.depcity + "\n" +
-						"Departure Date: " + fl.depdate + "\n" +
-						"Departure Time: " + fl.deptime + "\n"]
+			{text: '\nImportant Information', style: 'subhead'},
+			{text: "Be sure to bring all necessary documentation (e.g. passport, visa, driver's license)."},
+			{ text: '\nItinerary', style: 'subhead' },
+			flightInfo]
 		var docDefinition = {content: data, styles: {
 		     header: {
 		         fontSize: 24,

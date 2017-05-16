@@ -99,18 +99,8 @@ App.controller('ReviewController', function($scope, $rootScope, FlightService, B
 	};
 	
 	
-	$scope.completeHeldBooking = function(bk){
-
-		console.log("in book function");
-		var data = {
-				reservationId:""
-		};
-		data.reservationId = bk[0].reservation;
-	   console.log("Thre reservation id by held flight" +data.reservationId);
-		SharedData.setReservationId(data.reservationId);
-		$location.path("/");
 	
-	}
+
 	
 	$scope.updateBooking = function() {
 		console.log("inside update");
