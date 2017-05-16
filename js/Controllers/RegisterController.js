@@ -26,9 +26,11 @@ App.controller('RegisterController', function($scope, RegisterService, md5, $rou
 
 		user.uname = $scope.data.uname;
 		user.uemail = $scope.data.uemail;
+		 console.log($scope.data.password);		
 		 var hashPassword = md5.createHash($scope.data.password);
 		 console.log(hashPassword);
-		user.pword = hashPassword;                              
+		user.pword = hashPassword;  
+		 console.log($scope.data.passwordConfirm);
 		 var hashConfirmPassword = md5.createHash($scope.data.passwordConfirm);
 		 console.log(hashConfirmPassword);
 		user.pwordCon = hashConfirmPassword; 

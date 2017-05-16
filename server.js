@@ -21,7 +21,7 @@ var pool = mysql.createPool({
 	connectionLimit : 100,
 	host: "127.0.0.1",
 	user: "root",
-	password: "Password123",
+	password: "mypassword",
 	database: "synechron_db",
 	dateStrings:true,
 	port: "3306"
@@ -41,7 +41,7 @@ pool.getConnection(function (err, connection) {
 	var task=cron.schedule('* * * * *', function() {
 		connection.query('delete from reservation_details where IsReserved=0 and NOW() >= SubmittedDate +  INTERVAL 24 hour',function (err, rows, fields){
 			if(!err) {
-				log.info('cron job started');
+				//log.info('cron job started');
 			}
 			else {
 				log.error('Error while performing Query:' +err);

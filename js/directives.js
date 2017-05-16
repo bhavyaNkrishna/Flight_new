@@ -84,7 +84,11 @@ App.directive('validPasswordC', function () {
 			ctrl.$parsers.unshift(function (viewValue, $scope) {
 				var noMatch = viewValue !== scope.registrationForm.passwordsignup.$viewValue;
 				ctrl.$setValidity('noMatch', !noMatch);
+				return viewValue;
 			});
+			/*scope.$watch("reference", function(value) {
+	        ctrl.$setValidity('noMatch', value === ctrl.$viewValue);
+	        });*/
 		}
 	};
 });
